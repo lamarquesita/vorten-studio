@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book a Call — Vorten Studio</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -18,8 +19,8 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .nav-pill{height:2rem;padding:0 0.75rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:0.75rem;font-weight:700;color:var(--gray);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 
 .page-hero{text-align:center;padding:5rem var(--global-px) 2rem}
-.page-hero h1{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.03em;margin-bottom:0.5rem}
-.page-hero p{color:var(--gray);font-size:0.875rem;line-height:1.6}
+.page-hero h1{font-size:28px;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
+.page-hero p{color:var(--gray);font-size:13px;font-weight:700;line-height:1.6}
 
 .cal-wrap{flex:1;display:flex;justify-content:center;padding:0 var(--global-px) 3rem}
 .cal-embed{width:100%;max-width:54rem;min-height:32rem;background:var(--white);border-radius:var(--card-radius);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
@@ -29,26 +30,26 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 
 footer{padding:3.5rem var(--global-px) 1.5rem}
 .footer-inner{max-width:33.75rem;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
-footer p{font-size:0.875rem;font-weight:500;color:var(--gray);letter-spacing:-0.02em}
+footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
 .footer-links{display:flex;gap:1rem}
-.footer-links a{font-size:0.875rem;font-weight:500;color:var(--gray);letter-spacing:-0.02em}
+.footer-links a{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
 .footer-links a:hover{color:var(--dark)}
 
 @media(max-width:768px){
-  .footer-inner{flex-direction:column;gap:1rem;text-align:center}
+  .footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <a href="/" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4L12 20L14 14L20 4H6Z" fill="#232323"/></svg></a>
-  <a href="/" class="nav-pill">Recent work</a>
+  <a href="/" class="logo" aria-label="Home"><img src="assets/logo.png" alt="Vorten Studio" style="width:1.25rem;height:1.25rem;object-fit:contain"></a>
+  <a href="work.html" class="nav-pill">Recent work</a>
 </header>
 
 <div class="page-hero">
-  <h1>Let's chat!</h1>
-  <p>Walk us through what you're building.<br>We'll outline how we can help.</p>
+  <h1>Talk to us</h1>
+  <p>Tell us about the product.<br>We'll show you what shipping it looks like.</p>
 </div>
 
 <div class="cal-wrap">

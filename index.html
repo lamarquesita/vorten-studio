@@ -40,7 +40,8 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .btn-dark:hover{background:#383838}
 .btn-light{background:var(--white);color:var(--dark)}
 .btn-light:hover{background:#f0f0f0}
-.btn svg{width:0.9375rem;height:0.9375rem;flex-shrink:0}
+.btn svg{width:0.9375rem;height:0.9375rem;flex-shrink:0;transition:transform .3s ease}
+.btn:hover svg{transform:scale(1.15) rotate(-5deg)}
 
 /* ─── HERO ─── */
 #hero{padding-top:5.5rem;padding-bottom:2.5rem;text-align:center}
