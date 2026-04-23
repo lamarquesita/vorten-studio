@@ -279,7 +279,7 @@ footer p{font-size:0.875rem;font-weight:500;color:var(--gray);letter-spacing:-0.
           <img src="assets/icon-one-team.svg" alt="">
         </div>
         <h3>One team, idea to launch</h3>
-        <p>Product, design, and development in one place. Nothing gets lost between them.</p>
+        <p>Product, design, and development in one place. Nothing gets lost.</p>
       </div>
     </div>
     <div class="features-row-2">
@@ -295,7 +295,7 @@ footer p{font-size:0.875rem;font-weight:500;color:var(--gray);letter-spacing:-0.
           <img src="assets/icon-motion.svg" alt="">
         </div>
         <h3>We think before we build</h3>
-        <p>Every project starts with the real question. Not how it looks, but what it does.</p>
+        <p>Projects start with the real question. Not how it looks, but what it does.</p>
       </div>
     </div>
   </div>
@@ -327,6 +327,7 @@ footer p{font-size:0.875rem;font-weight:500;color:var(--gray);letter-spacing:-0.
       <div class="pricing-left">
         <div class="pricing-tabs">
           <button class="pricing-tab active"><span>MVP Sprint</span></button>
+          <button class="pricing-tab"><span>Landing</span></button>
           <button class="pricing-tab"><span>Full Product</span></button>
           <button class="pricing-tab"><span>Brand</span></button>
         </div>
@@ -334,7 +335,7 @@ footer p{font-size:0.875rem;font-weight:500;color:var(--gray);letter-spacing:-0.
           <div class="pricing-card-inner">
             <div class="pricing-card-header">
               <div class="pricing-card-meta">
-                <div class="pricing-label">Flat fee · Toggle dev</div>
+                <div class="pricing-label">Flat fee</div>
                 <div class="pricing-price-row">
                   <div class="pricing-price">$5,000</div>
                   <button class="dev-toggle" id="dev-toggle"><span class="dev-switch"></span>Add dev</button>
@@ -529,19 +530,27 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
 const CHK='<span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 const pricingData={
   'mvp sprint':{
-    label:'Flat fee · Toggle dev',
+    label:'Flat fee',
+    price:'$5,000',
+    priceWithDev:'$5,000',
+    hasDev:false,
+    devFeature:null,
+    features:['One core flow','Three design directions to choose from','Copy written for you','Figma plus Rive or Lottie','Built in Framer, Webflow, or Next.js','Delivered in two to four weeks']
+  },
+  landing:{
+    label:'Flat fee',
     price:'$5,000',
     priceWithDev:'$7,500',
     hasDev:true,
     devFeature:'Built in Framer, Webflow, or Next.js',
-    features:['One core flow','Three design directions to choose from','Copy written for you','Figma plus Rive or Lottie','Built in Framer, Webflow, or Next.js','Delivered in two to four weeks']
+    features:['One page','Three design directions to choose from','Copy written for you','Delivered in two to four weeks','Figma plus Rive or Lottie','Built in Framer, Webflow, or Next.js']
   },
   'full product':{
-    label:'Custom scope · Toggle dev',
+    label:'Custom scope',
     price:'$7,500+',
-    priceWithDev:'$10,000+',
-    hasDev:true,
-    devFeature:'Built in Framer, Webflow, or Next.js',
+    priceWithDev:'$7,500+',
+    hasDev:false,
+    devFeature:null,
     features:['Multiple flows and pages','Three design directions to choose from','Copy written for you','Figma plus Rive or Lottie','Built in Framer, Webflow, or Next.js','Delivered in two to four weeks']
   },
   brand:{
