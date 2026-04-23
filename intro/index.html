@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Call — Vorten Studio</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f5f0;--dark:#232323;--gray:#707070;--light-gray:#e8e8e3;--white:#fff;--card-radius:1.5rem;--global-px:1.5rem;--max-w:72rem}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Satoshi',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--dark);line-height:1.5;min-height:100vh;display:flex;flex-direction:column;font-weight:700}
+a{text-decoration:none;color:inherit}
+
+header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:999;display:flex;gap:0.625rem;align-items:center}
+.logo{width:2rem;height:2rem;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.logo svg{width:1rem;height:1rem}
+.nav-pill{height:2rem;padding:0 0.75rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:0.75rem;font-weight:700;color:var(--gray);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+
+.page-hero{text-align:center;padding:5rem var(--global-px) 2rem}
+.page-hero h1{font-size:28px;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
+.page-hero p{color:var(--gray);font-size:13px;font-weight:700;line-height:1.6}
+
+.cal-wrap{flex:1;display:flex;justify-content:center;padding:0 var(--global-px) 3rem}
+.cal-embed{width:100%;max-width:54rem;min-height:32rem;background:var(--white);border-radius:var(--card-radius);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+
+/* Cal.com inline embed overrides */
+.cal-embed iframe{width:100%;height:100%;min-height:32rem;border:none;border-radius:var(--card-radius)}
+
+footer{padding:3.5rem var(--global-px) 1.5rem}
+.footer-inner{max-width:33.75rem;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
+.footer-links{display:flex;gap:1rem}
+.footer-links a{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
+.footer-links a:hover{color:var(--dark)}
+
+@media(max-width:768px){
+  .footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo" aria-label="Home"><img src="../assets/logo.png" alt="Vorten Studio" style="width:1.25rem;height:1.25rem;object-fit:contain"></a>
+  <a href="/work" class="nav-pill">Recent work</a>
+</header>
+
+<div class="page-hero">
+  <h1>Talk to us</h1>
+  <p>Tell us about the product.<br>We'll show you what shipping it looks like.</p>
+</div>
+
+<div class="cal-wrap">
+  <div class="cal-embed" id="cal-embed">
+    <!-- Cal.com embed loads here -->
+    <!-- Replace CAL_USERNAME/EVENT_SLUG below with your actual Cal.com link -->
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026. Vorten Studio</p>
+    <div class="footer-links">
+      <a href="mailto:hello@vorten.studio">hello@vorten.studio</a>
+      <a href="https://x.com/vortenstudio" target="_blank">Twitter/X</a>
+      <a href="https://linkedin.com/company/vorten-studio" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  CAL.COM EMBED — Replace the values below:              ║
+  ║                                                          ║
+  ║  calLink: "YOUR_USERNAME/YOUR_EVENT"                     ║
+  ║  Example: "camila-arroyo/intro-call"                     ║
+  ║                                                          ║
+  ║  To find yours:                                          ║
+  ║  1. Go to cal.com → Event Types                          ║
+  ║  2. Copy the slug from your event URL                    ║
+  ║     e.g. cal.com/camila-arroyo/intro-call                ║
+  ║         → calLink = "camila-arroyo/intro-call"           ║
+  ╚══════════════════════════════════════════════════════════╝
+-->
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal;
+    let ar = arguments;
+    if (!cal.loaded) {
+      cal.ns = {};
+      cal.q = cal.q || [];
+      d.head.appendChild(d.createElement("script")).src = A;
+      cal.loaded = true;
+    }
+    if (ar[0] === L) {
+      const api = function () { p(api, arguments); };
+      const namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") {
+        cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar);
+        p(cal, ["initNamespace", namespace]);
+      } else p(cal, ar);
+      return;
+    }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+
+Cal("init", "intro", { origin: "https://cal.com" });
+
+Cal.ns.intro("inline", {
+  elementOrSelector: "#cal-embed",
+  // ⬇️ CHANGE THIS to your Cal.com event link (username/event-slug)
+  calLink: "vorten.studio/20min",
+  layout: "month_view",
+  config: {
+    theme: "light"
+  }
+});
+
+Cal.ns.intro("ui", {
+  theme: "light",
+  cssVarsPerTheme: {
+    light: { "cal-brand": "#232323" }
+  },
+  hideEventTypeDetails: false,
+  layout: "month_view"
+});
+
+// Hide Cal.com branding
+const hideCalBrand = () => {
+  const iframe = document.querySelector('#cal-embed iframe');
+  if (!iframe) return setTimeout(hideCalBrand, 500);
+  try {
+    const style = iframe.contentDocument.createElement('style');
+    style.textContent = '[data-testid="powered-by-cal"], a[href*="cal.com/signup"] { display: none !important; }';
+    iframe.contentDocument.head.appendChild(style);
+  } catch(e) { /* cross-origin, use Cal.com paid plan to remove branding */ }
+};
+setTimeout(hideCalBrand, 2000);
+</script>
+
+</body>
+</html>
