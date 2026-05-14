@@ -72,12 +72,11 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 /* ─── SHOWCASE ─── */
 #showcase{padding:1.5rem 0;overflow:hidden}
 .showcase-track{display:flex;gap:1.5rem;animation:marquee 60s linear infinite;width:max-content;padding-left:1.5rem}
-.showcase-card{width:33rem;height:26.5rem;border-radius:var(--card-radius);overflow:hidden;flex-shrink:0;background:#fff;padding:2rem 0 0 2rem;display:flex;flex-direction:column}
-.showcase-card .card-title{font-size:1.1rem;font-weight:700;color:#111;padding:0 0 0.75rem 0;flex-shrink:0}
-.showcase-card img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:top left;border-radius:0.75rem 0.75rem 0 0}
-.showcase-card.card-logo{padding:2rem}
-.showcase-card.card-logo .card-title{padding:0 0 0.75rem 0}
-.showcase-card.card-logo img{width:100%;flex:1;min-height:0;object-fit:contain;object-position:center;border-radius:0.75rem}
+.showcase-card{width:33rem;height:26.5rem;border-radius:var(--card-radius);overflow:hidden;flex-shrink:0;background:#fff;position:relative}
+.showcase-card .card-title{position:absolute;top:1rem;left:1rem;font-size:1rem;font-weight:700;color:#111;background:#fff;padding:0.35rem 0.85rem;border-radius:9999px;z-index:1}
+.showcase-card img{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:var(--card-radius)}
+.showcase-card.card-logo{padding:0}
+.showcase-card.card-logo img{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:var(--card-radius)}
 .showcase-card{cursor:pointer}
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .lightbox.open{opacity:1;pointer-events:auto}
@@ -250,7 +249,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- SHOWCASE -->
 <section id="showcase">
   <div class="showcase-track">
-    <div class="showcase-card" style="padding:2rem"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management" style="width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.75rem"></div>
+    <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management"></div>
     <div class="showcase-card card-logo"><span class="card-title">Brand</span><img src="assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-8.png" alt="WeOut app"></div>
     <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-1.png" alt="Lighter project"></div>
@@ -258,7 +257,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-4.png" alt="UntzDrop"></div>
     <div class="showcase-card card-logo"><span class="card-title">Brand</span><img src="assets/project-6.png" alt="Vo splash screen" style="background:#f3f9f7"></div>
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-2.png" alt="Dashboard project"></div>
-    <div class="showcase-card" style="padding:2rem"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management" style="width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.75rem"></div>
+    <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management"></div>
     <div class="showcase-card card-logo"><span class="card-title">Brand</span><img src="assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-8.png" alt="WeOut app"></div>
     <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-1.png" alt="Lighter project"></div>
