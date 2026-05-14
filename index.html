@@ -342,6 +342,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
           <button class="pricing-tab active"><span>Strategy</span></button>
           <button class="pricing-tab"><span>MVP</span></button>
           <button class="pricing-tab"><span>Full Build</span></button>
+          <button class="pricing-tab"><span>Full Site</span></button>
         </div>
         <div class="pricing-card">
           <div class="pricing-card-inner">
@@ -358,6 +359,8 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
                 <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Problem framing and validation</li>
                 <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Competitive teardown</li>
                 <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>MVP scope and feature prioritization</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Wireframes for core flows</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Roadmap and written recommendation</li>
               </ul>
             </div>
           </div>
@@ -542,17 +545,22 @@ const pricingData={
   strategy:{
     label:'Flat fee',
     price:'$3,750',
-    features:['User and market research','Problem framing and validation','Competitive teardown','MVP scope and feature prioritization']
+    features:['User and market research','Problem framing and validation','Competitive teardown','MVP scope and feature prioritization','Wireframes for core flows','Roadmap and written recommendation']
   },
   mvp:{
     label:'Flat fee',
     price:'$5,000',
-    features:['Discovery and product strategy','Full design system and UI','Frontend and backend development','Up to three core user flows']
+    features:['Discovery and product strategy','Full design system and UI','Frontend and backend development','Up to three core user flows','Launch on your domain and stack','Two weeks of post-launch support']
   },
   'full build':{
     label:'Custom scope',
     price:'$10,000+',
-    features:['Everything in MVP, larger scope','Multi-platform (web plus iOS or Android)','Backend, database, and integrations','Admin dashboard and analytics']
+    features:['Everything in MVP, larger scope','Multi-platform (web plus iOS or Android)','Backend, database, and integrations','Admin dashboard and analytics','Bilingual support if needed','Launch and one month of iteration']
+  },
+  'full site':{
+    label:'Flat fee',
+    price:'$10,000+',
+    features:['Multiple pages','Three designs to choose from','Copy written for you','Figma plus Rive or Lottie motion','Built in Framer, Webflow, or Next.js','Mobile and desktop responsive']
   }
 };
 const leftLabel=document.querySelector('.pricing-card .pricing-label');
