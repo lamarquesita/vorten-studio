@@ -72,11 +72,11 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 /* ─── SHOWCASE ─── */
 #showcase{padding:1.5rem 0;overflow:hidden}
 .showcase-track{display:flex;gap:1.5rem;animation:marquee 60s linear infinite;width:max-content;padding-left:1.5rem}
-.showcase-card{width:33rem;height:26.5rem;border-radius:var(--card-radius);overflow:hidden;flex-shrink:0;background:#fff;position:relative}
-.showcase-card .card-title{position:absolute;top:1rem;left:1rem;font-size:1rem;font-weight:700;color:#111;background:#fff;padding:0.35rem 0.85rem;border-radius:9999px;z-index:1}
-.showcase-card img{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:var(--card-radius)}
-.showcase-card.card-logo{padding:0}
-.showcase-card.card-logo img{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:var(--card-radius)}
+.showcase-card{width:33rem;height:26.5rem;border-radius:var(--card-radius);overflow:hidden;flex-shrink:0;background:#fff;padding:2rem 0 0 2rem;position:relative}
+.showcase-card .card-title{position:absolute;top:0.75rem;left:-0.5rem;font-size:1rem;font-weight:700;color:#111;background:#fff;padding:0.35rem 0.85rem;border-radius:9999px;z-index:1}
+.showcase-card img{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.75rem 0.75rem 0 0}
+.showcase-card.card-logo{padding:2rem}
+.showcase-card.card-logo img{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:0.75rem}
 .showcase-card{cursor:pointer}
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .lightbox.open{opacity:1;pointer-events:auto}
@@ -249,7 +249,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- SHOWCASE -->
 <section id="showcase">
   <div class="showcase-track">
-    <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management"></div>
+    <div class="showcase-card" style="padding:2rem"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management" style="width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.75rem"></div>
     <div class="showcase-card card-logo"><span class="card-title">Brand</span><img src="assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-8.png" alt="WeOut app"></div>
     <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-1.png" alt="Lighter project"></div>
@@ -257,7 +257,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-4.png" alt="UntzDrop"></div>
     <div class="showcase-card card-logo"><span class="card-title">Brand</span><img src="assets/project-6.png" alt="Vo splash screen" style="background:#f3f9f7"></div>
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-2.png" alt="Dashboard project"></div>
-    <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management"></div>
+    <div class="showcase-card" style="padding:2rem"><span class="card-title">Web</span><img src="assets/project-3.png" alt="Elite Property Management" style="width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.75rem"></div>
     <div class="showcase-card card-logo"><span class="card-title">Brand</span><img src="assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
     <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-8.png" alt="WeOut app"></div>
     <div class="showcase-card"><span class="card-title">Web</span><img src="assets/project-1.png" alt="Lighter project"></div>
@@ -340,10 +340,10 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
       <!-- Left: tabs + left card -->
       <div class="pricing-left">
         <div class="pricing-tabs">
-          <button class="pricing-tab active"><span>Product</span></button>
+          <button class="pricing-tab active"><span>Strategy</span></button>
           <button class="pricing-tab"><span>MVP</span></button>
-          <button class="pricing-tab"><span>Full Site</span></button>
-          <button class="pricing-tab"><span>Strategy</span></button>
+          <button class="pricing-tab"><span>Full Build</span></button>
+          <button class="pricing-tab"><span>Retainer</span></button>
         </div>
         <div class="pricing-card">
           <div class="pricing-card-inner">
@@ -351,17 +351,17 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
               <div class="pricing-card-meta">
                 <div class="pricing-label">Flat fee</div>
                 <div class="pricing-price-row">
-                  <div class="pricing-price">$5,000</div>
+                  <div class="pricing-price">$3,750</div>
 
                 </div>
               </div>
               <ul class="pricing-features grayscale">
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One page</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Three design directions to choose from</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Copy written for you</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Figma plus Rive or Lottie</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Built in Framer, Webflow, or Next.js</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Delivered in two to four weeks</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>User and market research</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Problem framing and validation</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Competitive teardown</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>MVP scope and feature prioritization</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Wireframes for core flows</li>
+                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Roadmap and written recommendation</li>
               </ul>
             </div>
           </div>
@@ -543,25 +543,25 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
 // Pricing tabs with dynamic content
 const CHK='<span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 const pricingData={
-  product:{
+  strategy:{
     label:'Flat fee',
-    price:'$5,000',
-    features:['One page','Three design directions to choose from','Copy written for you','Figma plus Rive or Lottie','Built in Framer, Webflow, or Next.js','Delivered in two to four weeks']
+    price:'$3,750',
+    features:['User and market research','Problem framing and validation','Competitive teardown','MVP scope and feature prioritization','Wireframes for core flows','Roadmap and written recommendation']
   },
   mvp:{
     label:'Flat fee',
     price:'$5,000',
-    features:['One core product flow','Product strategy and scoping','Three design directions to choose from','Full frontend and backend','Copy written for you','Delivered in four to six weeks']
+    features:['Discovery and product strategy','Full design system and UI','Frontend and backend development','Up to three core user flows','Launch on your domain and stack','Two weeks of post-launch support']
   },
-  'full site':{
+  'full build':{
     label:'Custom scope',
     price:'$10,000+',
-    features:['Multiple flows, full product','Product strategy and scoping','Frontend, backend, and integrations','Three design directions to choose from','Copy written for you','Figma plus Rive or Lottie']
+    features:['Everything in MVP, larger scope','Multi-platform (web plus iOS or Android)','Backend, database, and integrations','Admin dashboard and analytics','Bilingual support if needed','Launch and one month of iteration']
   },
-  strategy:{
-    label:'Flat fee',
-    price:'$3,750',
-    features:['Five brand directions to explore','Logo, typography, and color system','Messaging and positioning','Brand guidelines document','Full set of brand assets','Ready to use brand kit']
+  retainer:{
+    label:'Monthly',
+    price:'$5,000/mo',
+    features:['Dedicated product and design support','One active request at a time','Scope evolves with your roadmap','Written updates every weekday','Swap requests anytime','Cancel with 30 days notice']
   }
 };
 const leftLabel=document.querySelector('.pricing-card .pricing-label');
@@ -602,7 +602,7 @@ function slotAnimate(el,newText){
     });
   });
 }
-let currentTab='product';
+let currentTab='strategy';
 
 function renderLeft(d,animate){
   leftLabel.textContent=d.label;
