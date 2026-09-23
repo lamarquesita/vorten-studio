@@ -11,7 +11,7 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#F7F0DC;--dark:#232323;--gray:#707070;--light-gray:#e8e8e3;
+  --bg:#E8ECEA;--dark:#2C4E3E;--gray:#787B79;--light-gray:#e8e8e3;
   --accent:#FF4D00;--green:#00AF38;--white:#fff;--card-radius:1.5rem;
   --section-py:3rem;--global-px:1.5rem;--max-w:72rem;
 }
@@ -27,17 +27,18 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 .text-center{text-align:center}
 
 /* ─── HEADER ─── */
-header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:999;display:flex;gap:0.625rem;align-items:center}
-.logo{width:2rem;height:2rem;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:box-shadow .3s;overflow:hidden}
+header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:999;display:flex;gap:0.875rem;align-items:center}
+.logo{width:2.75rem;height:2.75rem;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:box-shadow .3s;overflow:hidden}
 .logo:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
-.logo svg{width:1rem;height:1rem}
-.nav-pill{height:2rem;padding:0 0.75rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:0.75rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:all .3s}
+.logo svg{width:1.375rem;height:1.375rem}
+.nav-pill{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:all .3s}
 .nav-pill:hover{color:var(--dark);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.nav-pill-strong{font-weight:700;color:var(--dark)}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
 .btn-dark{background:var(--dark);color:var(--white)}
-.btn-dark:hover{background:#383838}
+.btn-dark:hover{background:#37604D}
 .btn-light{background:var(--white);color:var(--dark)}
 .btn-light:hover{background:#f0f0f0}
 .btn svg{width:0.9375rem;height:0.9375rem;flex-shrink:0}
@@ -52,6 +53,19 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
   55%{transform:translateY(0) rotate(0);opacity:1}
   100%{transform:translateY(0) rotate(360deg)}
 }
+/* the "a" travels right past "project" and becomes an arrow */
+.btn-arrow{gap:0}
+.btn-arrow .ba-t{margin-right:.26em}
+.btn-arrow .ba-a,.btn-arrow .ba-arrow{display:inline-flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:width .45s cubic-bezier(.4,0,.2,1),margin .45s cubic-bezier(.4,0,.2,1),opacity .22s ease,transform .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow:hover .ba-a{width:0;margin-right:0;opacity:0;transform:translateX(2.2em)}
+.btn-arrow .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em);overflow:visible;justify-content:flex-start}
+.btn-arrow:hover .ba-arrow{width:.52em;margin-left:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow .ba-arrow svg{width:.72em;height:.72em;flex-shrink:0}
+.btn-arrow .ba-pad{display:inline-block;flex-shrink:0;width:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow-ne .ba-a{width:1.53em}
+.btn-arrow-ne:hover .ba-pad{width:.505em}
+.btn-dark.btn-arrow:hover svg{animation:none}
 .tg-plane{transform-origin:8px 8px}
 @keyframes plane-send{
   0%{transform:translate(0,0) scale(1);opacity:1}
@@ -64,118 +78,72 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 }
 
 /* ─── HERO ─── */
-#hero{padding-top:5.5rem;padding-bottom:2.5rem;text-align:center}
-#hero h1{font-size:28px;font-weight:900}
-.hero-subtitle{max-width:none;margin:0 auto;margin-top:0.625rem;font-size:13px;font-weight:700}
-.hero-ctas{display:flex;justify-content:center;gap:0.375rem;margin-top:1.5rem;flex-wrap:wrap}
+#hero{padding-top:12.25rem;padding-bottom:3rem;text-align:center;position:relative;overflow:hidden}
+.hero-watermark{position:absolute;top:5.5rem;left:50%;transform:translateX(-50%);width:11rem;height:11rem;opacity:0.06;pointer-events:none;object-fit:contain}
+.hero-badge{position:relative;display:inline-flex;align-items:center;gap:0.4375rem;background:var(--white);border-radius:9999px;padding:0.4375rem 0.875rem;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:0.5rem}
+.hero-badge .dot-wrap{position:relative;width:0.5rem;height:0.5rem;flex-shrink:0}
+.hero-badge .dot-ripple{position:absolute;inset:0;border-radius:50%;background:var(--green);animation:ripple 2.05s cubic-bezier(.45,0,.55,1) infinite}
+.hero-badge .dot{position:absolute;inset:0;border-radius:50%;background:var(--green)}
+@keyframes ripple{0%{opacity:.7;transform:scale(1)}44%,100%{opacity:0;transform:scale(2.35)}}
+#hero h1{position:relative;font-size:52px;font-weight:900;letter-spacing:-0.03em;line-height:1.08;max-width:52rem;margin:0 auto}
+.hero-subtitle{max-width:44rem;margin:0 auto;margin-top:1.125rem;font-size:1rem;font-weight:600;position:relative}
+.hero-ctas{display:flex;justify-content:center;gap:0.5rem;margin-top:2rem;flex-wrap:wrap;position:relative}
+.hero-ctas .btn{padding:1rem 1.625rem;font-size:0.9375rem;font-weight:800}
+.hero-ctas .btn-light{font-weight:700}
 
-/* ─── SHOWCASE ─── */
-#showcase{padding:1.5rem 0;overflow:hidden}
-.showcase-track{display:flex;gap:1.5rem;animation:marquee 60s linear infinite;width:max-content;padding-left:1.5rem}
-.showcase-card{width:33rem;height:26.5rem;border-radius:var(--card-radius);overflow:hidden;flex-shrink:0;background:transparent;position:relative}
-.showcase-card .card-title{position:absolute;top:0.75rem;left:-0.5rem;font-size:0.75rem;font-weight:700;color:#111;background:var(--bg);padding:0.3rem 0.75rem;border-radius:9999px;z-index:1}
-.showcase-card img{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:var(--card-radius)}
-.showcase-card.card-logo img{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:var(--card-radius)}
-.showcase-card{cursor:pointer}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-.lightbox.open{opacity:1;pointer-events:auto}
-.lightbox-card{height:100vh;aspect-ratio:33/26.5;background:#fff;border-radius:var(--card-radius);overflow:hidden;position:relative;padding:2rem 0 0 2rem;flex-shrink:0}
-.lightbox-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.75rem 0.75rem 0 0}
-.lightbox-card.logo-view{padding:2rem}
-.lightbox-card.logo-view img{object-fit:contain;object-position:center;border-radius:0.75rem}
-.lightbox-card.pad-all{padding:2rem}
-.lightbox-card.pad-all img{border-radius:0.75rem}
-.lightbox-card{cursor:zoom-in}
-.lightbox-card.zoomed{transform:scale(2);cursor:grab}
-.lightbox-card.zoomed.dragging{cursor:grabbing}
-.lightbox-card:not(.zoomed){transition:transform .3s}
-.lightbox-card.zoomed:not(.dragging){transition:transform .3s}
-@media(max-width:768px){.lightbox-card{width:22rem;height:17.5rem}}
-.lightbox-top{position:absolute;top:1rem;right:1rem;display:flex;gap:0.5rem;z-index:2}
-.lightbox-btn{width:2.25rem;height:2.25rem;background:rgba(0,0,0,.5);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.lightbox-btn:hover{background:rgba(0,0,0,.7)}
-.lightbox-btn svg{width:1rem;height:1rem;color:#fff}
-.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);width:2.75rem;height:2.75rem;background:rgba(255,255,255,.15);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2}
-.lightbox-arrow:hover{background:rgba(255,255,255,.3)}
-.lightbox-arrow svg{width:1.25rem;height:1.25rem;color:#fff}
-.lightbox-prev{left:1.5rem}
-.lightbox-next{right:1.5rem}
-.lightbox-counter{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);color:#fff;font-size:0.8125rem;font-weight:500;opacity:.7}
-@media(max-width:768px){.showcase-card{width:22rem;height:17.5rem}}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ─── WHY ─── */
-#why{padding:var(--section-py) var(--global-px)}
-#why .section-title{margin-bottom:3.5rem;font-size:24px;font-weight:900;color:var(--dark)}
-.features-row{display:grid;grid-template-columns:repeat(3,1fr);column-gap:6rem;row-gap:1.5rem;margin-bottom:1.5rem;max-width:60rem;margin-left:auto;margin-right:auto}
-.features-row-2{display:grid;grid-template-columns:repeat(2,1fr);column-gap:6rem;row-gap:1.5rem;max-width:36rem;margin:0 auto}
-.feature-card{text-align:center;padding:0.25rem 0.5rem}
-.feature-icon-wrap{margin-bottom:0.75rem;display:flex;justify-content:center}
-.feature-icon-wrap img{width:40px;height:40px}
-.feature-card h3{margin-bottom:0.125rem;font-size:16px;font-weight:900;color:var(--dark)}
-.feature-card p{font-size:14px;font-weight:700;max-width:none;margin:0 auto}
+/* ─── SERVICES ─── */
+#services{padding:4.5rem var(--global-px);margin:5.75rem var(--global-px) 0;background:var(--dark);border-radius:2.25rem}
+#services .container{max-width:76rem}
+#services .section-title{margin-bottom:0.75rem;color:var(--white);font-size:36px}
+.services-subtitle{max-width:26rem;margin:0 auto 3rem;font-size:14px;font-weight:500;color:#A1A5A3}
+.services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:76rem;margin:0 auto}
+.service-card{background:#405E4F;border-radius:20px;padding:1.125rem 1.75rem 1.375rem;text-align:left;display:flex;flex-direction:column;gap:1.875rem;grid-column:span 3}
+.service-card.span-2{grid-column:span 2}
+.service-card h3{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--white)}
+.service-visual{position:relative;aspect-ratio:3.6/1;border-radius:14px;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.5px);background-size:20px 20px;background-position:center;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.service-visual::before{content:'';position:absolute;inset:8%;border:1px dashed rgba(255,255,255,.18);border-radius:12px;transform:rotate(2.5deg)}
+.service-visual svg{width:3.5rem;height:3.5rem;color:rgba(255,255,255,.9);position:relative;z-index:1}
+.service-card p{font-size:14px;font-weight:500;line-height:22px;color:#A1A5A3}
+.service-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:auto}
+.service-tags span{background:var(--dark);border-radius:9999px;padding:0.1875rem 0.75rem;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white)}
+@media(max-width:768px){
+  .services-grid{grid-template-columns:1fr}
+  .service-card,.service-card.span-2{grid-column:span 1}
+}
 
 /* ─── TOOLS ─── */
 #tools{padding:var(--section-py) var(--global-px);overflow:hidden}
-#tools .section-title{margin-bottom:2rem}
+#tools .section-title{margin-bottom:2.5rem;font-size:36px}
 .tools-subtitle{font-size:0.625rem;color:var(--gray);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:0.25rem}
 .tools-subtitle svg{width:0.625rem;height:0.625rem}
-.tools-bubble{background:var(--white);border-radius:var(--card-radius);padding:1.25rem 0;max-width:48rem;margin:0 auto;overflow:hidden;mask-image:linear-gradient(to right,transparent,black 5%,black 95%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 5%,black 95%,transparent)}
-.tools-track{display:flex;gap:2.5rem;animation:tools-scroll 20s linear infinite;width:max-content;align-items:center;padding:0 1rem}
-.tools-track .tool-logo{display:flex;align-items:center;gap:0.375rem;font-size:0.8125rem;font-weight:500;color:var(--dark);opacity:.55;white-space:nowrap;flex-shrink:0}
-.tools-track .tool-logo svg{height:1.125rem;width:auto}
-.tools-track .tool-logo img{height:1.125rem;width:auto}
+.tools-bubble{background:var(--white);border-radius:9999px;padding:2rem 0 2.25rem;max-width:48rem;margin:0 auto;overflow:hidden}
+.tools-track{display:flex;gap:3rem;animation:tools-scroll 55s linear infinite;width:max-content;align-items:center;padding:0 1rem}
+.tools-track .tool-logo{display:flex;align-items:center;gap:0.5rem;font-size:1rem;font-weight:500;color:var(--dark);opacity:.55;white-space:nowrap;flex-shrink:0}
+.tools-track .tool-logo svg{height:2rem;width:auto}
+.tools-track .tool-logo img{height:2rem;width:auto}
 @keyframes tools-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ─── TEAM ─── */
-#team{padding:var(--section-py) var(--global-px)}
-#team .section-title{margin-bottom:3rem}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:52rem;margin:0 auto}
+#team{padding:var(--section-py) var(--global-px);margin-top:1.5rem}
+#team .section-title{margin-bottom:3rem;font-size:36px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;max-width:34rem;margin:0 auto}
 .team-member{text-align:center}
-.team-avatar{width:5rem;height:6rem;border-radius:0.75rem;margin:0 auto 0.5rem;overflow:hidden;background:#fff}
+.team-avatar{width:7rem;height:7rem;border-radius:0.75rem;margin:0 auto 0.5rem;overflow:hidden;background:#fff}
 .team-avatar img{width:100%;height:auto;object-fit:contain;margin-top:auto;display:block;position:relative;top:0.75rem}
-.team-member h4{font-size:16px;font-weight:900;color:var(--dark)}
-.team-member p{font-size:14px;font-weight:700;color:var(--gray)}
+.team-avatar.placeholder{display:flex;align-items:center;justify-content:center;background:var(--light-gray)}
+.team-avatar.placeholder svg{width:2rem;height:2rem;color:var(--gray)}
+.team-member h4{font-size:18px;font-weight:900;color:var(--dark)}
+.team-member p{font-size:14px;font-weight:500;color:var(--gray);letter-spacing:-0.3px;line-height:18px}
 .team-more-badge{width:3.5rem;height:3.5rem;border-radius:0.625rem;background:var(--dark);color:var(--white);display:flex;align-items:center;justify-content:center;margin:0 auto 0.375rem}
 .team-more-badge span{font-size:0.75rem;font-weight:700}
 
-/* ─── PRICING ─── */
-#pricing{padding:var(--section-py) var(--global-px)}
-#pricing .section-title{margin-bottom:3rem}
-.pricing-layout{display:flex;justify-content:center;gap:1.125rem;max-width:48rem;margin:0 auto;align-items:flex-start}
-.pricing-left{display:flex;flex-direction:column;gap:1.125rem;width:23.125rem}
-.pricing-right{width:23.125rem}
-.pricing-tabs{display:flex;gap:0;background:var(--white);border-radius:9999px;padding:0.25rem;width:100%}
-.pricing-tab{flex:1;min-width:3.5rem;padding:0.25rem 0.5rem;border-radius:9999px;font-size:0.75rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all .5s cubic-bezier(.7,0,0,1);background:transparent;border:none;font-family:inherit;text-transform:capitalize;position:relative}
-.pricing-tab.active{color:var(--dark)}
-.pricing-tab.active::before{content:'';position:absolute;inset:0;border-radius:9999px;background:#F7F0DC;z-index:0}
-.pricing-tab span{position:relative;z-index:1}
-.pricing-card{background:var(--white);border-radius:var(--card-radius);padding:1.5rem;position:relative;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:20rem}
-.pricing-card-inner{display:flex;flex-direction:column;gap:2rem}
-.pricing-card-header{display:flex;flex-direction:column;gap:1rem}
-.pricing-card-meta{display:flex;flex-direction:column;gap:0.25rem}
-.pricing-label{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
-.pricing-price{font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;line-height:1.75rem;color:var(--dark);overflow:hidden;height:1.75rem;white-space:nowrap;font-variant-numeric:tabular-nums}
-.pricing-price .slot-wrap{display:inline-block;overflow:hidden;height:1.75rem;vertical-align:top;margin:0;padding:0;line-height:1.75rem}
-.pricing-price .slot-inner{transition:transform .4s cubic-bezier(.2,.6,.3,1);line-height:1.75rem}
-.popular-tag{position:absolute;top:1rem;right:1.125rem;display:flex;align-items:center;gap:0.3125rem;font-size:0.875rem;font-weight:700;letter-spacing:-0.02em}
-.popular-tag::before{content:'';width:0.4125rem;height:0.4125rem;border-radius:50%;background:var(--green)}
-.pricing-features{list-style:none;display:flex;flex-direction:column;gap:0.875rem}
-.pricing-features li{font-size:0.875rem;font-weight:700;color:var(--gray);display:flex;align-items:center;gap:0.3125rem;letter-spacing:-0.02em}
-.pricing-features li .check{width:0.875rem;height:0.875rem;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.pricing-features li .check svg{width:100%;height:100%}
-.pricing-card-meta{display:flex;flex-direction:column;gap:0.25rem}
-.pricing-price-row{display:flex;align-items:center;justify-content:space-between}
-.pricing-features.grayscale .check{filter:grayscale(1)}
-.pricing-card .btn{width:fit-content;font-size:0.875rem;margin-top:auto}
-/* pricing-bottom removed — trial card is inside right column */
-
 /* ─── FAQ ─── */
 #faq{padding:var(--section-py) var(--global-px)}
-#faq .section-title{margin-bottom:3rem}
-.faq-list{max-width:30rem;margin:0 auto;display:flex;flex-direction:column;gap:0.4375rem}
-.faq-item{background:var(--white);border-radius:0.75rem;overflow:hidden}
-.faq-question{width:100%;background:none;border:none;text-align:left;padding:0.75rem 1rem;font-size:16px;font-weight:900;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:1rem}
+#faq .section-title{margin-bottom:3rem;font-size:36px}
+.faq-list{max-width:34rem;margin:0 auto;display:flex;flex-direction:column;gap:0.875rem}
+.faq-item{background:var(--white);border-radius:1.8rem;overflow:hidden}
+.faq-question{width:100%;background:none;border:none;text-align:left;padding:1.25rem;font-size:16px;font-weight:900;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:1rem}
+.faq-item.open .faq-question{padding-bottom:0.5rem}
 .faq-arrow{width:1.25rem;height:1.25rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s}
 .faq-arrow svg{width:1rem;height:1rem;color:var(--dark)}
 .faq-item.open .faq-arrow{transform:rotate(180deg)}
@@ -183,13 +151,39 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
 .faq-item.open .faq-answer{grid-template-rows:1fr}
 .faq-answer-inner{overflow:hidden}
-.faq-answer p{padding:0 1rem 0.75rem}
-.faq-answer p{padding:0 1rem 0.75rem;font-size:14px;font-weight:700}
+.faq-answer p{padding:0 1.25rem 1rem;font-size:14px;font-weight:500;letter-spacing:-0.3px}
+
+/* ─── TRIAL ─── */
+#trial{margin:1.5rem var(--global-px) 0}
+.trial-card{background:var(--white);border-radius:2.25rem;padding:4.5rem 2rem;text-align:center}
+.trial-card h2{font-size:36px;font-weight:900;color:var(--dark);max-width:36rem;margin:0 auto;line-height:1.25}
+.trial-price{display:inline-flex;background:var(--bg);border-radius:9999px;padding:0.25rem 1.125rem;font-size:0.85em;white-space:nowrap;transform:rotate(-4deg)}
+.trial-copy{max-width:28rem;margin:2rem auto 2.5rem;display:flex;flex-direction:column;gap:1rem}
+.trial-copy p{font-size:14px;font-weight:500;color:var(--gray);line-height:1.6}
+.trial-card .btn{padding:1rem 5.25rem;font-size:1rem}
 
 /* ─── CTA ─── */
 #cta{padding:var(--section-py) var(--global-px);text-align:center}
-#cta h2{font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1.5rem}
-.cta-buttons{display:flex;justify-content:center;gap:0.375rem;flex-wrap:wrap}
+#cta h2{font-size:52px;margin-bottom:1.5rem}
+.cta-buttons{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap}
+.cta-buttons .btn{padding:1rem 1.625rem;font-size:0.9375rem;font-weight:800}
+.cta-buttons .btn-light{font-weight:700}
+.cta-wrap{position:relative;overflow:hidden}
+.cta-wrap>#cta,.cta-wrap>footer{position:relative;z-index:1}
+.cta-floor{position:absolute;left:50%;transform:translateX(-50%);width:170vw;top:42%;bottom:0;perspective:760px;perspective-origin:50% 0;pointer-events:none;color:var(--dark);z-index:0}
+.cta-floor i{position:absolute;left:0;right:0;top:0;height:300%;display:block;transform:rotateX(63deg);transform-origin:50% 0;
+  background-image:repeating-linear-gradient(to right,currentColor 0 1px,transparent 1px 40px),repeating-linear-gradient(to bottom,currentColor 0 1px,transparent 1px 40px);
+  opacity:.17;animation:floor-run 3.2s linear infinite;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%);
+  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%)}
+.cta-scene{max-width:78rem;margin:-1rem auto 0;color:var(--dark);pointer-events:none;position:relative;z-index:1}
+#cta3d{display:block;width:100%;aspect-ratio:16/7;touch-action:pan-y}
+.cta-scene.no-webgl{display:none}
+{to{background-position:0 40px,0 40px}}
+@media(prefers-reduced-motion:reduce){
+  .cta-floor i{animation:none!important}
+
+}
 
 /* ─── FOOTER ─── */
 .footer-divider{display:none}
@@ -202,14 +196,10 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
-  .features-row{grid-template-columns:1fr}
-  .features-row-2{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(3,1fr);gap:1rem}
   .team-grid.team-grid-5{grid-template-columns:repeat(3,1fr)}
   .team-member h4{font-size:13px}
   .team-member p{font-size:11px}
-  .pricing-layout{flex-direction:column;align-items:center}
-  .pricing-left,.pricing-right{width:100%;max-width:23.125rem}
   :root{--section-py:3.5rem}
   .footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}
 }
@@ -222,93 +212,61 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- HEADER -->
 <header>
   <a href="/" class="logo" aria-label="Home">
-    <img src="assets/logo.png" alt="Vorten Studio" style="width:2.05rem;height:2.05rem;object-fit:cover;border-radius:50%">
+    <img src="assets/logo.png" alt="Vorten Studio" style="width:2.15rem;height:2.15rem;object-fit:cover;border-radius:50%">
   </a>
-  <a href="/work" class="nav-pill">Built here</a>
+  <a href="/work" class="nav-pill">Recent work</a>
+  <a href="/intro" class="nav-pill nav-pill-strong btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
 </header>
 
 <!-- HERO -->
 <section id="hero" class="section">
   <div class="container">
-    <h1>A product studio for<br>non-technical founders</h1>
-    <p class="hero-subtitle">We bring product strategy, design, and development<br>and turn it into a shipped product.</p>
+    <img src="assets/logo.png" alt="" class="hero-watermark">
+    <span class="hero-badge"><span class="dot-wrap"><span class="dot-ripple"></span><span class="dot-ripple" style="animation-delay:300ms"></span><span class="dot"></span></span>Accepting 3 more projects this quarter</span>
+    <h1>A product studio for<br>founders and teams<br>at every stage.</h1>
+    <p class="hero-subtitle">We help you figure out what to build first, plan it out,<br>and then design and code it with you until it's live<br>and people are using it.</p>
     <div class="hero-ctas">
-      <a href="/intro" class="btn btn-dark">
-        <svg viewBox="0 0 15 12" fill="none"><g clip-path="url(#gc)"><path fill="#00832D" d="m8.486 6 1.462 1.625 1.966 1.222.343-2.837-.343-2.773L9.91 4.31z"/><path fill="#0066DA" d="M0 8.583V11c0 .553.46 1 1.029 1h2.485l.515-1.827-.515-1.59-1.705-.5z"/><path fill="#E94235" d="M3.514 0 0 3.417l1.809.5 1.705-.5.506-1.569z"/><path fill="#2684FC" d="M3.514 3.417H0v5.166h3.514z"/><path fill="#00AC47" d="m14.16 1.447-2.246 1.79v5.61l2.256 1.798c.338.257.832.023.832-.395V1.833c0-.422-.505-.654-.842-.386M8.486 6v2.583H3.514V12h7.372c.568 0 1.028-.447 1.028-1V8.847z"/><path fill="#FFBA00" d="M10.886 0H3.514v3.417h4.972V6l3.428-2.762V1c0-.552-.46-1-1.028-1"/></g><defs><clipPath id="gc"><path fill="#fff" d="M0 0h15v12H0z"/></clipPath></defs></svg>
-        Book a call
-      </a>
-      <a href="https://t.me/camvorten" target="_blank" class="btn btn-light">
-        <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#229ED9"/><path class="tg-plane" fill="#fff" fill-rule="evenodd" d="M3.618 7.917a532 532 0 0 1 4.665-2.013c2.22-.926 2.686-1.086 2.986-1.093.066 0 .213.014.313.094.08.066.1.153.113.22.013.066.027.206.013.313-.12 1.266-.64 4.338-.906 5.75-.113.6-.333.8-.546.82-.467.04-.82-.306-1.266-.6-.707-.46-1.1-.746-1.786-1.199-.793-.52-.28-.806.173-1.273.12-.12 2.166-1.986 2.206-2.152.006-.02.006-.1-.04-.14-.047-.04-.114-.027-.167-.013-.073.013-1.193.76-3.372 2.232-.32.22-.606.327-.866.32-.287-.007-.833-.16-1.246-.293-.5-.16-.9-.247-.867-.527q.032-.218.593-.446" clip-rule="evenodd"/></svg>
-        Send a message
-      </a>
+      <a href="/intro" class="btn btn-dark btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
+      <a href="/work" class="btn btn-light btn-arrow btn-arrow-ne"><span class="ba-pad"></span><span class="ba-t">See</span><span class="ba-a">our</span><span>work</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span><span class="ba-pad"></span></a>
     </div>
   </div>
 </section>
 
-<!-- SHOWCASE -->
-<section id="showcase">
-  <div class="showcase-track">
-    <div class="showcase-card"><span class="card-title">Website</span><img src="assets/project-3.png" alt="Elite Property Management"></div>
-    <div class="showcase-card card-logo"><span class="card-title">Identity</span><img src="assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
-    <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-8.png" alt="WeOut app"></div>
-    <div class="showcase-card"><span class="card-title">Website</span><img src="assets/project-1.png" alt="Lighter project"></div>
-    <div class="showcase-card card-logo"><span class="card-title">Identity</span><img src="assets/project-7.png" alt="Elite Property Management logo" style="background:#fff"></div>
-    <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-4.png" alt="UntzDrop"></div>
-    <div class="showcase-card card-logo"><span class="card-title">Identity</span><img src="assets/project-6.png" alt="Vo splash screen" style="background:#f3f9f7"></div>
-    <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-2.png" alt="Dashboard project"></div>
-    <div class="showcase-card"><span class="card-title">Website</span><img src="assets/project-3.png" alt="Elite Property Management"></div>
-    <div class="showcase-card card-logo"><span class="card-title">Identity</span><img src="assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
-    <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-8.png" alt="WeOut app"></div>
-    <div class="showcase-card"><span class="card-title">Website</span><img src="assets/project-1.png" alt="Lighter project"></div>
-    <div class="showcase-card card-logo"><span class="card-title">Identity</span><img src="assets/project-7.png" alt="Elite Property Management logo" style="background:#fff"></div>
-    <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-4.png" alt="UntzDrop"></div>
-    <div class="showcase-card card-logo"><span class="card-title">Identity</span><img src="assets/project-6.png" alt="Vo splash screen" style="background:#f3f9f7"></div>
-    <div class="showcase-card"><span class="card-title">Product</span><img src="assets/project-2.png" alt="Dashboard project"></div>
-  </div>
-</section>
-
-
-<!-- WHY VORTEN STUDIO -->
-<section id="why">
+<!-- SERVICES -->
+<section id="services">
   <div class="container text-center">
-    <h2 class="section-title">Why vorten.studio</h2>
-    <div class="features-row">
-      <div class="feature-card">
-        <div class="feature-icon-wrap">
-          <img src="assets/icon-direct-access.svg" alt="">
-        </div>
-        <h3>Work with us directly</h3>
-        <p>You work with the people doing the work. No middlemen.</p>
+    <h2 class="section-title">Services</h2>
+    <p class="services-subtitle">Everything you need to plan, design, build, and grow your product with quality in every detail.</p>
+    <div class="services-grid">
+      <div class="service-card span-2">
+        <h3>MVP Development</h3>
+        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c2.5 1.8 4 4.8 4 8.2 0 2-.6 3.8-1.5 5.3L12 18l-2.5-2c-.9-1.5-1.5-3.3-1.5-5.3 0-3.4 1.5-6.4 4-8.2Z"/><path d="M9.5 15.5 7 18l-1 3.5L9.5 20M14.5 15.5 17 18l1 3.5-3.5-1.5"/><circle cx="12" cy="10" r="1.75"/></svg></div>
+        <p>Got an idea but don't know where to start? We help you define the core features, cut what isn't needed yet, and design and build a first version real users can try. You get a working product fast, plus a clear plan for what comes after launch.</p>
+        <div class="service-tags"><span>Figma</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>AWS</span><span>Scoping</span><span>Rapid Prototyping</span><span>Launch Planning</span></div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">
-          <img src="assets/icon-dates.svg" alt="">
-        </div>
-        <h3>On time, every time</h3>
-        <p>We agree on a date and we hit it. If something shifts, you hear it early.</p>
+      <div class="service-card span-2">
+        <h3>Web &amp; Mobile Apps</h3>
+        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="14" height="10" rx="1.5"/><path d="M7 18h5"/><rect x="15.5" y="8.5" width="6" height="11" rx="1.5"/><path d="M18.5 17h.01"/></svg></div>
+        <p>We design and build custom web and mobile apps that fit your business, not a template. From dashboards and marketplaces to customer-facing apps, our team handles the full build. Everything is set up to grow as your users and features grow.</p>
+        <div class="service-tags"><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Node.js</span><span>PostgreSQL</span><span>AWS</span><span>APIs &amp; Integrations</span><span>Scalable Architecture</span></div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">
-          <img src="assets/icon-one-team.svg" alt="">
-        </div>
-        <h3>One team, idea to launch</h3>
-        <p>Product, design, and development in one place. Nothing gets lost.</p>
+      <div class="service-card span-2">
+        <h3>Product Design</h3>
+        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 4v5"/></svg></div>
+        <p>Good design is how people decide whether to trust your product. We handle UX and UI, from user flows and wireframes to polished interfaces, so your product is easy to use and looks the part. We test with real users before anything goes to development.</p>
+        <div class="service-tags"><span>Figma</span><span>Adobe Creative Suite</span><span>Framer</span><span>Protopie</span><span>Design Systems</span><span>User Flows</span><span>Interactive Prototypes</span><span>Usability Testing</span></div>
       </div>
-    </div>
-    <div class="features-row-2">
-      <div class="feature-card">
-        <div class="feature-icon-wrap">
-          <img src="assets/icon-no-middlemen.svg" alt="">
-        </div>
-        <h3>Your dedicated PM</h3>
-        <p>One person, start to finish. Always knows where things stand.</p>
+      <div class="service-card span-3">
+        <h3>Product Strategy</h3>
+        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M4.2 7l3.4 2M16.4 15l3.4 2M4.2 17l3.4-2M16.4 9l3.4-2"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <p>We help you get clear on who you're building for, what problem you're solving, and what to build first. We talk to your users, study your competitors, and find where the real opportunity is. Then we turn it into a roadmap your team can actually follow.</p>
+        <div class="service-tags"><span>Jira</span><span>Confluence</span><span>Miro</span><span>Productboard</span><span>User Research</span><span>Roadmapping</span><span>Product Specs</span><span>Go-to-Market</span></div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon-wrap">
-          <img src="assets/icon-motion.svg" alt="">
-        </div>
-        <h3>We think before we build</h3>
-        <p>Projects start with the real question. Not how it looks, but what it does.</p>
+      <div class="service-card span-3">
+        <h3>Product Audits &amp; Redesigns</h3>
+        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
+        <p>Already have a product that isn't performing? We dig into your analytics, user feedback, and flows to find what's holding it back. You get a prioritized plan for what to fix, and our team can handle the redesign and development to get it done.</p>
+        <div class="service-tags"><span>Amplitude</span><span>Mixpanel</span><span>FullStory</span><span>Optimizely</span><span>UX Audits</span><span>Funnel Analysis</span><span>A/B Testing</span><span>Conversion Optimization</span></div>
       </div>
     </div>
   </div>
@@ -328,84 +286,67 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
       <div class="team-member"><div class="team-avatar"><img src="assets/team-5.png" alt="Theo"></div><h4>Theo</h4><p>Motion Designer</p></div>
       <div class="team-member"><div class="team-avatar"><img src="assets/team-6.png" alt="Rüdiger"></div><h4>Rüdiger</h4><p>Illustration Designer</p></div>
     </div>
+    <div class="team-grid" style="margin-top:1.25rem">
+      <div class="team-member"><div class="team-avatar placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><h4>Dario</h4><p>Full-stack Developer</p></div>
+      <div class="team-member"><div class="team-avatar placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><h4>Elin</h4><p>Strategist</p></div>
+      <div class="team-member"><div class="team-avatar placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><h4>Noah</h4><p>Mobile Developer</p></div>
+    </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
+<!-- TOOLS -->
+<section id="tools">
   <div class="container text-center">
-    <h2 class="section-title">Pricing</h2>
-    <div class="pricing-layout">
-      <!-- Left: tabs + left card -->
-      <div class="pricing-left">
-        <div class="pricing-tabs">
-          <button class="pricing-tab active"><span>Strategy</span></button>
-          <button class="pricing-tab"><span>MVP</span></button>
-          <button class="pricing-tab"><span>Full Build</span></button>
-          <button class="pricing-tab"><span>Full Site</span></button>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-card-inner">
-            <div class="pricing-card-header">
-              <div class="pricing-card-meta">
-                <div class="pricing-label">Flat fee</div>
-                <div class="pricing-price-row">
-                  <div class="pricing-price">$3,750</div>
-
-                </div>
-              </div>
-              <ul class="pricing-features grayscale">
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>User and market research</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Problem framing and validation</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Competitive teardown</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>MVP scope and feature prioritization</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Wireframes for core flows</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Roadmap and written recommendation</li>
-              </ul>
-            </div>
-          </div>
-          <a href="/intro" class="btn btn-dark" style="margin-top:2rem">
-            <svg viewBox="0 0 15 12" fill="none" style="width:0.9375rem;height:0.9375rem"><g clip-path="url(#gcp1)"><path fill="#00832D" d="m8.486 6 1.462 1.625 1.966 1.222.343-2.837-.343-2.773L9.91 4.31z"/><path fill="#0066DA" d="M0 8.583V11c0 .553.46 1 1.029 1h2.485l.515-1.827-.515-1.59-1.705-.5z"/><path fill="#E94235" d="M3.514 0 0 3.417l1.809.5 1.705-.5.506-1.569z"/><path fill="#2684FC" d="M3.514 3.417H0v5.166h3.514z"/><path fill="#00AC47" d="m14.16 1.447-2.246 1.79v5.61l2.256 1.798c.338.257.832.023.832-.395V1.833c0-.422-.505-.654-.842-.386M8.486 6v2.583H3.514V12h7.372c.568 0 1.028-.447 1.028-1V8.847z"/><path fill="#FFBA00" d="M10.886 0H3.514v3.417h4.972V6l3.428-2.762V1c0-.552-.46-1-1.028-1"/></g><defs><clipPath id="gcp1"><path fill="#fff" d="M0 0h15v12H0z"/></clipPath></defs></svg>
-            Book Intro Call
-          </a>
-        </div>
-      </div>
-      <!-- Right: right card + trial -->
-      <div class="pricing-right" style="display:flex;flex-direction:column;gap:1.125rem">
-        <div class="pricing-card" style="flex:1">
-          <span class="popular-tag">Most Popular</span>
-          <div class="pricing-card-inner">
-            <div class="pricing-card-header">
-              <div class="pricing-card-meta">
-                <div class="pricing-label">Monthly retainer</div>
-                <div class="pricing-price">$5,000/mo</div>
-              </div>
-              <ul class="pricing-features">
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#707070" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dedicated product and design support</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#707070" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One active request at a time</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#707070" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Scope evolves with your roadmap</li>
-                <li><span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#707070" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Written updates every weekday</li>
-              </ul>
-            </div>
-          </div>
-          <a href="/intro" class="btn btn-dark" style="margin-top:2rem">
-            <svg viewBox="0 0 15 12" fill="none" style="width:0.9375rem;height:0.9375rem"><g clip-path="url(#gcp2)"><path fill="#00832D" d="m8.486 6 1.462 1.625 1.966 1.222.343-2.837-.343-2.773L9.91 4.31z"/><path fill="#0066DA" d="M0 8.583V11c0 .553.46 1 1.029 1h2.485l.515-1.827-.515-1.59-1.705-.5z"/><path fill="#E94235" d="M3.514 0 0 3.417l1.809.5 1.705-.5.506-1.569z"/><path fill="#2684FC" d="M3.514 3.417H0v5.166h3.514z"/><path fill="#00AC47" d="m14.16 1.447-2.246 1.79v5.61l2.256 1.798c.338.257.832.023.832-.395V1.833c0-.422-.505-.654-.842-.386M8.486 6v2.583H3.514V12h7.372c.568 0 1.028-.447 1.028-1V8.847z"/><path fill="#FFBA00" d="M10.886 0H3.514v3.417h4.972V6l3.428-2.762V1c0-.552-.46-1-1.028-1"/></g><defs><clipPath id="gcp2"><path fill="#fff" d="M0 0h15v12H0z"/></clipPath></defs></svg>
-            Book Intro Call
-          </a>
-        </div>
-        <!-- Trial card -->
-        <div style="background:var(--white);border-radius:var(--card-radius);padding:1.1875rem 1.5rem 1.3125rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;text-align:left">
-          <div style="display:flex;flex-direction:column;gap:0.25rem">
-            <span style="font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em">Week long trial</span>
-            <span style="font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;color:var(--dark)">$1,250</span>
-          </div>
-          <a href="https://t.me/camvorten" target="_blank" class="btn" style="background:#efefef;color:var(--dark);font-size:0.875rem;flex-shrink:0">
-            <svg viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem"><circle cx="8" cy="8" r="8" fill="#229ED9"/><path class="tg-plane" fill="#fff" fill-rule="evenodd" d="M3.618 7.917a532 532 0 0 1 4.665-2.013c2.22-.926 2.686-1.086 2.986-1.093.066 0 .213.014.313.094.08.066.1.153.113.22.013.066.027.206.013.313-.12 1.266-.64 4.338-.906 5.75-.113.6-.333.8-.546.82-.467.04-.82-.306-1.266-.6-.707-.46-1.1-.746-1.786-1.199-.793-.52-.28-.806.173-1.273.12-.12 2.166-1.986 2.206-2.152.006-.02.006-.1-.04-.14-.047-.04-.114-.027-.167-.013-.073.013-1.193.76-3.372 2.232-.32.22-.606.327-.866.32-.287-.007-.833-.16-1.246-.293-.5-.16-.9-.247-.867-.527q.032-.218.593-.446" clip-rule="evenodd"/></svg>
-            Send Message
-          </a>
-        </div>
+    <h2 class="section-title">Tools we've mastered</h2>
+    <div class="tools-bubble">
+      <div class="tools-track">
+        <span class="tool-logo"><img src="assets/logos/figma.svg" alt="Figma"><span>Figma</span></span>
+        <span class="tool-logo"><img src="assets/logos/react.svg" alt="React"><span>React</span></span>
+        <span class="tool-logo"><img src="assets/logos/nextdotjs.svg" alt="Next.js"><span>Next.js</span></span>
+        <span class="tool-logo"><img src="assets/logos/typescript.svg" alt="TypeScript"><span>TypeScript</span></span>
+        <span class="tool-logo"><img src="assets/logos/nodedotjs.svg" alt="Node.js"><span>Node.js</span></span>
+        <span class="tool-logo"><img src="assets/logos/postgresql.svg" alt="PostgreSQL"><span>PostgreSQL</span></span>
+        <span class="tool-logo"><img src="assets/logos/swift.svg" alt="Swift"><span>Swift</span></span>
+        <span class="tool-logo"><img src="assets/logos/kotlin.svg" alt="Kotlin"><span>Kotlin</span></span>
+        <span class="tool-logo"><img src="assets/logos/framer.svg" alt="Framer"><span>Framer</span></span>
+        <span class="tool-logo"><img src="assets/logos/tailwindcss.svg" alt="Tailwind CSS"><span>Tailwind CSS</span></span>
+        <span class="tool-logo"><img src="assets/logos/supabase.svg" alt="Supabase"><span>Supabase</span></span>
+        <span class="tool-logo"><img src="assets/logos/firebase.svg" alt="Firebase"><span>Firebase</span></span>
+        <span class="tool-logo"><img src="assets/logos/vercel.svg" alt="Vercel"><span>Vercel</span></span>
+        <span class="tool-logo"><img src="assets/logos/miro.svg" alt="Miro"><span>Miro</span></span>
+        <span class="tool-logo"><img src="assets/logos/jira.svg" alt="Jira"><span>Jira</span></span>
+        <span class="tool-logo"><img src="assets/logos/confluence.svg" alt="Confluence"><span>Confluence</span></span>
+        <span class="tool-logo"><img src="assets/logos/figma.svg" alt="Figma"><span>Figma</span></span>
+        <span class="tool-logo"><img src="assets/logos/react.svg" alt="React"><span>React</span></span>
+        <span class="tool-logo"><img src="assets/logos/nextdotjs.svg" alt="Next.js"><span>Next.js</span></span>
+        <span class="tool-logo"><img src="assets/logos/typescript.svg" alt="TypeScript"><span>TypeScript</span></span>
+        <span class="tool-logo"><img src="assets/logos/nodedotjs.svg" alt="Node.js"><span>Node.js</span></span>
+        <span class="tool-logo"><img src="assets/logos/postgresql.svg" alt="PostgreSQL"><span>PostgreSQL</span></span>
+        <span class="tool-logo"><img src="assets/logos/swift.svg" alt="Swift"><span>Swift</span></span>
+        <span class="tool-logo"><img src="assets/logos/kotlin.svg" alt="Kotlin"><span>Kotlin</span></span>
+        <span class="tool-logo"><img src="assets/logos/framer.svg" alt="Framer"><span>Framer</span></span>
+        <span class="tool-logo"><img src="assets/logos/tailwindcss.svg" alt="Tailwind CSS"><span>Tailwind CSS</span></span>
+        <span class="tool-logo"><img src="assets/logos/supabase.svg" alt="Supabase"><span>Supabase</span></span>
+        <span class="tool-logo"><img src="assets/logos/firebase.svg" alt="Firebase"><span>Firebase</span></span>
+        <span class="tool-logo"><img src="assets/logos/vercel.svg" alt="Vercel"><span>Vercel</span></span>
+        <span class="tool-logo"><img src="assets/logos/miro.svg" alt="Miro"><span>Miro</span></span>
+        <span class="tool-logo"><img src="assets/logos/jira.svg" alt="Jira"><span>Jira</span></span>
+        <span class="tool-logo"><img src="assets/logos/confluence.svg" alt="Confluence"><span>Confluence</span></span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TRIAL -->
+<section id="trial">
+  <div class="trial-card">
+    <h2>Start with a trial<br>week for only <span class="trial-price">$1,000</span></h2>
+    <div class="trial-copy">
+      <p>You'll meet your dedicated PM, work directly with the designers and developers, and see how we operate up close.</p>
+      <p>Like what you see? We move straight into the full project. Not quite right? You still leave with a real feel for how we'd work together.</p>
+      <p>PS — most trial week clients move forward with the full project.</p>
+    </div>
+    <a href="/intro" class="btn btn-dark btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
   </div>
 </section>
 
@@ -414,31 +355,26 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
   <div class="container text-center">
     <h2 class="section-title">FAQs</h2>
     <div class="faq-list" style="text-align:left">
-      <div class="faq-item"><button class="faq-question">Crypto? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes, USDT preferred.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Backend development too? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes, same team.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Why you over a bigger agency? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>You talk to the people doing the work. Decisions happen in hours, not weeks.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Who will I work with? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>A PM and the designers and developers your project needs. Same people, start to finish.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">How do we work together? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Async by default. Daily updates Monday to Friday. Calls whenever you want them.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">What if priorities change? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>On a retainer, swap the request anytime. That flexibility is the point.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Can you work with our team? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. We've shipped alongside in-house product, design, and engineering teams many times.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Who owns the work? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>You do. Files, code, and rights all transfer to you.</p></div></div></div>
+      <div class="faq-item open"><button class="faq-question">Why Vorten Studio? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Most studios either design something pretty they can't build, or build whatever you ask for without questioning it. We do both, and we push back when something isn't worth building. You get a team that thinks about your business, not just the deliverable.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">Who will I work with? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>The same small team from day one to launch. No account managers, no handoffs to junior people you never met. You work directly with the people designing and building your product.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">How do we work together? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>We start with a short discovery call to understand the problem and what success looks like. From there you get a scoped plan, then weekly check-ins with working updates you can actually click through. No black box, no waiting a month to see progress.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">What can you build? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Web apps, mobile apps, dashboards, marketplaces, internal tools, and the backend that runs them. If it's a digital product, we can design and ship it. If something is outside what we do well, we'll tell you upfront instead of figuring it out on your dime.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">What if priorities change? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>They usually do. We work in short cycles so you can change direction between them without blowing up the budget or the timeline. If something big shifts, we re-scope together before anyone writes code.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">Can you work with our in-house team? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. We plug into your existing designers, developers, or PMs and fill whatever gap you have. We use your tools and your process, not ours.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">Who owns the work? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>You do. Code, designs, files, all of it, handed over at the end of the project. No licensing, no retainer required to keep using what we built.</p></div></div></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
+<div class="cta-wrap">
 <section id="cta">
   <div class="container">
-    <h2>Got something to build?<br class="mobile-br"> Let's talk</h2>
+    <h2>Got something<br>to build? Let's talk</h2>
+    <div class="cta-scene" aria-hidden="true"><canvas id="cta3d"></canvas></div>
     <div class="cta-buttons">
-      <a href="/intro" class="btn btn-dark">
-        <svg width="15" height="12" viewBox="0 0 15 12" fill="none"><g clip-path="url(#gc2)"><path fill="#00832D" d="m8.486 6 1.462 1.625 1.966 1.222.343-2.837-.343-2.773L9.91 4.31z"/><path fill="#0066DA" d="M0 8.583V11c0 .553.46 1 1.029 1h2.485l.515-1.827-.515-1.59-1.705-.5z"/><path fill="#E94235" d="M3.514 0 0 3.417l1.809.5 1.705-.5.506-1.569z"/><path fill="#2684FC" d="M3.514 3.417H0v5.166h3.514z"/><path fill="#00AC47" d="m14.16 1.447-2.246 1.79v5.61l2.256 1.798c.338.257.832.023.832-.395V1.833c0-.422-.505-.654-.842-.386M8.486 6v2.583H3.514V12h7.372c.568 0 1.028-.447 1.028-1V8.847z"/><path fill="#FFBA00" d="M10.886 0H3.514v3.417h4.972V6l3.428-2.762V1c0-.552-.46-1-1.028-1"/></g><defs><clipPath id="gc2"><path fill="#fff" d="M0 0h15v12H0z"/></clipPath></defs></svg>
-        Book Intro Call
-      </a>
-      <a href="https://t.me/camvorten" target="_blank" class="btn btn-light">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#229ED9"/><path class="tg-plane" fill="#fff" fill-rule="evenodd" d="M3.618 7.917a532 532 0 0 1 4.665-2.013c2.22-.926 2.686-1.086 2.986-1.093.066 0 .213.014.313.094.08.066.1.153.113.22.013.066.027.206.013.313-.12 1.266-.64 4.338-.906 5.75-.113.6-.333.8-.546.82-.467.04-.82-.306-1.266-.6-.707-.46-1.1-.746-1.786-1.199-.793-.52-.28-.806.173-1.273.12-.12 2.166-1.986 2.206-2.152.006-.02.006-.1-.04-.14-.047-.04-.114-.027-.167-.013-.073.013-1.193.76-3.372 2.232-.32.22-.606.327-.866.32-.287-.007-.833-.16-1.246-.293-.5-.16-.9-.247-.867-.527q.032-.218.593-.446" clip-rule="evenodd"/></svg>
-        Send Message
-      </a>
+      <a href="/intro" class="btn btn-dark btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
+      <a href="/work" class="btn btn-light btn-arrow btn-arrow-ne"><span class="ba-pad"></span><span class="ba-t">See</span><span class="ba-a">our</span><span>work</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span><span class="ba-pad"></span></a>
     </div>
   </div>
 </section>
@@ -453,82 +389,10 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
     </div>
   </div>
 </footer>
-
-
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-arrow lightbox-prev" id="lightbox-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <div class="lightbox-card" id="lightbox-card">
-    <div class="lightbox-top">
-      <button class="lightbox-btn" id="lightbox-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg></button>
-      <button class="lightbox-btn" id="lightbox-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    </div>
-    <img id="lightbox-img" src="" alt="">
-  </div>
-  <button class="lightbox-arrow lightbox-next" id="lightbox-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
-<script>
-// Lightbox
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=document.getElementById('lightbox-img');
-const lightboxCard=document.getElementById('lightbox-card');
-const lightboxCounter=document.getElementById('lightbox-counter');
-const slides=[...document.querySelectorAll('.showcase-track .showcase-card')];
-const uniqueCount=slides.length/2;
-let currentIdx=0;
-function showSlide(){
-  const card=slides[currentIdx];
-  const img=card.querySelector('img');
-  if(!img)return;
-  lightboxImg.src=img.src;
-  lightboxImg.style.background=img.style.background||'';
-  lightboxCard.classList.remove('zoomed');
-  lightboxCard.classList.remove('logo-view','pad-all');
-  if(card.classList.contains('card-logo')){lightboxCard.classList.add('logo-view')}
-  else if(card.style.padding){lightboxCard.classList.add('pad-all')}
-  lightboxImg.style.background=img.style.background||'';
-  lightboxCounter.textContent=(currentIdx+1)+' of '+uniqueCount;
-}
-function openLightbox(idx){
-  currentIdx=idx%uniqueCount;
-  showSlide();
-  lightbox.classList.add('open');
-}
-function navigate(dir){
-  currentIdx=(currentIdx+dir+uniqueCount)%uniqueCount;
-  showSlide();
-}
-slides.forEach((card,i)=>card.addEventListener('click',()=>openLightbox(i)));
-document.getElementById('lightbox-prev').addEventListener('click',(e)=>{e.stopPropagation();navigate(-1)});
-document.getElementById('lightbox-next').addEventListener('click',(e)=>{e.stopPropagation();navigate(1)});
-let dragX=0,dragY=0,startX=0,startY=0,isDragging=false,didDrag=false;
-function resetZoom(){lightboxCard.classList.remove('zoomed','dragging');dragX=0;dragY=0;lightboxCard.style.transform=''}
-document.getElementById('lightbox-zoom').addEventListener('click',(e)=>{
-  e.stopPropagation();
-  if(lightboxCard.classList.contains('zoomed')){resetZoom()}
-  else{lightboxCard.classList.add('zoomed');dragX=0;dragY=0}
-});
-lightboxCard.addEventListener('mousedown',(e)=>{
-  if(!lightboxCard.classList.contains('zoomed'))return;
-  isDragging=true;didDrag=false;startX=e.clientX-dragX;startY=e.clientY-dragY;lightboxCard.classList.add('dragging');e.preventDefault();
-});
-window.addEventListener('mousemove',(e)=>{
-  if(!isDragging)return;
-  didDrag=true;
-  dragX=e.clientX-startX;dragY=e.clientY-startY;
-  lightboxCard.style.transform='scale(2) translate('+dragX/2+'px,'+dragY/2+'px)';
-});
-window.addEventListener('mouseup',()=>{isDragging=false;lightboxCard.classList.remove('dragging')});
-lightboxCard.addEventListener('click',(e)=>{
-  if(didDrag){didDrag=false;e.stopPropagation();return}
-  if(lightboxCard.classList.contains('zoomed')){resetZoom();e.stopPropagation()}
-  else{lightboxCard.classList.add('zoomed');dragX=0;dragY=0;e.stopPropagation()}
-});
-document.getElementById('lightbox-close').addEventListener('click',()=>{resetZoom();lightboxCard.style.transform='';lightbox.classList.remove('open')});
-lightbox.addEventListener('click',(e)=>{if(e.target===lightbox){resetZoom();lightboxCard.style.transform='';lightbox.classList.remove('open')}});
-document.addEventListener('keydown',(e)=>{if(!lightbox.classList.contains('open'))return;if(e.key==='Escape')lightbox.classList.remove('open');if(e.key==='ArrowLeft')navigate(-1);if(e.key==='ArrowRight')navigate(1)});
 
+<script>
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -539,86 +403,240 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
   });
 });
 
-// Pricing tabs with dynamic content
-const CHK='<span class="check"><svg viewBox="0 0 14 14" fill="none"><path d="M11.67 3.5L5.25 9.92 2.33 7" stroke="#00AF38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-const pricingData={
-  strategy:{
-    label:'Flat fee',
-    price:'$3,750',
-    features:['User and market research','Problem framing and validation','Competitive teardown','MVP scope and feature prioritization','Wireframes for core flows','Roadmap and written recommendation']
-  },
-  mvp:{
-    label:'Flat fee',
-    price:'$5,000',
-    features:['Discovery and product strategy','Full design system and UI','Frontend and backend development','Up to three core user flows','Launch on your domain and stack','Two weeks of post-launch support']
-  },
-  'full build':{
-    label:'Custom scope',
-    price:'$10,000+',
-    features:['Everything in MVP, larger scope','Multi-platform (web plus iOS or Android)','Backend, database, and integrations','Admin dashboard and analytics','Bilingual support if needed','Launch and one month of iteration']
-  },
-  'full site':{
-    label:'Flat fee',
-    price:'$10,000+',
-    features:['Multiple pages','Three designs to choose from','Copy written for you','Figma plus Rive or Lottie motion','Built in Framer, Webflow, or Next.js','Mobile and desktop responsive']
-  }
-};
-const leftLabel=document.querySelector('.pricing-card .pricing-label');
-const leftPrice=document.querySelector('.pricing-card .pricing-price');
-const leftFeatures=document.querySelector('.pricing-card .pricing-features');
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module">
+// ─── CTA: isometric traced 3D scene (WebGL) ───
+import * as THREE from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+const canvas=document.getElementById('cta3d');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true})}catch(e){canvas.parentElement.classList.add('no-webgl');throw e}
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const GRAY=0x787B79;
 
-function slotAnimate(el,newText){
-  const h=el.offsetHeight;
-  const chars=newText.split('');
-  el.innerHTML='';
-  let digitIdx=0;
-  chars.forEach((char)=>{
-    if(!/[0-9]/.test(char)){
-      const sp=document.createElement('span');
-      sp.textContent=char;
-      sp.style.display='inline';
-      el.appendChild(sp);
-      return;
-    }
-    const idx=digitIdx++;
-    const wrap=document.createElement('span');
-    wrap.className='slot-wrap';
-    const inner=document.createElement('span');
-    inner.className='slot-inner';
-    inner.style.display='block';
-    const spins=3+Math.floor(Math.random()*3);
-    let items=[];
-    for(let s=0;s<spins;s++){items.push(Math.floor(Math.random()*10))}
-    items.push(char);
-    inner.innerHTML=items.map(c=>'<span style="display:block;height:1.75rem;line-height:1.75rem">'+c+'</span>').join('');
-    wrap.appendChild(inner);
-    el.appendChild(wrap);
-    const lineH=28;
-    inner.style.transform='translateY(0)';
-    requestAnimationFrame(()=>{
-      inner.style.transition='transform '+(0.3+idx*0.08)+'s cubic-bezier(.2,.6,.3,1)';
-      inner.style.transform='translateY(-'+((items.length-1)*lineH)+'px)';
-    });
-  });
+const scene=new THREE.Scene();
+const camera=new THREE.OrthographicCamera(-10,10,5,-5,.1,200);
+const LOOK=new THREE.Vector3(0,.9,0);
+camera.position.set(20,16.5,20);camera.lookAt(LOOK);
+
+const world=new THREE.Group();scene.add(world);
+// invisible solids: write depth only, so hidden lines drop out and only the trace shows
+const mWhite=new THREE.MeshBasicMaterial({colorWrite:false,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1});
+const lineMat=new THREE.LineBasicMaterial({color:GRAY});
+const faintMat=new THREE.LineBasicMaterial({color:GRAY,transparent:true,opacity:.35});
+const dashMat=()=>new THREE.LineDashedMaterial({color:GRAY,dashSize:.14,gapSize:.12,transparent:true,opacity:.8});
+function outline(mesh,th=25,mat=lineMat){mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry,th),mat));return mesh}
+const box=(w,h,d,th)=>outline(new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mWhite),th);
+const P=(u,y,v)=>new THREE.Vector3((u+v)*.7071,y,(v-u)*.7071);
+const seg=(pts,mat=dashMat())=>{const l=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),mat);l.computeLineDistances();return l};
+
+
+// grid floor
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+  uniforms:{uIn:{value:0}},
+  vertexShader:`varying vec2 vP;void main(){vP=(modelMatrix*vec4(position,1.)).xz;gl_Position=projectionMatrix*viewMatrix*modelMatrix*vec4(position,1.);}`,
+  fragmentShader:`varying vec2 vP;uniform float uIn;
+    float grid(vec2 p,float s){vec2 g=abs(fract(p/s-.5)-.5)/fwidth(p/s);return 1.-min(min(g.x,g.y),1.);}
+    void main(){float fade=smoothstep(14.,3.,length(vP))*uIn;
+      float a=grid(vP,.25)*.075+grid(vP,1.)*.14;gl_FragColor=vec4(vec3(.47,.48,.475),a*fade);}`}));
+floor.rotation.x=-Math.PI/2;world.add(floor);
+
+const items=[];
+function add(obj,{at,delay=0,amp=0}={}){obj.position.copy(at);obj.userData={base:at.clone(),delay,amp};obj.scale.setScalar(.0001);world.add(obj);items.push(obj);return obj}
+
+// 1 · Centerpiece — the Vorten mark, every stripe extruded into a solid
+const LOGO=["M108.2 152.0C110.4 150.8 112.3 151.4 113.6 151.5C114.8 151.6 114.6 151.4 115.5 152.5C116.4 153.6 118.0 156.0 118.9 157.9C119.8 159.7 119.9 160.0 120.9 163.7C121.9 167.5 124.0 175.3 124.8 180.3C125.6 185.4 125.4 191.6 125.8 194.0C126.1 196.5 126.7 191.9 126.7 195.0C126.7 198.1 126.7 206.5 125.8 212.6C124.8 218.6 121.9 227.6 120.9 231.1C119.8 234.6 119.9 233.2 119.4 233.6C118.9 233.9 118.4 233.8 118.0 233.1C117.5 232.3 116.5 231.6 117.0 229.2C117.5 226.7 120.1 221.8 120.9 218.4C121.7 215.0 121.5 210.5 121.9 208.7C122.2 206.9 122.7 209.2 122.8 207.7C123.0 206.2 123.0 201.3 122.8 199.9C122.7 198.4 122.0 200.0 121.9 198.9C121.7 197.8 122.2 195.3 121.9 193.0C121.5 190.8 121.5 189.6 119.9 185.2C118.3 180.8 114.3 170.7 112.1 166.7C109.9 162.7 108.3 162.2 106.7 161.3C105.2 160.4 104.2 160.6 102.8 161.3C101.4 162.0 100.5 161.5 98.4 165.7C96.4 169.8 92.4 180.8 90.6 186.2C88.8 191.6 88.2 195.0 87.7 197.9C87.2 200.8 87.8 202.6 87.7 203.8C87.5 204.9 86.9 201.7 86.7 204.8C86.5 207.8 86.5 219.2 86.7 222.3C86.9 225.4 87.5 221.8 87.7 223.3C87.8 224.8 87.5 229.7 87.7 231.1C87.8 232.6 88.3 230.2 88.7 232.1C89.0 234.1 89.1 240.1 89.6 242.8C90.1 245.6 91.3 246.4 91.6 248.7C91.9 251.0 92.5 254.3 91.6 256.5C90.7 258.7 87.3 262.9 86.2 261.9C85.1 260.9 85.2 252.7 84.7 250.7C84.3 248.6 83.9 251.0 83.8 249.7C83.6 248.4 83.9 244.2 83.8 242.8C83.6 241.5 83.0 243.7 82.8 241.9C82.6 240.1 83.0 233.9 82.8 232.1C82.6 230.3 81.8 235.7 81.8 231.1C81.8 226.6 82.5 209.3 82.8 204.8C83.1 200.2 83.4 205.2 83.8 203.8C84.1 202.3 83.0 201.8 84.7 196.0C86.5 190.1 91.9 174.8 94.5 168.6C97.1 162.4 98.1 161.6 100.4 158.8C102.7 156.1 106.0 153.2 108.2 152.0Z", "M151.2 144.2C151.7 143.5 152.0 134.8 152.1 144.2C152.3 153.6 152.3 191.2 152.1 200.8C152.0 210.5 151.5 199.1 151.2 201.8C150.8 204.6 150.5 214.7 150.2 217.5C149.9 220.2 149.4 217.5 149.2 218.4C149.0 219.4 149.4 222.3 149.2 223.3C149.0 224.3 148.4 223.3 148.2 224.3C148.1 225.3 148.4 228.2 148.2 229.2C148.1 230.2 147.4 229.2 147.3 230.2C147.1 231.1 147.7 232.1 147.3 235.0C146.8 238.0 145.0 243.5 144.3 247.7C143.7 252.0 143.9 258.1 143.3 260.4C142.8 262.8 141.9 261.9 140.9 261.9C139.9 261.9 138.1 261.2 137.5 260.4C136.9 259.7 137.3 258.2 137.5 257.5C137.7 256.8 138.3 257.5 138.5 256.5C138.6 255.5 138.3 252.6 138.5 251.6C138.6 250.7 138.8 253.9 139.4 250.7C140.1 247.4 141.6 236.0 142.4 232.1C143.2 228.2 143.8 229.7 144.3 227.2C144.8 224.8 144.8 220.1 145.3 217.5C145.8 214.8 146.9 213.7 147.3 211.6C147.6 209.5 147.1 206.1 147.3 204.8C147.4 203.5 148.1 205.4 148.2 203.8C148.4 202.2 148.1 196.6 148.2 195.0C148.4 193.4 149.0 201.5 149.2 194.0C149.4 186.5 149.0 157.5 149.2 150.1C149.4 142.6 150.2 149.4 150.2 149.1C150.2 148.8 149.0 148.9 149.2 148.1C149.4 147.3 150.7 144.8 151.2 144.2Z", "M155.1 146.2C155.2 135.1 156.9 146.0 157.0 146.2C157.2 146.3 156.0 146.8 156.0 147.1C156.0 147.5 156.9 145.2 157.0 148.1C157.2 151.0 156.9 161.8 157.0 164.7C157.2 167.6 157.8 163.6 158.0 165.7C158.2 167.8 157.8 175.3 158.0 177.4C158.2 179.5 158.7 173.0 159.0 178.4C159.3 183.8 160.0 204.3 160.0 209.6C160.0 215.0 159.1 207.8 159.0 210.6C158.8 213.4 159.1 223.5 159.0 226.2C158.8 229.0 158.2 225.1 158.0 227.2C157.8 229.3 158.2 236.8 158.0 238.9C157.8 241.1 157.2 236.8 157.0 239.9C156.9 243.0 157.2 254.4 157.0 257.5C156.9 260.6 156.2 257.5 156.0 258.5C155.9 259.5 156.5 262.1 156.0 263.4C155.6 264.6 154.5 265.4 153.6 265.8C152.7 266.2 151.2 267.8 150.7 265.8C150.1 263.8 150.1 255.8 150.2 253.6C150.3 251.4 151.0 254.1 151.2 252.6C151.3 251.2 151.0 246.3 151.2 244.8C151.3 243.3 151.7 247.6 152.1 243.8C152.6 240.1 153.6 226.1 154.1 222.3C154.6 218.6 154.9 222.8 155.1 221.4C155.2 219.9 154.9 215.0 155.1 213.5C155.2 212.1 156.0 223.8 156.0 212.6C156.0 201.3 154.9 157.2 155.1 146.2Z", "M160.0 148.1C160.6 147.9 162.4 147.0 162.9 148.1C163.4 149.2 162.7 153.6 162.9 154.9C163.0 156.2 163.5 153.6 163.9 155.9C164.2 158.2 164.5 166.3 164.8 168.6C165.2 170.9 165.7 168.6 165.8 169.6C166.0 170.6 165.3 171.5 165.8 174.5C166.3 177.4 168.1 182.8 168.7 187.2C169.4 191.6 169.4 198.4 169.7 200.8C170.0 203.3 170.5 199.9 170.7 201.8C170.9 203.8 170.5 210.6 170.7 212.6C170.9 214.5 171.3 205.7 171.7 213.5C172.0 221.4 173.5 250.9 172.7 259.5C171.8 268.0 167.8 264.0 166.3 264.8C164.8 265.6 164.1 275.2 163.9 264.3C163.6 253.5 164.8 210.8 164.8 199.9C164.8 189.0 164.0 200.8 163.9 198.9C163.7 196.9 164.0 190.1 163.9 188.2C163.7 186.2 163.0 188.6 162.9 187.2C162.7 185.7 163.0 180.8 162.9 179.4C162.7 177.9 162.4 182.5 161.9 178.4C161.4 174.3 160.4 159.0 160.0 154.9C159.5 150.9 159.1 154.9 159.0 154.0C158.8 153.0 158.8 150.1 159.0 149.1C159.1 148.1 159.3 148.3 160.0 148.1Z", "M128.7 148.1C129.6 147.0 129.7 147.1 130.2 147.6C130.7 148.1 131.2 148.5 131.6 151.0C132.0 153.6 132.3 160.6 132.6 162.8C132.9 164.9 133.4 162.3 133.6 163.7C133.7 165.2 133.4 170.1 133.6 171.5C133.7 173.0 134.4 167.6 134.6 172.5C134.7 177.4 134.7 196.0 134.6 200.8C134.4 205.7 133.7 200.8 133.6 201.8C133.4 202.8 134.1 203.9 133.6 206.7C133.1 209.5 132.1 214.2 130.7 218.4C129.2 222.7 125.9 229.0 124.8 232.1C123.7 235.2 124.4 235.6 123.8 237.0C123.2 238.4 121.9 240.6 121.4 240.4C120.9 240.2 120.0 239.2 120.9 236.0C121.8 232.8 125.3 225.9 126.7 221.4C128.2 216.8 129.2 215.2 129.7 208.7C130.2 202.2 129.8 186.8 129.7 182.3C129.5 177.7 129.0 183.4 128.7 181.3C128.4 179.2 128.4 173.3 127.7 169.6C127.1 165.8 125.3 161.5 124.8 158.8C124.3 156.2 124.1 155.8 124.8 154.0C125.4 152.2 127.8 149.2 128.7 148.1Z", "M145.3 144.2C145.6 136.7 146.9 138.2 147.3 144.2C147.6 150.2 147.4 174.2 147.3 180.3C147.1 186.5 146.6 177.9 146.3 181.3C146.0 184.7 145.6 197.4 145.3 200.8C145.0 204.3 144.8 199.1 144.3 201.8C143.8 204.6 144.0 210.0 142.4 217.5C140.7 224.9 135.9 241.2 134.6 246.8C133.3 252.3 134.8 249.4 134.6 250.7C134.3 251.9 133.8 253.5 133.1 254.1C132.4 254.7 130.7 254.8 130.2 254.1C129.6 253.3 129.6 251.1 129.7 249.7C129.8 248.3 129.0 250.7 130.7 245.8C132.3 240.9 137.3 227.4 139.4 220.4C141.6 213.4 142.7 207.4 143.3 203.8C144.0 200.2 143.2 199.9 143.3 198.9C143.5 197.9 144.2 199.4 144.3 197.9C144.5 196.5 144.2 191.6 144.3 190.1C144.5 188.6 145.1 196.8 145.3 189.1C145.5 181.5 145.0 151.7 145.3 144.2Z", "M139.4 144.2C139.9 144.0 141.1 143.2 141.4 144.2C141.7 145.2 141.2 148.9 141.4 150.1C141.6 151.2 142.2 144.5 142.4 151.0C142.5 157.5 142.5 182.6 142.4 189.1C142.2 195.6 141.6 188.8 141.4 190.1C141.2 191.4 142.2 192.4 141.4 196.9C140.6 201.5 138.3 211.6 136.5 217.5C134.7 223.3 132.1 227.7 130.7 232.1C129.2 236.5 128.5 241.5 127.7 243.8C127.0 246.2 126.8 245.9 126.3 246.3C125.7 246.7 124.7 246.7 124.3 246.3C123.9 245.9 122.8 246.8 123.8 243.8C124.9 240.8 128.2 235.4 130.7 228.2C133.1 221.0 137.2 206.4 138.5 200.8C139.8 195.3 138.3 196.1 138.5 195.0C138.6 193.8 139.4 202.3 139.4 194.0C139.4 185.7 138.5 153.5 138.5 145.2C138.5 136.9 139.0 144.4 139.4 144.2Z", "M90.6 163.7C92.8 158.0 91.6 163.1 92.1 163.2C92.6 163.4 95.2 159.4 93.5 164.7C91.8 170.0 84.3 187.8 81.8 195.0C79.4 202.2 79.4 204.8 78.9 207.7C78.4 210.6 79.0 211.6 78.9 212.6C78.7 213.5 78.2 208.8 77.9 213.5C77.6 218.3 76.9 236.2 76.9 240.9C76.9 245.6 77.6 238.0 77.9 241.9C78.2 245.8 79.1 260.3 78.9 264.3C78.6 268.3 77.1 266.3 76.4 265.8C75.8 265.3 75.2 264.4 75.0 261.4C74.7 258.4 75.1 250.2 75.0 247.7C74.8 245.3 74.2 249.7 74.0 246.8C73.8 243.8 73.8 233.1 74.0 230.2C74.2 227.2 74.7 232.4 75.0 229.2C75.3 225.9 75.3 215.8 76.0 210.6C76.6 205.4 76.4 205.7 78.9 197.9C81.3 190.1 88.4 169.5 90.6 163.7Z", "M166.8 153.0C166.9 150.3 168.1 152.0 169.2 152.5C170.4 153.0 172.7 154.0 173.6 155.9C174.5 157.8 174.0 161.1 174.6 163.7C175.3 166.3 175.6 164.4 177.5 171.5C179.5 178.7 184.5 197.1 186.3 206.7C188.1 216.3 187.8 225.3 188.3 229.2C188.8 233.1 189.1 227.7 189.3 230.2C189.4 232.6 189.7 240.6 189.3 243.8C188.8 247.1 187.5 248.0 186.3 249.7C185.1 251.4 182.9 253.9 181.9 254.1C181.0 254.2 181.2 258.6 180.5 250.7C179.7 242.8 178.2 214.2 177.5 206.7C176.9 199.2 177.0 208.5 176.6 205.7C176.1 203.0 175.9 196.3 174.6 190.1C173.3 183.9 170.0 174.8 168.7 168.6C167.4 162.4 166.7 155.7 166.8 153.0Z", "M178.5 161.8C177.0 155.9 180.8 162.9 182.4 164.7C184.0 166.5 186.0 168.8 188.3 172.5C190.6 176.3 194.5 183.8 196.1 187.2C197.7 190.6 197.6 190.8 198.0 193.0C198.5 195.3 198.7 199.4 199.0 200.8C199.3 202.3 199.8 199.4 200.0 201.8C200.2 204.3 200.6 211.3 200.0 215.5C199.4 219.7 198.0 229.3 196.6 226.7C195.1 224.1 194.2 210.7 191.2 199.9C188.2 189.0 180.0 167.6 178.5 161.8Z", "M111.1 190.1C111.3 188.5 111.9 188.6 113.1 191.1C114.2 193.5 117.1 201.0 118.0 204.8C118.8 208.5 118.4 210.4 118.0 213.5C117.5 216.7 116.2 222.7 115.5 223.8C114.9 224.9 114.5 224.0 114.0 220.4C113.6 216.7 113.4 205.1 113.1 201.8C112.7 198.6 112.4 202.8 112.1 200.8C111.8 198.9 111.0 191.7 111.1 190.1Z"];
+const svg=new SVGLoader().parse(`<svg xmlns="http://www.w3.org/2000/svg">${LOGO.map(d=>`<path d="${d}"/>`).join('')}</svg>`);
+const logo=new THREE.Group();const stripes=[];
+const bb=new THREE.Box2();svg.paths.forEach(p=>p.subPaths.forEach(sp=>sp.getPoints().forEach(pt=>bb.expandByPoint(pt))));
+const c=bb.getCenter(new THREE.Vector2()),sz=bb.getSize(new THREE.Vector2()),S=4/sz.y;
+svg.paths.forEach(p=>SVGLoader.createShapes(p).forEach(shape=>{
+  const pts=shape.getPoints();const cx=pts.reduce((a,q)=>a+q.x,0)/pts.length;const nx=(cx-bb.min.x)/sz.x;
+  const depth=(.16+.2*Math.sin(nx*Math.PI))/S;
+  const g=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:false,curveSegments:24});
+  g.translate(-c.x,-c.y,-depth/2);g.scale(S,-S,S);
+  const m=outline(new THREE.Mesh(g,mWhite),35);m.userData.nx=nx;logo.add(m);stripes.push(m)}));
+stripes.sort((a,b)=>a.userData.nx-b.userData.nx);
+const logoHold=new THREE.Group();logo.position.y=2.25;logoHold.add(logo);
+const plinth=new THREE.Group();
+[[2.5,.3,0],[2,.3,.3]].forEach(([r,h,y])=>{const d=outline(new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,72),mWhite),40);d.position.y=y+h/2;plinth.add(d);
+  const v=[];for(let i=0;i<96;i++){const a=i/96*Math.PI*2,x=Math.cos(a)*r*1.002,z=Math.sin(a)*r*1.002;v.push(x,-h/2,z,x,h/2,z)}
+  const hg=new THREE.BufferGeometry();hg.setAttribute('position',new THREE.Float32BufferAttribute(v,3));d.add(new THREE.LineSegments(hg,faintMat))});
+plinth.add(seg(Array.from({length:97},(_,i)=>{const a=i/96*Math.PI*2;return new THREE.Vector3(Math.cos(a)*3.5,.01,Math.sin(a)*3.5)})));
+logoHold.position.y=.6;
+const center=new THREE.Group();center.add(plinth,logoHold);
+add(center,{at:new THREE.Vector3(0,0,0),delay:0});
+
+// rounded rectangle path (centered), used for rounded solids and rounded trace lines
+const rrPts=(w,h,r,n=8)=>{const pts=[],hw=w/2,hh=h/2;[[hw-r,hh-r,0],[-hw+r,hh-r,1],[-hw+r,-hh+r,2],[hw-r,-hh+r,3]].forEach(([cx,cy,q])=>{for(let i=0;i<=n;i++){const a=(q+i/n)*Math.PI/2;pts.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}});pts.push(pts[0]);return pts};
+// rounded slab: rounded rect w×h in XY, thickness t along +Z (centered); crisp outline + corner silhouettes
+function rslab(w,h,t,r){const sh=new THREE.Shape(rrPts(w,h,r).slice(0,-1).map(([x,y])=>new THREE.Vector2(x,y)));
+  const g=new THREE.ExtrudeGeometry(sh,{depth:t,bevelEnabled:false,curveSegments:12});g.translate(0,0,-t/2);
+  const m=outline(new THREE.Mesh(g,mWhite),30);const v=[],hw=w/2-r,hh=h/2-r;
+  [[hw,hh,1],[-hw,hh,1],[-hw,-hh,-1],[hw,-hh,-1],[hw,hh,-1],[-hw,hh,-1],[-hw,-hh,1],[hw,-hh,1]].forEach(([cx,cy,sx],i)=>{const a=Math.PI/4+Math.floor(i%4)*Math.PI/2;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;if(i<4)v.push(x,y,-t/2,x,y,t/2)});
+  const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.Float32BufferAttribute(v,3));m.add(new THREE.LineSegments(sg,lineMat));return m}
+// 2 · Open laptop (traced product drawing)
+// flat line helpers: rectangles, polylines and circles drawn on a plane (xy = screen, xz = deck)
+const L2=(pts,plane)=>{const v=pts.map(([a,b])=>plane==='xz'?new THREE.Vector3(a,0,b):new THREE.Vector3(a,b,0));return new THREE.Line(new THREE.BufferGeometry().setFromPoints(v),lineMat)};
+const R2=(x,y,w,h,plane)=>L2([[x,y],[x+w,y],[x+w,y+h],[x,y+h],[x,y]],plane);
+const RR2=(cx,cy,w,h,r,plane)=>L2(rrPts(w,h,r).map(([a,b])=>[cx+a,cy+b]),plane);
+const C2=(x,y,r,plane,n=24)=>L2(Array.from({length:n+1},(_,i)=>{const a=i/n*Math.PI*2;return [x+Math.cos(a)*r,y+Math.sin(a)*r]}),plane);
+const laptop=new THREE.Group();
+{const lb=rslab(3,2,.1,.16);lb.rotation.x=-Math.PI/2;lb.position.y=.05;laptop.add(lb)}
+const deck=new THREE.Group();deck.position.y=.102;laptop.add(deck);
+// keyboard well + key grid (rows × columns), spacebar row
+const kx=-1.25,kz=-.9,kw=2.5,kr=.2;
+deck.add(RR2(kx+kw/2,kz+kr*2.5,kw,kr*5,.06,'xz'));
+for(let r=1;r<5;r++)deck.add(L2([[kx,kz+r*kr],[kx+kw,kz+r*kr]],'xz'));
+for(let r=0;r<4;r++){const off=(r%2)*.1;for(let c=1;c<12;c++){const x=kx+off+c*(kw/12);if(x<kx+kw-.02)deck.add(L2([[x,kz+r*kr],[x,kz+(r+1)*kr]],'xz'))}}
+[-.55,.55,-.85,.85].forEach(x=>deck.add(L2([[x,kz+4*kr],[x,kz+5*kr]],'xz')));
+deck.add(RR2(0,.555,1,.55,.07,'xz'));
+deck.add(L2([[-.2,.999],[-.2,.95],[.2,.95],[.2,.999]],'xz'));
+// lid
+const hinge=new THREE.Group();hinge.position.set(0,.1,-1);laptop.add(hinge);
+const lid=rslab(3,1.9,.06,.14);lid.position.y=.95;hinge.add(lid);
+const scr=new THREE.Group();scr.position.set(0,.95,.032);hinge.add(scr);
+scr.add(RR2(0,-.02,2.76,1.6,.06,'xy'));
+scr.add(C2(0,.88,.018,'xy',12));
+// website wireframe on the screen
+scr.add(L2([[-1.38,.6],[1.38,.6]],'xy'));
+[-1.28,-1.2,-1.12].forEach(x=>scr.add(C2(x,.7,.025,'xy',12)));
+scr.add(R2(-.6,.65,1.2,.1,'xy'));
+scr.add(L2([[-1.2,.38],[-.15,.38]],'xy'));scr.add(L2([[-1.2,.26],[-.35,.26]],'xy'));
+scr.add(L2([[-1.2,.1],[-.45,.1]],'xy'));scr.add(L2([[-1.2,.03],[-.6,.03]],'xy'));
+scr.add(R2(-1.2,-.2,.42,.13,'xy'));
+scr.add(R2(.1,-.25,1.1,.7,'xy'));scr.add(L2([[.1,-.25],[1.2,.45]],'xy'));scr.add(L2([[.1,.45],[1.2,-.25]],'xy'));
+[-1.2,-.4,.4].forEach(x=>scr.add(R2(x,-.72,.72,.34,'xy')));
+hinge.rotation.x=-.26;
+add(laptop,{at:new THREE.Vector3(-6.5,0,0),delay:.35});
+
+// 3 · Phone — rounded handset leaning on a rounded dock, app UI traced on the screen
+const phone=new THREE.Group();
+const dock=rslab(1.5,1,.12,.2);dock.rotation.x=-Math.PI/2;dock.position.y=.06;phone.add(dock);
+{const groove=RR2(0,-.12,1.25,.25,.08,'xy');groove.position.z=.061;dock.add(groove)}
+const ph=new THREE.Group();ph.position.set(0,.12,.12);ph.rotation.x=-.14;phone.add(ph);
+const hand=rslab(1.05,2.15,.1,.2);hand.position.y=1.075;ph.add(hand);
+const ps=new THREE.Group();ps.position.set(0,1.075,.052);ph.add(ps);
+ps.add(RR2(0,0,.93,2.03,.15,'xy'));
+ps.add(RR2(0,.9,.26,.075,.037,'xy'));
+ps.add(L2([[-.38,.9],[-.28,.9]],'xy'));ps.add(R2(.26,.88,.1,.04,'xy'));
+ps.add(L2([[-.36,.7],[.05,.7]],'xy'));
+// scrolling feed: cards and list rows move up and fade at the screen edges
+const FEED_TOP=.6,FEED_BOT=-.68;
+const fl=(g,m,pts)=>g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts.map(([x,y])=>new THREE.Vector3(x,y,0))),m));
+const feedItems=[];let feedLen=0;
+['card','row','row','card','row','row'].forEach(kind=>{
+  const g=new THREE.Group(),m=new THREE.LineBasicMaterial({color:GRAY,transparent:true});const h=kind==='card'?.46:.22;
+  if(kind==='card'){fl(g,m,rrPts(.72,.42,.05));fl(g,m,[[-.36,-.21],[.36,.21]]);fl(g,m,[[-.36,.21],[.36,-.21]])}
+  else{fl(g,m,Array.from({length:17},(_,i)=>{const a=i/16*Math.PI*2;return [-.27+Math.cos(a)*.07,Math.sin(a)*.07]}));fl(g,m,[[-.14,.03],[.3,.03]]);fl(g,m,[[-.14,-.04],[.12,-.04]])}
+  g.userData={off:feedLen+h/2,h,m};feedLen+=h+.08;ps.add(g);feedItems.push(g)});
+const tabMark=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-.05,-.885,0),new THREE.Vector3(.05,-.885,0)]),lineMat);ps.add(tabMark);
+ps.add(L2([[-.465,-.72],[.465,-.72]],'xy'));
+[-.3,-.1,.1,.3].forEach(x=>ps.add(C2(x,-.82,.04,'xy',12)));
+ps.add(L2([[-.14,-.96],[.14,-.96]],'xy'));
+// side buttons on the right edge
+[[.4,.2],[.12,.12]].forEach(([y,l])=>{const b=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(.526,1.075+y,-.02),new THREE.Vector3(.526,1.075+y-l,-.02)]),lineMat);ph.add(b)});
+add(phone,{at:new THREE.Vector3(0,0,-5.5),delay:.5});
+
+
+// 5 · Growth steps (bars rising left→right)
+const bars=new THREE.Group();const barM=[];
+for(let i=0;i<5;i++){const b=box(.5,1,1);b.position.set(-1.25+i*.5,0,0);bars.add(b);barM.push(b)}
+add(bars,{at:new THREE.Vector3(5.5,0,0),delay:.8});
+
+// 6 · Code editor window standing on a small foot; code types itself out
+const editor=new THREE.Group();
+const foot=rslab(1,.6,.06,.1);foot.rotation.x=-Math.PI/2;foot.position.y=.03;editor.add(foot);
+const EW=2.5,EH=1.75,EY=.06+EH/2;
+const win=rslab(EW,EH,.08,.12);win.position.y=EY;editor.add(win);
+const ed=new THREE.Group();ed.position.set(0,EY,.042);editor.add(ed);
+ed.add(L2([[-1.25,.6],[1.25,.6]],'xy'));
+[-1.1,-1,-.9].forEach(x=>ed.add(C2(x,.74,.03,'xy',12)));
+ed.add(RR2(-.47,.7,.56,.2,.03,'xy'));ed.add(RR2(.13,.7,.5,.2,.03,'xy'));
+ed.add(L2([[-.95,.6],[-.95,-.875]],'xy'));
+const codeRows=[[0,[.35,.5]],[1,[.3,.25,.4]],[2,[.55]],[2,[.25,.35]],[1,[.2]],[0,[.15]],[0,[]],[0,[.4,.3]],[1,[.5,.2]],[0,[.15]]];
+const segs=[];let typedLen=0;
+codeRows.forEach(([ind,parts],r)=>{const y=.45-r*.135;ed.add(L2([[-1.13,y],[-1.03,y]],'xy'));
+  let x=-.85+ind*.15;parts.forEach(len=>{const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,y,0),new THREE.Vector3(x,y,0)]);
+    const l=new THREE.Line(g,lineMat);ed.add(l);segs.push({l,x,y,len,at:typedLen});typedLen+=len;x+=len+.06});typedLen+=.25});
+const caret=L2([[0,-.05],[0,.05]],'xy');ed.add(caret);
+add(editor,{at:new THREE.Vector3(0,0,6),delay:.95});
+
+// 7 · Extruded cursor hovering the laptop screen, tapping the button
+const arrow=new THREE.Shape([[0,0],[0,-1.1],[.3,-.82],[.52,-1.3],[.68,-1.22],[.47,-.76],[.86,-.76]].map(p=>new THREE.Vector2(...p)));
+const cg=new THREE.ExtrudeGeometry(arrow,{depth:.14,bevelEnabled:false});
+const cursor=outline(new THREE.Mesh(cg,mWhite),20);cursor.scale.setScalar(.34);
+cursor.position.set(-.93,-.15,.2);scr.add(cursor);
+
+// traced circuit paths on the floor (right-angle runs) + travelling points
+
+// front objects are static so their outline never moves
+barM.forEach((b,i)=>{const h=.7+.3*i;b.scale.y=h;b.position.y=h/2});
+// equal visible traces: the two objects in front of the ring would hide part of their trace,
+// so push each one out until its silhouette meets the trace end exactly (orthographic ray test)
+{const toCam=camera.position.clone().sub(LOOK).normalize(),rc=new THREE.Raycaster();
+  const hides=(obj,p)=>{rc.set(p.clone().addScaledVector(toCam,.01),toCam);return rc.intersectObject(obj,true).some(h=>h.object.isMesh)};
+  [[editor,'z'],[bars,'x']].forEach(([obj,ax])=>{obj.scale.setScalar(1);const end=new THREE.Vector3(0,.015,0);end[ax]=5;
+    let lo=obj.position[ax],hi=lo+8;for(let k=0;k<32;k++){const mid=(lo+hi)/2;obj.position[ax]=mid;obj.updateMatrixWorld(true);if(hides(obj,end))lo=mid;else hi=mid}
+    obj.position[ax]=obj.userData.base[ax]=hi+.004;obj.scale.setScalar(.0001)})}
+
+// traces follow the floor grid: world x/z, right angles, snapped to 0.5
+const run=(...pts)=>pts.map(([x,z])=>new THREE.Vector3(x,.015,z));
+const traces=[
+  // one straight run per side, all the same length (ring r=3.5 → object edge at 5)
+  run([0,3.5],[0,editor.position.z-.3]),  // front: runs on behind the editor to its foot's real edge
+  run([-3.5,0],[-5,0]),
+  run([0,-3.5],[0,-5]),
+  run([3.5,0],[bars.position.x-1.5,0]), // front: runs on behind the first bar to its real face (hidden past x=5)
+];
+const traceCurves=traces.map(pts=>new THREE.CurvePath());
+traces.forEach((pts,i)=>{for(let k=0;k<pts.length-1;k++)traceCurves[i].add(new THREE.LineCurve3(pts[k],pts[k+1]))});
+const traceLines=traces.map(pts=>{const l=seg(pts);world.add(l);return l});
+const dotMat=new THREE.MeshBasicMaterial({color:GRAY});
+const nodes=[];traces.forEach(pts=>[pts[0],pts[pts.length-1]].forEach(p=>{const n=new THREE.Mesh(new THREE.SphereGeometry(.06,10,8),dotMat);n.position.copy(p);world.add(n);nodes.push(n)}));
+const DOT_SPEED=1.8;const traceLens=traceCurves.map(c=>c.getLength()),LOOP=Math.max(...traceLens);
+const dots=traceCurves.map(()=>{const d=new THREE.Mesh(new THREE.SphereGeometry(.07,12,8),dotMat);world.add(d);return d});
+
+function fit(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w)return;renderer.setSize(w,h,false);
+  const aspect=w/h,needW=19,needH=9.6;const halfH=Math.max(needH/2,needW/2/aspect);
+  Object.assign(camera,{left:-halfH*aspect,right:halfH*aspect,top:halfH,bottom:-halfH});camera.updateProjectionMatrix()}
+new ResizeObserver(fit).observe(canvas);fit();
+
+const back=x=>{const c=1.3;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const prog=(el,d,len=.8)=>Math.min(1,Math.max(0,(el-d)/len));
+let last=0,clock=0,visible=false,raf=0;
+function frame(now){
+  const dt=Math.min(.05,(now-(last||now))/1000);last=now;if(!reduce)clock+=dt;const t=clock;
+  const el=99; // no entrance: everything is in place from the first frame
+  floor.material.uniforms.uIn.value=prog(el,0,1.2);
+  for(const o of items){const u=o.userData,k=prog(el,u.delay);o.scale.setScalar(k<=0?.0001:back(k));o.position.y=u.base.y+Math.sin(t*1.1+u.delay*5)*u.amp}
+  // logo: slow turn so its depth reads, stripes ripple forward in sequence
+  stripes.forEach((s,i)=>{s.position.z=.07*Math.sin(t*1.4-i*.55)});
+  logo.position.y=2.25+Math.sin(t*.9)*.06;
+  
+  traceLines.forEach((l,i)=>l.geometry.setDrawRange(0,Math.ceil(traces[i].length*prog(el,1.1+i*.12,.6))));
+  // same speed on every trace: distance per second, not fraction of the path
+  {const dist=(t*DOT_SPEED)%LOOP;dots.forEach((d,i)=>{const L=traceLens[i];d.visible=dist<=L;if(d.visible)d.position.copy(traceCurves[i].getPointAt(dist/L))})}
+  {const ph=(t%2.4)/2.4,tap=ph>.8?Math.sin((ph-.8)/.2*Math.PI):0;cursor.position.z=.2-.16*tap;cursor.position.x=-.93+.05*Math.sin(t*.8)}
+  barM.forEach((b,i)=>{const h=.7+.3*i+.25*Math.sin(t*1.6-i*.7);b.scale.y=h;b.position.y=h/2});
+  // phone: feed scrolls, items fade in/out at the edges; active-tab mark hops every 2.4s
+  {const sc=t*.22;feedItems.forEach(g=>{const u=g.userData;const y=FEED_TOP-((u.off-sc)%feedLen+feedLen)%feedLen;g.position.y=y;
+      const top=y+u.h/2,bot=y-u.h/2;const vis=Math.min(1,(FEED_TOP-top)/.15,(bot-FEED_BOT)/.15);
+      u.m.opacity=Math.max(0,Math.min(1,vis));g.visible=u.m.opacity>0.01});
+    const tab=Math.floor(t/2.4)%4,tx=-.3+tab*.2;tabMark.position.x+=(tx-tabMark.position.x)*.2}
+  // editor: code types out over 4.5s, holds 1.5s, loops; caret follows and blinks
+  {const cyc=t%6,typed=Math.min(typedLen,cyc/4.5*typedLen);let cx=-.85,cy=.45;
+    segs.forEach(sg=>{const v=Math.max(0,Math.min(sg.len,typed-sg.at));const a=sg.l.geometry.attributes.position;a.setX(1,sg.x+v);a.needsUpdate=true;sg.l.visible=v>0;
+      if(typed>=sg.at){cx=sg.x+v;cy=sg.y}});
+    caret.position.set(cx+.04,cy,0);caret.visible=typed<typedLen||Math.floor(t*2.2)%2===0}
+  renderer.render(scene,camera);
+  raf=(visible&&!reduce)?requestAnimationFrame(frame):0;
 }
-let currentTab='strategy';
-
-function renderLeft(d,animate){
-  leftLabel.textContent=d.label;
-  if(animate)slotAnimate(leftPrice,d.price);else leftPrice.textContent=d.price;
-  leftFeatures.innerHTML=d.features.map(f=>'<li>'+CHK+f+'</li>').join('');
-}
-
-document.querySelectorAll('.pricing-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.pricing-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    currentTab=tab.textContent.trim().toLowerCase();
-    const d=pricingData[currentTab];
-    if(d&&leftLabel&&leftPrice&&leftFeatures)renderLeft(d,true);
-  });
-});
-
+new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible&&!raf){last=0;raf=requestAnimationFrame(frame)}},{threshold:.1}).observe(canvas);
 </script>
 </body>
 </html>
