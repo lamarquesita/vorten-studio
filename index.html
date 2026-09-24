@@ -29,18 +29,15 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 /* ─── HEADER ─── */
 header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:999;display:flex;gap:0.875rem;align-items:center}
 .logo{width:2.75rem;height:2.75rem;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:box-shadow .3s;overflow:hidden}
-.logo:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .logo svg{width:1.375rem;height:1.375rem}
 .nav-pill{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:all .3s}
-.nav-pill:hover{color:var(--dark);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.nav-pill:hover{color:var(--dark)}
 .nav-pill-strong{font-weight:700;color:var(--dark)}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
 .btn-dark{background:var(--dark);color:var(--white)}
-.btn-dark:hover{background:#37604D}
 .btn-light{background:var(--white);color:var(--dark)}
-.btn-light:hover{background:#f0f0f0}
 .btn svg{width:0.9375rem;height:0.9375rem;flex-shrink:0}
 .btn-dark{overflow:hidden}
 .btn-dark{overflow:hidden}
@@ -100,9 +97,8 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .service-card{background:#405E4F;border-radius:20px;padding:1.125rem 1.75rem 1.375rem;text-align:left;display:flex;flex-direction:column;gap:1.875rem;grid-column:span 3}
 .service-card.span-2{grid-column:span 2}
 .service-card h3{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--white)}
-.service-visual{position:relative;aspect-ratio:3.6/1;border-radius:14px;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.5px);background-size:20px 20px;background-position:center;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.service-visual::before{content:'';position:absolute;inset:8%;border:1px dashed rgba(255,255,255,.18);border-radius:12px;transform:rotate(2.5deg)}
-.service-visual svg{width:3.5rem;height:3.5rem;color:rgba(255,255,255,.9);position:relative;z-index:1}
+.service-visual{position:relative;height:13rem;margin:0 -1.75rem}
+.service-visual canvas{display:block;width:100%;height:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 82%,transparent 100%)}
 .service-card p{font-size:14px;font-weight:500;line-height:22px;color:#A1A5A3}
 .service-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:auto}
 .service-tags span{background:var(--dark);border-radius:9999px;padding:0.1875rem 0.75rem;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white)}
@@ -177,7 +173,8 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%);
   mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%)}
 .cta-scene{max-width:78rem;margin:-1rem auto 0;color:var(--dark);pointer-events:none;position:relative;z-index:1}
-#cta3d{display:block;width:100%;aspect-ratio:16/7;touch-action:pan-y}
+.cta-scene{aspect-ratio:16/7}
+#cta3d{position:absolute;left:0;width:100%;bottom:0;display:block;z-index:0;pointer-events:none}
 .cta-scene.no-webgl{display:none}
 {to{background-position:0 40px,0 40px}}
 @media(prefers-reduced-motion:reduce){
@@ -240,31 +237,31 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
     <div class="services-grid">
       <div class="service-card span-2">
         <h3>MVP Development</h3>
-        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c2.5 1.8 4 4.8 4 8.2 0 2-.6 3.8-1.5 5.3L12 18l-2.5-2c-.9-1.5-1.5-3.3-1.5-5.3 0-3.4 1.5-6.4 4-8.2Z"/><path d="M9.5 15.5 7 18l-1 3.5L9.5 20M14.5 15.5 17 18l1 3.5-3.5-1.5"/><circle cx="12" cy="10" r="1.75"/></svg></div>
+        <div class="service-visual"><canvas class="svc3d" data-svc="mvp" aria-hidden="true"></canvas></div>
         <p>Got an idea but don't know where to start? We help you define the core features, cut what isn't needed yet, and design and build a first version real users can try. You get a working product fast, plus a clear plan for what comes after launch.</p>
         <div class="service-tags"><span>Figma</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>AWS</span><span>Scoping</span><span>Rapid Prototyping</span><span>Launch Planning</span></div>
       </div>
       <div class="service-card span-2">
         <h3>Web &amp; Mobile Apps</h3>
-        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="14" height="10" rx="1.5"/><path d="M7 18h5"/><rect x="15.5" y="8.5" width="6" height="11" rx="1.5"/><path d="M18.5 17h.01"/></svg></div>
+        <div class="service-visual"><canvas class="svc3d" data-svc="apps" aria-hidden="true"></canvas></div>
         <p>We design and build custom web and mobile apps that fit your business, not a template. From dashboards and marketplaces to customer-facing apps, our team handles the full build. Everything is set up to grow as your users and features grow.</p>
         <div class="service-tags"><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Node.js</span><span>PostgreSQL</span><span>AWS</span><span>APIs &amp; Integrations</span><span>Scalable Architecture</span></div>
       </div>
       <div class="service-card span-2">
         <h3>Product Design</h3>
-        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 4v5"/></svg></div>
+        <div class="service-visual"><canvas class="svc3d" data-svc="design" aria-hidden="true"></canvas></div>
         <p>Good design is how people decide whether to trust your product. We handle UX and UI, from user flows and wireframes to polished interfaces, so your product is easy to use and looks the part. We test with real users before anything goes to development.</p>
         <div class="service-tags"><span>Figma</span><span>Adobe Creative Suite</span><span>Framer</span><span>Protopie</span><span>Design Systems</span><span>User Flows</span><span>Interactive Prototypes</span><span>Usability Testing</span></div>
       </div>
       <div class="service-card span-3">
         <h3>Product Strategy</h3>
-        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M4.2 7l3.4 2M16.4 15l3.4 2M4.2 17l3.4-2M16.4 9l3.4-2"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <div class="service-visual"><canvas class="svc3d" data-svc="strategy" aria-hidden="true"></canvas></div>
         <p>We help you get clear on who you're building for, what problem you're solving, and what to build first. We talk to your users, study your competitors, and find where the real opportunity is. Then we turn it into a roadmap your team can actually follow.</p>
         <div class="service-tags"><span>Jira</span><span>Confluence</span><span>Miro</span><span>Productboard</span><span>User Research</span><span>Roadmapping</span><span>Product Specs</span><span>Go-to-Market</span></div>
       </div>
       <div class="service-card span-3">
         <h3>Product Audits &amp; Redesigns</h3>
-        <div class="service-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
+        <div class="service-visual"><canvas class="svc3d" data-svc="audit" aria-hidden="true"></canvas></div>
         <p>Already have a product that isn't performing? We dig into your analytics, user feedback, and flows to find what's holding it back. You get a prioritized plan for what to fix, and our team can handle the redesign and development to get it done.</p>
         <div class="service-tags"><span>Amplitude</span><span>Mixpanel</span><span>FullStory</span><span>Optimizely</span><span>UX Audits</span><span>Funnel Analysis</span><span>A/B Testing</span><span>Conversion Optimization</span></div>
       </div>
@@ -411,10 +408,12 @@ import * as THREE from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
 const canvas=document.getElementById('cta3d');
+const holder=canvas.parentElement,wrapEl=document.querySelector('.cta-wrap');
 let renderer;
 try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true})}catch(e){canvas.parentElement.classList.add('no-webgl');throw e}
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.outputColorSpace=THREE.SRGBColorSpace;
+wrapEl.prepend(canvas); // grid runs to the bottom of the page; the illustration stays framed in .cta-scene
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const GRAY=0x787B79;
 
@@ -436,14 +435,14 @@ const seg=(pts,mat=dashMat())=>{const l=new THREE.Line(new THREE.BufferGeometry(
 
 
 // grid floor
-const floor=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.ShaderMaterial({transparent:true,depthWrite:false,
-  uniforms:{uIn:{value:0}},
-  vertexShader:`varying vec2 vP;void main(){vP=(modelMatrix*vec4(position,1.)).xz;gl_Position=projectionMatrix*viewMatrix*modelMatrix*vec4(position,1.);}`,
-  fragmentShader:`varying vec2 vP;uniform float uIn;
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+  uniforms:{uIn:{value:0},uRes:{value:new THREE.Vector2(1,1)},uTop:{value:140}},
+  vertexShader:`varying vec2 vP;void main(){vP=position.xy;gl_Position=projectionMatrix*viewMatrix*modelMatrix*vec4(position,1.);}`,
+  fragmentShader:`varying vec2 vP;uniform float uIn;uniform vec2 uRes;uniform float uTop;
     float grid(vec2 p,float s){vec2 g=abs(fract(p/s-.5)-.5)/fwidth(p/s);return 1.-min(min(g.x,g.y),1.);}
-    void main(){float fade=smoothstep(14.,3.,length(vP))*uIn;
+    void main(){vec2 f=gl_FragCoord.xy;float fade=smoothstep(0.,uTop,uRes.y-f.y)*smoothstep(0.,.14,f.x/uRes.x)*smoothstep(0.,.14,1.-f.x/uRes.x)*uIn;
       float a=grid(vP,.25)*.075+grid(vP,1.)*.14;gl_FragColor=vec4(vec3(.47,.48,.475),a*fade);}`}));
-floor.rotation.x=-Math.PI/2;world.add(floor);
+floor.rotation.x=-Math.PI/2;scene.add(floor); // outside `world`, so the grid doesn't breathe
 
 const items=[];
 function add(obj,{at,delay=0,amp=0}={}){obj.position.copy(at);obj.userData={base:at.clone(),delay,amp};obj.scale.setScalar(.0001);world.add(obj);items.push(obj);return obj}
@@ -601,10 +600,16 @@ const nodes=[];traces.forEach(pts=>[pts[0],pts[pts.length-1]].forEach(p=>{const 
 const DOT_SPEED=1.8;const traceLens=traceCurves.map(c=>c.getLength()),LOOP=Math.max(...traceLens);
 const dots=traceCurves.map(()=>{const d=new THREE.Mesh(new THREE.SphereGeometry(.07,12,8),dotMat);world.add(d);return d});
 
-function fit(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w)return;renderer.setSize(w,h,false);
-  const aspect=w/h,needW=19,needH=9.6;const halfH=Math.max(needH/2,needW/2/aspect);
-  Object.assign(camera,{left:-halfH*aspect,right:halfH*aspect,top:halfH,bottom:-halfH});camera.updateProjectionMatrix()}
-new ResizeObserver(fit).observe(canvas);fit();
+// canvas covers from the illustration box to the bottom of the section; the ortho frustum is offset so the
+// illustration frames inside .cta-scene exactly as before, and the extra canvas below just shows more floor
+function fit(){const wr=wrapEl.getBoundingClientRect(),hr=holder.getBoundingClientRect();if(!hr.width)return;
+  const top=hr.top-wr.top,Wc=wr.width,Hc=wr.height-top;if(Hc<=0)return;
+  canvas.style.top=top+'px';renderer.setSize(Wc,Hc,false);
+  const aspect=hr.width/hr.height,needW=19,needH=9.6,halfH=Math.max(needH/2,needW/2/aspect),u=2*halfH/hr.height;
+  const pcx=hr.left-wr.left+hr.width/2,pcy=hr.height/2;
+  Object.assign(camera,{left:-pcx*u,right:(Wc-pcx)*u,top:pcy*u,bottom:-(Hc-pcy)*u});camera.updateProjectionMatrix();
+  const dpr=renderer.getPixelRatio();floor.material.uniforms.uRes.value.set(Wc*dpr,Hc*dpr);floor.material.uniforms.uTop.value=140*dpr}
+new ResizeObserver(fit).observe(holder);new ResizeObserver(fit).observe(wrapEl);fit();
 
 const back=x=>{const c=1.3;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
 const prog=(el,d,len=.8)=>Math.min(1,Math.max(0,(el-d)/len));
@@ -633,10 +638,156 @@ function frame(now){
     segs.forEach(sg=>{const v=Math.max(0,Math.min(sg.len,typed-sg.at));const a=sg.l.geometry.attributes.position;a.setX(1,sg.x+v);a.needsUpdate=true;sg.l.visible=v>0;
       if(typed>=sg.at){cx=sg.x+v;cy=sg.y}});
     caret.position.set(cx+.04,cy,0);caret.visible=typed<typedLen||Math.floor(t*2.2)%2===0}
+  world.scale.setScalar(1+.015*Math.sin(t*1.25)); // breathing, ~5s cycle
   renderer.render(scene,camera);
   raf=(visible&&!reduce)?requestAnimationFrame(frame):0;
 }
 new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible&&!raf){last=0;raf=requestAnimationFrame(frame)}},{threshold:.1}).observe(canvas);
+</script>
+<script type="module">
+// ─── SERVICES: isometric traced illustrations (one small WebGL scene per card) ───
+import * as THREE from 'three';
+const canvases=[...document.querySelectorAll('canvas.svc3d')];
+if(canvases.length){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const INK=0xffffff;
+const LINE=new THREE.LineBasicMaterial({color:INK,transparent:true,opacity:.8});
+const FAINT=new THREE.LineBasicMaterial({color:INK,transparent:true,opacity:.3});
+const DEPTH=new THREE.MeshBasicMaterial({colorWrite:false,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1});
+const dashM=(o=.55)=>new THREE.LineDashedMaterial({color:INK,dashSize:.1,gapSize:.08,transparent:true,opacity:o});
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const line=(pts,m=LINE)=>{const l=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),m);if(m.isLineDashedMaterial)l.computeLineDistances();return l};
+const outline=(mesh,th=30,m=LINE)=>{mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry,th),m));return mesh};
+const box=(w,h,d)=>outline(new THREE.Mesh(new THREE.BoxGeometry(w,h,d),DEPTH));
+const rrPts=(w,h,r,n=8)=>{const p=[],hw=w/2,hh=h/2;[[hw-r,hh-r,0],[-hw+r,hh-r,1],[-hw+r,-hh+r,2],[hw-r,-hh+r,3]].forEach(([cx,cy,q])=>{for(let i=0;i<=n;i++){const a=(q+i/n)*Math.PI/2;p.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}});p.push(p[0]);return p};
+function rslab(w,h,t,r){const sh=new THREE.Shape(rrPts(w,h,r).slice(0,-1).map(([x,y])=>new THREE.Vector2(x,y)));
+  const g=new THREE.ExtrudeGeometry(sh,{depth:t,bevelEnabled:false,curveSegments:12});g.translate(0,0,-t/2);const m=outline(new THREE.Mesh(g,DEPTH));
+  const v=[],hw=w/2-r,hh=h/2-r;[[hw,hh],[-hw,hh],[-hw,-hh],[hw,-hh]].forEach(([cx,cy],i)=>{const a=Math.PI/4+i*Math.PI/2,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;v.push(x,y,-t/2,x,y,t/2)});
+  const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.Float32BufferAttribute(v,3));m.add(new THREE.LineSegments(sg,LINE));return m}
+// 2D drawing on a plane: 'xy' = upright face, 'xz' = flat top
+const P2=(a,b,pl)=>pl==='xz'?V(a,0,b):V(a,b,0);
+const L2=(pts,pl,m=LINE)=>line(pts.map(([a,b])=>P2(a,b,pl)),m);
+const R2=(x,y,w,h,pl,m)=>L2([[x,y],[x+w,y],[x+w,y+h],[x,y+h],[x,y]],pl,m);
+const RR2=(cx,cy,w,h,r,pl,m)=>L2(rrPts(w,h,r).map(([a,b])=>[cx+a,cy+b]),pl,m);
+const C2=(x,y,r,pl,m,n=20)=>L2(Array.from({length:n+1},(_,i)=>{const a=i/n*Math.PI*2;return [x+Math.cos(a)*r,y+Math.sin(a)*r]}),pl,m);
+const flat=(g,y)=>{g.rotation.x=-Math.PI/2;g.position.y=y;return g};
+
+function makeScene(canvas,{needW,needH,lookY=.6}){
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene(),cam=new THREE.OrthographicCamera(-1,1,1,-1,.1,200);cam.position.set(20,16.5+lookY,20);cam.lookAt(0,lookY,0);
+  // two long dashed guide lines through the scene (no grid in the service cards)
+  [[V(-14,0,0),V(14,0,0)],[V(0,0,-14),V(0,0,14)]].forEach(p=>scene.add(line(p,dashM(.22))));
+  const fit=()=>{const w=canvas.clientWidth,h=canvas.clientHeight;if(!w)return;renderer.setSize(w,h,false);const a=w/h,hh=Math.max(needH/2,needW/2/a);
+    Object.assign(cam,{left:-hh*a,right:hh*a,top:hh,bottom:-hh});cam.updateProjectionMatrix()};
+  new ResizeObserver(fit).observe(canvas);fit();
+  return {scene,render:()=>renderer.render(scene,cam),canvas,tick:null,visible:false};
+}
+
+const builders={
+  // MVP: dashed wireframe on the floor → finished app floating above, projection lines between
+  mvp(S){const s=S.scene,W=3,D=2;
+    const sketch=new THREE.Group();s.add(flat(sketch,.01));
+    sketch.add(RR2(0,0,W,D,.12,'xy',dashM()));
+    [[-1.2,.55,1.1,.12],[-1.2,.3,.8,.1],[-1.2,-.05,.7,.22],[.2,-.3,1,.8]].forEach(([x,y,w,h])=>sketch.add(R2(x,-y-h,w,h,'xy',dashM(.45))));
+    const top=new THREE.Group();s.add(top);
+    const slab=rslab(W,D,.08,.12);top.add(flat(slab,0));
+    const ui=new THREE.Group();ui.position.y=.042;top.add(ui);
+    ui.add(L2([[-1.4,-.7],[1.4,-.7]],'xz'));[-1.3,-1.2,-1.1].forEach(x=>ui.add(C2(x,-.82,.035,'xz')));
+    ui.add(L2([[-1.2,-.5],[-.1,-.5]],'xz'));ui.add(L2([[-1.2,-.36],[-.4,-.36]],'xz'));
+    ui.add(RR2(-.85,.05,.7,.22,.1,'xz'));
+    ui.add(R2(.2,-.5,1,.8,'xz'));ui.add(L2([[.2,-.5],[1.2,.3]],'xz'));ui.add(L2([[.2,.3],[1.2,-.5]],'xz'));
+    [-1.3,-.45,.4].forEach(x=>ui.add(R2(x,.5,.75,.3,'xz')));
+    const corners=[[-1.4,-.9],[1.4,-.9],[1.4,.9],[-1.4,.9]];
+    const proj=corners.map(([x,z])=>{const l=line([V(x,.01,z),V(x,1,z)],dashM(.5));s.add(l);return {l,x,z}});
+    corners.forEach(([x,z])=>{const h=box(.09,.03,.09);h.position.set(x,.06,z);top.add(h)});
+    S.tick=t=>{const y=1.45+.12*Math.sin(t*1.2);top.position.y=y;proj.forEach(p=>{const a=p.l.geometry.attributes.position;a.setY(1,y-.04);a.needsUpdate=true;p.l.computeLineDistances()})};
+  },
+  // Web & mobile: browser window with live chart + phone with scrolling feed
+  apps(S){const s=S.scene;
+    const win=new THREE.Group();win.position.set(-.75,1.12,-.35);s.add(win);win.add(rslab(3,2,.08,.12));
+    const f=new THREE.Group();f.position.z=.042;win.add(f);
+    f.add(L2([[-1.5,.72],[1.5,.72]],'xy'));[-1.38,-1.28,-1.18].forEach(x=>f.add(C2(x,.86,.035,'xy')));f.add(RR2(0,.86,1.2,.12,.06,'xy'));
+    f.add(L2([[-.9,.72],[-.9,-1]],'xy'));[.5,.34,.18,.02].forEach((y,i)=>f.add(L2([[-1.35,y],[i%2?-1.1:-1.0,y]],'xy')));
+    f.add(R2(-.75,.1,2.1,.5,'xy'));f.add(L2([[-.65,.45],[.2,.45]],'xy'));f.add(L2([[-.65,.3],[-.1,.3]],'xy'));
+    f.add(L2([[-.75,-.85],[1.35,-.85]],'xy'));
+    const bars=[0,1,2,3,4,5].map(i=>{const b=R2(0,0,.22,1,'xy');b.position.set(-.6+i*.32,-.85,0);f.add(b);return b});
+    const ph=new THREE.Group();ph.position.set(1.95,.98,.95);s.add(ph);ph.add(rslab(.85,1.75,.08,.14));
+    const pf=new THREE.Group();pf.position.z=.042;ph.add(pf);pf.add(RR2(0,0,.73,1.63,.1,'xy'));pf.add(RR2(0,.72,.22,.06,.03,'xy'));
+    const rows=[0,1,2,3,4,5].map(i=>{const m=new THREE.LineBasicMaterial({color:INK,transparent:true,opacity:.8}),g=new THREE.Group();
+      g.add(C2(-.2,0,.06,'xy',m,14));g.add(L2([[-.1,.02],[.25,.02]],'xy',m));g.add(L2([[-.1,-.04],[.1,-.04]],'xy',m));pf.add(g);return {g,m,off:i*.32}});
+    S.tick=t=>{bars.forEach((b,i)=>{b.scale.y=.25+.45*(.5+.5*Math.sin(t*1.5-i*.7))});
+      rows.forEach(r=>{const y=.55-((r.off+t*.18)%1.92);r.g.position.y=y;r.m.opacity=.8*Math.max(0,Math.min(1,(.58-y)/.12,(y+.72)/.12))})};
+  },
+  // Product design: a design-system kit laid out on a clean grid (board 3.6×2.4, 0.3 margins, rows at z −0.6 / 0 / 0.6)
+  design(S){const s=S.scene,TOP=.05,R1=-.6,R2z=0,R3=.6;
+    s.add(flat(rslab(3.6,2.4,TOP,.14),TOP/2));
+    const put=(obj,x,z,h)=>{obj.position.set(x,TOP+h/2,z);s.add(obj);return obj};
+    const onTop=(pts,h=0)=>{const l=line(pts.map(([x,z])=>V(x,TOP+h+.003,z)));s.add(l);return l};
+    // row 1 — button · toggle · checkbox (gaps 0.36)
+    const btn=new THREE.Group();s.add(btn);btn.add(flat(rslab(1.2,.38,.12,.19),0));const bl=new THREE.Group();bl.position.y=.062;btn.add(bl);bl.add(L2([[-.28,0],[.28,0]],'xz'));
+    put(flat(rslab(.72,.34,.1,.17),0),.42,R1,.1);
+    const knob=new THREE.Group();s.add(knob);knob.add(flat(rslab(.26,.26,.12,.13),0));
+    put(box(.36,.1,.36),1.32,R1,.1);
+    const tick=line([V(-.1,0,0),V(-.03,0,.08),V(.11,0,-.09)]);tick.position.set(1.32,TOP+.103,R1);s.add(tick);
+    // row 2 — input · four shade swatches (denser hatching = darker)
+    put(flat(rslab(1.44,.36,.06,.1),0),-.78,R2z,.06);
+    const typed=line([V(0,0,0),V(0,0,0)]);typed.position.set(-1.36,TOP+.063,R2z);s.add(typed);
+    const caret=line([V(0,0,-.1),V(0,0,.1)]);s.add(caret);
+    [0,3,5,8].forEach((n,i)=>{const x=.285+i*.36;put(flat(rslab(.27,.27,.08,.05),0),x,R2z,.08);
+      for(let k=0;k<n;k++){const z=R2z-.1+k*(.2/(n-1||1));onTop([[x-.1,z],[x+.1,z]],.08)}});
+    // row 3 — "Aa" + type scale · slider
+    const type=new THREE.Group();type.rotation.x=-Math.PI/2;type.position.set(-1.5,TOP+.003,R3+.22);type.scale.setScalar(.62);s.add(type);
+    type.add(L2([[0,0],[.22,.6],[.44,0]],'xy'));type.add(L2([[.09,.24],[.35,.24]],'xy'));type.add(C2(.7,.17,.17,'xy',LINE,24));type.add(L2([[.87,.34],[.87,0]],'xy'));
+    [[R3-.14,.62],[R3,.46],[R3+.14,.3]].forEach(([z,w])=>onTop([[-.78,z],[-.78+w,z]]));
+    onTop([[.15,R3],[1.5,R3]]);const fillL=onTop([[.15,R3],[.15,R3]]);
+    const sk=new THREE.Group();s.add(sk);sk.add(flat(rslab(.2,.2,.1,.1),0));
+    S.tick=t=>{
+      const ph=(t%2.6)/2.6,press=ph>.8?Math.sin((ph-.8)/.2*Math.PI):0;btn.position.set(-.9,TOP+.06-.035*press,R1);
+      const c=(t%4)/4,isOn=c>=.5,k=isOn?Math.min(1,(c-.5)/.08):Math.max(0,1-c/.08);knob.position.set(.42-.19+.38*k,TOP+.1+.06,R1);
+      tick.visible=isOn;tick.geometry.setDrawRange(0,isOn?Math.min(3,1+Math.floor((c-.5)/.06)):0);
+      const ty=(t%5)/5,w=Math.min(1,ty/.6);const a=typed.geometry.attributes.position;a.setX(1,w);a.needsUpdate=true;
+      caret.position.set(-1.36+w+.06,TOP+.063,R2z);caret.visible=ty<.6||Math.floor(t*2.4)%2===0;
+      const sx=.3+1.05*(.5+.5*Math.sin(t*.9));sk.position.set(sx,TOP+.05,R3);const fa=fillL.geometry.attributes.position;fa.setX(1,sx);fa.needsUpdate=true};
+  },
+  // Strategy: rising milestones along a dashed route, flag on the last, a dot travelling the route
+  strategy(S){const s=S.scene;
+    const pts=[V(-2.4,0,1.3),V(-.9,0,1.3),V(-.9,0,-.1),V(.6,0,-.1),V(.6,0,-1.5)];
+    for(let i=0;i<pts.length-1;i++)s.add(line([V(pts[i].x,.01,pts[i].z),V(pts[i+1].x,.01,pts[i+1].z)],dashM(.55)));
+    s.add(C2(pts[0].x,pts[0].z,.12,'xz'));
+    const hs=[.35,.7,1.05,1.4];pts.slice(1).forEach((p,i)=>{const b=box(.6,hs[i],.6);b.position.set(p.x,hs[i]/2,p.z);s.add(b)});
+    const top=pts[4],poleY=hs[3];s.add(line([V(top.x,poleY,top.z),V(top.x,poleY+1.1,top.z)]));
+    const flagG=new THREE.BufferGeometry().setFromPoints([V(0,0,0),V(0,0,0),V(0,0,0),V(0,0,0)]);const flag=new THREE.Line(flagG,LINE);flag.position.set(top.x,poleY+1.1,top.z);s.add(flag);
+    const route=new THREE.CurvePath();for(let i=0;i<pts.length-1;i++)route.add(new THREE.LineCurve3(pts[i],pts[i+1]));
+    const dot=new THREE.Mesh(new THREE.SphereGeometry(.07,12,8),new THREE.MeshBasicMaterial({color:INK}));s.add(dot);
+    S.tick=t=>{const w=.08*Math.sin(t*3);const a=flagG.attributes.position;a.setXYZ(0,0,0,0);a.setXYZ(1,.55,-.18+w,0);a.setXYZ(2,0,-.36,0);a.setXYZ(3,0,0,0);a.needsUpdate=true;
+      const u=(t*.18)%1;const p=route.getPointAt(u);dot.position.set(p.x,.05,p.z)};
+  },
+  // Audits: magnifier scanning a screen, issues get marked as it passes
+  audit(S){const s=S.scene;
+    const scr=new THREE.Group();scr.position.set(0,1.05,-.3);s.add(scr);scr.add(rslab(3.2,1.9,.08,.12));
+    const f=new THREE.Group();f.position.z=.042;scr.add(f);f.add(L2([[-1.6,.68],[1.6,.68]],'xy'));[-1.48,-1.38,-1.28].forEach(x=>f.add(C2(x,.8,.035,'xy')));
+    [.45,.25,.05,-.15,-.35,-.55].forEach((y,i)=>f.add(L2([[-1.4,y],[[.9,1.3,.6,1.1,.8,1.2][i]-1.4,y]],'xy')));
+    f.add(R2(.35,-.6,1.05,1.1,'xy'));
+    const spots=[[-.9,.45],[.1,.05],[-.4,-.35],[.85,.2],[.7,-.35]];
+    const marks=spots.map(([x,y])=>{const m=new THREE.Group();m.add(C2(0,0,.1,'xy'));m.add(C2(0,0,.035,'xy',LINE,10));m.position.set(x,y,.01);f.add(m);return m});
+    const mag=new THREE.Group();s.add(mag);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(.4,.06,12,48),DEPTH);outline(ring,50);mag.add(ring);
+    [.335,.465].forEach(r=>mag.add(C2(0,0,r,'xy',LINE,40)));
+    const hd=box(.14,.7,.14);hd.position.set(.55,-.55,0);hd.rotation.z=Math.PI/4;mag.add(hd);
+    const path=new THREE.CatmullRomCurve3(spots.map(([x,y])=>V(x,y,0)),true);
+    S.tick=t=>{const u=(t*.09)%1,p=path.getPointAt(u);mag.position.set(p.x,1.05+p.y,.45);
+      marks.forEach((m,i)=>{const su=i/spots.length;const since=((u-su)%1+1)%1;m.visible=since<.55;m.scale.setScalar(since<.05?since/.05:1)})};
+  },
+};
+const needs={mvp:{needW:5.6,needH:3.9,lookY:.85},apps:{needW:5.8,needH:3.9,lookY:.95},design:{needW:5.8,needH:3.5,lookY:.3},strategy:{needW:5.8,needH:4.3,lookY:1.05},audit:{needW:5.8,needH:3.9,lookY:1.05}};
+const scenes=canvases.map(c=>{const k=c.dataset.svc;const S=makeScene(c,needs[k]);builders[k](S);return S});
+const io=new IntersectionObserver(es=>es.forEach(e=>{const S=scenes.find(x=>x.canvas===e.target);S.visible=e.isIntersecting}),{threshold:.05});
+scenes.forEach(S=>io.observe(S.canvas));
+let clock=0,last=0;
+function frame(now){const dt=Math.min(.05,(now-(last||now))/1000);last=now;if(!reduce)clock+=dt;
+  scenes.forEach(S=>{if(S.visible||!S.drawn){S.tick&&S.tick(clock);S.render();S.drawn=true}});requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+}
 </script>
 </body>
 </html>
