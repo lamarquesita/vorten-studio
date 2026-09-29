@@ -33,6 +33,9 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .nav-pill{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:all .3s}
 .nav-pill:hover{color:var(--dark)}
 .nav-pill-strong{font-weight:700;color:var(--dark)}
+.nav-pill{white-space:nowrap}
+.logo{flex-shrink:0;overflow:hidden}
+@media(max-width:768px){header{gap:.5rem}.nav-pill{padding:0 .875rem}}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
@@ -87,10 +90,22 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .hero-ctas{display:flex;justify-content:center;gap:0.5rem;margin-top:2rem;flex-wrap:wrap;position:relative}
 .hero-ctas .btn{padding:1rem 1.625rem;font-size:0.9375rem;font-weight:800}
 .hero-ctas .btn-light{font-weight:700}
+/* hero on mobile — proportions from kargul.studio: one-line badge, tight headline, 16/24 subtitle, full-width stacked CTAs */
+@media(max-width:640px){
+  #hero{padding:6.5rem 1.0625rem 2.5rem}
+  .hero-watermark{top:-2.75rem;width:34rem;height:34rem;max-width:none;-webkit-mask-image:linear-gradient(to bottom,#000 140px,rgba(0,0,0,.35) 215px,rgba(0,0,0,.35) 100%);mask-image:linear-gradient(to bottom,#000 140px,rgba(0,0,0,.35) 215px,rgba(0,0,0,.35) 100%)}
+  .hero-badge{white-space:nowrap;font-size:13px;padding:.3125rem .75rem;gap:.5rem;margin-bottom:0}
+  #hero h1{font-size:28px;line-height:1.08;margin-top:.75rem;text-wrap:balance}
+  .hero-subtitle br{display:none}
+  .hero-subtitle{margin-top:.75rem;font-size:1rem;line-height:1.5rem;font-weight:500;max-width:22rem;text-wrap:balance}
+  .hero-ctas{flex-direction:column;gap:.75rem;margin-top:2.25rem}
+  .hero-ctas .btn{display:flex;width:100%;justify-content:center;padding:1.125rem 1.5rem;font-size:.9375rem}
+}
 
 /* ─── SERVICES ─── */
 #services{padding:4.5rem var(--global-px);margin:5.75rem var(--global-px) 0;background:var(--dark);border-radius:2.25rem}
 #services .container{max-width:76rem}
+@media(max-width:640px){#services{margin-left:0;margin-right:0;border-radius:0;padding-top:3.25rem}#services .services-subtitle{margin-bottom:1.75rem}#services .service-card{gap:1.125rem}.service-card .service-visual{margin-top:-3rem;margin-bottom:-2.75rem;height:15.5rem}.service-card h3{position:relative;z-index:1}} /* mobile: full-width band, straight edges */
 #services .section-title{margin-bottom:0.75rem;color:var(--white);font-size:36px}
 .services-subtitle{max-width:26rem;margin:0 auto 3rem;font-size:14px;font-weight:500;color:#A1A5A3}
 .services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:76rem;margin:0 auto}
@@ -98,7 +113,8 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .service-card.span-2{grid-column:span 2}
 .service-card h3{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--white)}
 .service-visual{position:relative;height:13rem;margin:0 -1.75rem}
-.service-visual canvas{display:block;width:100%;height:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 82%,transparent 100%)}
+.service-visual canvas{display:block;width:100%;height:100%}
+.service-card h3,.service-card p,.service-tags{position:relative;z-index:1} /* text always sits above the drawing */
 .service-card p{font-size:14px;font-weight:500;line-height:22px;color:#A1A5A3}
 .service-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:auto}
 .service-tags span{background:var(--dark);border-radius:9999px;padding:0.1875rem 0.75rem;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white)}
@@ -152,15 +168,18 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 /* ─── TRIAL ─── */
 #trial{margin:1.5rem var(--global-px) 0}
 .trial-card{background:var(--white);border-radius:2.25rem;padding:4.5rem 2rem;text-align:center}
+@media(max-width:640px){#trial{margin-left:0;margin-right:0}.trial-card{border-radius:0;padding:3.25rem 1.0625rem}} /* mobile: full-width band, straight edges (like services) */
 .trial-card h2{font-size:36px;font-weight:900;color:var(--dark);max-width:36rem;margin:0 auto;line-height:1.25}
 .trial-price{display:inline-flex;background:var(--bg);border-radius:9999px;padding:0.25rem 1.125rem;font-size:0.85em;white-space:nowrap;transform:rotate(-4deg)}
 .trial-copy{max-width:28rem;margin:2rem auto 2.5rem;display:flex;flex-direction:column;gap:1rem}
 .trial-copy p{font-size:14px;font-weight:500;color:var(--gray);line-height:1.6}
 .trial-card .btn{padding:1rem 5.25rem;font-size:1rem}
+@media(max-width:640px){.trial-card .btn{display:flex;width:100%;justify-content:center;padding:1.125rem 1.5rem}} /* was 84px side padding: wider than a phone */
 
 /* ─── CTA ─── */
 #cta{padding:var(--section-py) var(--global-px);text-align:center}
 #cta h2{font-size:52px;margin-bottom:1.5rem}
+@media(max-width:640px){#services .section-title,#tools .section-title,#team .section-title,#faq .section-title,.trial-card h2{font-size:28px}#cta h2{font-size:37px}} /* mobile: section titles 28px, CTA 37px */
 .cta-buttons{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap}
 .cta-buttons .btn{padding:1rem 1.625rem;font-size:0.9375rem;font-weight:800}
 .cta-buttons .btn-light{font-weight:700}
@@ -174,6 +193,7 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
   mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%)}
 .cta-scene{max-width:78rem;margin:-1rem auto 0;color:var(--dark);pointer-events:none;position:relative;z-index:1}
 .cta-scene{aspect-ratio:16/7}
+@media(max-width:640px){.cta-scene{aspect-ratio:5/4;margin-top:.5rem}.cta-buttons{flex-direction:column;gap:.75rem}.cta-buttons .btn{display:flex;width:100%;justify-content:center;padding:1.125rem 1.5rem}}
 #cta3d{position:absolute;left:0;width:100%;bottom:0;display:block;z-index:0;pointer-events:none}
 .cta-scene.no-webgl{display:none}
 {to{background-position:0 40px,0 40px}}
@@ -193,10 +213,11 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
-  .team-grid{grid-template-columns:repeat(3,1fr);gap:1rem}
+  .team-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+  .team-avatar{width:78%;height:auto;aspect-ratio:1;max-width:5.5rem;border-radius:1.375rem}
   .team-grid.team-grid-5{grid-template-columns:repeat(3,1fr)}
-  .team-member h4{font-size:13px}
-  .team-member p{font-size:11px}
+  .team-member h4{font-size:18px}
+  .team-member p{font-size:13px;line-height:16px}
   :root{--section-py:3.5rem}
   .footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}
 }
@@ -209,7 +230,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- HEADER -->
 <header>
   <a href="/" class="logo" aria-label="Home">
-    <img src="assets/logo.png" alt="Vorten Studio" style="width:2.15rem;height:2.15rem;object-fit:cover;border-radius:50%">
+    <img src="assets/logo.png" alt="Vorten Studio" style="width:100%;height:100%;object-fit:cover;transform:scale(1.2)">
   </a>
   <a href="/work" class="nav-pill">Recent work</a>
   <a href="/intro" class="nav-pill nav-pill-strong btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
@@ -220,8 +241,8 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
   <div class="container">
     <img src="assets/logo.png" alt="" class="hero-watermark">
     <span class="hero-badge"><span class="dot-wrap"><span class="dot-ripple"></span><span class="dot-ripple" style="animation-delay:300ms"></span><span class="dot"></span></span>Accepting 3 more projects this quarter</span>
-    <h1>A product studio for<br>founders and teams<br>at every stage.</h1>
-    <p class="hero-subtitle">We help you figure out what to build first, plan it out,<br>and then design and code it with you until it's live<br>and people are using it.</p>
+    <h1>A product studio for <br>founders and teams <br>at every stage.</h1>
+    <p class="hero-subtitle">We help you figure out what to build first, plan it out, <br>and then design and code it with you until it's live <br>and people are using it.</p>
     <div class="hero-ctas">
       <a href="/intro" class="btn btn-dark btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
       <a href="/work" class="btn btn-light btn-arrow btn-arrow-ne"><span class="ba-pad"></span><span class="ba-t">See</span><span class="ba-a">our</span><span>work</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span><span class="ba-pad"></span></a>
@@ -275,7 +296,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
     <h2 class="section-title">Team</h2>
     <div class="team-grid">
       <div class="team-member"><div class="team-avatar"><img src="assets/team-1.png" alt="Camila"></div><h4>Camila</h4><p>Founder & Head of Product</p></div>
-      <div class="team-member"><div class="team-avatar"><img src="assets/team-2.png" alt="Greta"></div><h4>Sasha</h4><p>Product Designer</p></div>
+      <div class="team-member"><div class="team-avatar"><img src="assets/team-2.png" alt="Sasha"></div><h4>Sasha</h4><p>Product Designer</p></div>
       <div class="team-member"><div class="team-avatar"><img src="assets/team-3.png" alt="Maxim"></div><h4>Maxim</h4><p>Frontend Developer</p></div>
     </div>
     <div class="team-grid" style="margin-top:1.25rem">
@@ -605,7 +626,7 @@ const dots=traceCurves.map(()=>{const d=new THREE.Mesh(new THREE.SphereGeometry(
 function fit(){const wr=wrapEl.getBoundingClientRect(),hr=holder.getBoundingClientRect();if(!hr.width)return;
   const top=hr.top-wr.top,Wc=wr.width,Hc=wr.height-top;if(Hc<=0)return;
   canvas.style.top=top+'px';renderer.setSize(Wc,Hc,false);
-  const aspect=hr.width/hr.height,needW=19,needH=9.6,halfH=Math.max(needH/2,needW/2/aspect),u=2*halfH/hr.height;
+  const aspect=hr.width/hr.height,needW=aspect<1.6?13.6:19,needH=9.6, /* phones: zoom in, the composition is ~13 units wide */halfH=Math.max(needH/2,needW/2/aspect),u=2*halfH/hr.height;
   const pcx=hr.left-wr.left+hr.width/2,pcy=hr.height/2;
   Object.assign(camera,{left:-pcx*u,right:(Wc-pcx)*u,top:pcy*u,bottom:-(Hc-pcy)*u});camera.updateProjectionMatrix();
   const dpr=renderer.getPixelRatio();floor.material.uniforms.uRes.value.set(Wc*dpr,Hc*dpr);floor.material.uniforms.uTop.value=140*dpr}
@@ -711,7 +732,7 @@ const builders={
     f.add(R2(-.75,.1,2.1,.5,'xy'));f.add(L2([[-.65,.45],[.2,.45]],'xy'));f.add(L2([[-.65,.3],[-.1,.3]],'xy'));
     f.add(L2([[-.75,-.85],[1.35,-.85]],'xy'));
     const bars=[0,1,2,3,4,5].map(i=>{const b=R2(0,0,.22,1,'xy');b.position.set(-.6+i*.32,-.85,0);f.add(b);return b});
-    const ph=new THREE.Group();ph.position.set(1.95,.98,.95);s.add(ph);ph.add(rslab(.85,1.75,.08,.14));
+    const ph=new THREE.Group();ph.position.set(1.4,.98,-.35);s.add(ph);ph.add(rslab(.85,1.75,.08,.14));
     const pf=new THREE.Group();pf.position.z=.042;ph.add(pf);pf.add(RR2(0,0,.73,1.63,.1,'xy'));pf.add(RR2(0,.72,.22,.06,.03,'xy'));
     const rows=[0,1,2,3,4,5].map(i=>{const m=new THREE.LineBasicMaterial({color:INK,transparent:true,opacity:.8}),g=new THREE.Group();
       g.add(C2(-.2,0,.06,'xy',m,14));g.add(L2([[-.1,.02],[.25,.02]],'xy',m));g.add(L2([[-.1,-.04],[.1,-.04]],'xy',m));pf.add(g);return {g,m,off:i*.32}});
@@ -779,7 +800,7 @@ const builders={
       marks.forEach((m,i)=>{const su=i/spots.length;const since=((u-su)%1+1)%1;m.visible=since<.55;m.scale.setScalar(since<.05?since/.05:1)})};
   },
 };
-const needs={mvp:{needW:5.6,needH:3.9,lookY:.85},apps:{needW:5.8,needH:3.9,lookY:.95},design:{needW:5.8,needH:3.5,lookY:.3},strategy:{needW:5.8,needH:4.3,lookY:1.05},audit:{needW:5.8,needH:3.9,lookY:1.05}};
+const needs={mvp:{needW:5.6,needH:3.9,lookY:.85},apps:{needW:6.4,needH:4.1,lookY:1.45},design:{needW:4.9,needH:3,lookY:-.1},strategy:{needW:5.8,needH:3.8,lookY:.85},audit:{needW:5.8,needH:3.9,lookY:1.05}};
 const scenes=canvases.map(c=>{const k=c.dataset.svc;const S=makeScene(c,needs[k]);builders[k](S);return S});
 const io=new IntersectionObserver(es=>es.forEach(e=>{const S=scenes.find(x=>x.canvas===e.target);S.visible=e.isIntersecting}),{threshold:.05});
 scenes.forEach(S=>io.observe(S.canvas));
