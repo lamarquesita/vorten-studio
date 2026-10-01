@@ -399,14 +399,14 @@ function render() {
   if (step.type === 'booked') {
     celebrate();
     wrap.append(el('h1', {textContent: "You're all set!"}));
-    // files aren't uploaded anywhere yet, so ask for them by email
-    const n = (state.a.attachments || []).length;
-    wrap.append(el('p', {className:'lede', textContent: n
-      ? `Send your ${n === 1 ? 'attachment' : n + ' attachments'} over to info@vorten.studio before we talk. In the meantime, have a look at what we've been building.`
-      : "Anything to share before we talk? Just email us. In the meantime, have a look at what we've been building."}));
+    // attachments were uploaded with the booking; only ask by email for any that failed
+    const failed = state.a.failedUploads || [];
+    wrap.append(el('p', {className:'lede', textContent: failed.length
+      ? `We couldn't upload ${failed.length === 1 ? 'one attachment' : failed.length + ' attachments'} (${failed.join(', ')}). Please send ${failed.length === 1 ? 'it' : 'them'} to hello@vorten.studio before we talk. In the meantime, have a look at what we've been building.`
+      : "Anything else to share before we talk? Just email us. In the meantime, have a look at what we've been building."}));
     const work = el('a', {className:'go btn-arrow btn-arrow-ne', href:'/work'});
     work.innerHTML = '<span class="ba-pad"></span><span class="ba-t">See</span><span class="ba-a">our</span><span>work</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span><span class="ba-pad"></span>';
-    actions.append(work, el('a', {className:'mail', href:'mailto:info@vorten.studio', textContent:'info@vorten.studio'}));
+    actions.append(work, el('a', {className:'mail', href:'mailto:hello@vorten.studio', textContent:'hello@vorten.studio'}));
     try { sessionStorage.removeItem(KEY); } catch(e) {}
   }
 
@@ -461,13 +461,33 @@ function composer(textarea) {
   return box;
 }
 
+// upload attachments to Vercel Blob (api/upload.js) so their links ride along in the booking notes
+const uploaded = new Map();   // File → url, so a retried booking doesn't upload twice
+async function uploadAll() {
+  const a = state.a;
+  a.attachmentLinks = await Promise.all(files.map(async f => {
+    if (!uploaded.has(f)) {
+      try {
+        const r = await fetch(`/api/upload?name=${encodeURIComponent(f.name)}`, {method:'POST', body:f,
+          headers: {'Content-Type': f.type || 'application/octet-stream'}});
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || !j.url) throw new Error(j.error || r.status);
+        uploaded.set(f, j.url);
+      } catch (e) { console.error('[upload]', f.name, e.message); }
+    }
+    return {name: f.name, url: uploaded.get(f) || ''};
+  }));
+  a.failedUploads = a.attachmentLinks.filter(l => !l.url).map(l => l.name);
+  save();
+}
+
 // ─── booking: day → time, availability + booking via Cal.com ───
 function summary() {
   const a = state.a, list = v => Array.isArray(v) ? v.join(', ') : (v || '—');
   return [
     `Company: ${a.company || '—'}`, `Website: ${a.website || '—'}`, `Help with: ${list(a.help)}`,
     `Budget: ${a.budget || '—'}`, `Start: ${a.start || '—'}`, `Found us via: ${a.referral || '—'}`,
-    `Attachments: ${(a.attachments || []).length ? a.attachments.join(', ') : '—'}`,
+    `Attachments: ${(a.attachmentLinks || []).length ? '\n' + a.attachmentLinks.map(l => `  ${l.name}: ${l.url || '(upload failed, client will email it)'}`).join('\n') : '—'}`,
     '', (a.details || '').trim() || '(no project details)'
   ].join('\n');
 }
@@ -603,12 +623,14 @@ async function book(btn, wrap) {
   if (!state.a.slot) return;
   wrap.querySelector('.spam-note')?.remove();
   if (looksLikeSpam(state.a)) {
-    wrap.append(el('p', {className:'spam-note', textContent:'This looks like spam. Go back and edit your details, or email us at info@vorten.studio'}));
+    wrap.append(el('p', {className:'spam-note', textContent:'This looks like spam. Go back and edit your details, or email us at hello@vorten.studio'}));
     return;
   }
   const a = state.a, tz = myTz();
   wrap.querySelector('.book-error')?.remove();
-  btn.disabled = true; btn.textContent = 'Booking…';
+  btn.disabled = true;
+  if (files.length) { btn.textContent = 'Uploading…'; await uploadAll(); } else { state.a.attachmentLinks = []; state.a.failedUploads = []; }
+  btn.textContent = 'Booking…';
   try {
     const r = await fetch(`${CAL.api}/bookings`, {method:'POST',
       headers: {'cal-api-version':'2024-08-13', 'Content-Type':'application/json'},
