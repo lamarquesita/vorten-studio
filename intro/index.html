@@ -290,12 +290,12 @@ const STEPS = [
   {id:'name',    type:'text', h:'What is your name?', ph:'Your name...', input:'text', ac:'name'},
   {id:'email',   type:'text', h:'What is your best email?', ph:'you@company.com', input:'email', ac:'email'},
   {id:'company', type:'text', h:'What is the name of your company?', ph:'Your company name...', ac:'organization'},
-  {id:'website', type:'text', h:'What is your website URL?', ph:'yourcompany.com', input:'url', ac:'url', optional:true},
+  {id:'website', type:'text', h:'What is your website URL?', ph:'yourcompany.com', input:'url', ac:'url', optional:true, skip:true},
   {id:'help',    type:'options', h:'How can we help?', multiple:true,
     options:['MVP Development','Web & Mobile Apps','Product Design','Product Strategy','Audits & Redesigns']},
   {id:'budget',  type:'options', h:'What is your budget for the project?', options:['<$5K','$5K-$10K','$10K-$25K','$25K-$50K','$50K+']},
   {id:'start',   type:'options', h:'When would you like to start?', options:['ASAP','1-2 weeks','2-4 weeks','1-3 months','3+ months']},
-  {id:'details', type:'textarea', h:'Tell us about\nyour project', ph:'What are you building, who is it for, and where are you today?', optional:true},
+  {id:'details', type:'textarea', h:'Tell us about\nyour project', ph:'What are you building, who is it for, and where are you today?'},
   {id:'referral',type:'options', h:'How did you find us?', options:['LinkedIn','Google','AI chat','Twitter/X','Friends','Other']},
   {id:'date',    type:'date', h:'Choose a day'},
   {id:'time',    type:'time', h:'Choose a time'},
@@ -342,6 +342,7 @@ function render() {
   const cont = el('button', {className:'go', type:'button', textContent:'Continue'});
   const refresh = () => {
     cont.disabled = !valid(step);
+    if (step.skip) cont.textContent = (state.a[step.id] || '').trim() ? 'Continue' : 'Skip for now';
   };
   cont.onclick = () => { if (valid(step)) go(1); };
 
