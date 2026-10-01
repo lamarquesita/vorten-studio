@@ -39,9 +39,9 @@
    "url": "https://vorten.studio/",
    "logo": {
     "@type": "ImageObject",
-    "url": "https://vorten.studio/assets/logo.png",
-    "width": 1024,
-    "height": 1024
+    "url": "https://vorten.studio/assets/logo-square.png",
+    "width": 512,
+    "height": 512
    },
    "image": "https://vorten.studio/assets/og-image.png",
    "email": "hello@vorten.studio",
@@ -214,7 +214,7 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .cal-card{width:min(30rem,100%);min-height:0;display:flex;flex-direction:column;margin:0 auto;background:var(--white);border-radius:2rem;padding:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:left} /* day + time cards: identical size */
 .cal-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:var(--bg);border-radius:1.5rem 1.5rem 0 0;padding:1rem 1rem 1rem 1.125rem}
 .cal-who{display:flex;align-items:center;gap:.625rem;min-width:0}
-.cal-who img{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--white);object-fit:cover;flex-shrink:0}
+.cal-who img{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--white);object-fit:contain;padding:.4rem;flex-shrink:0}
 .cal-who strong{font-size:16px;font-weight:900;letter-spacing:-0.02em;white-space:nowrap}
 .cal-body{flex:1;padding:1rem .25rem .25rem}
 .cal-month{display:flex;align-items:center;justify-content:space-between;padding:0 .25rem .75rem}
@@ -265,12 +265,14 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
   .day{height:2.375rem;font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.step{animation:none}.progress i{transition:none}}
+/* mobile/touch: no button hover animations */
+@media(hover:none),(max-width:768px){.btn-arrow .ba-a,.btn-arrow .ba-arrow,.btn-arrow .ba-pad{transition:none}.btn-arrow:hover .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:none}.btn-arrow-ne:hover .ba-a{width:1.53em}.btn-arrow:hover .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em)}.btn-arrow-ne:hover .ba-pad{width:0}.btn-dark:hover svg,.btn-light:hover .tg-plane{animation:none}}
 </style>
 </head>
 <body>
 
 <header>
-  <a href="/" class="logo" aria-label="Home"><img src="../assets/logo.png" alt="Vorten Studio" style="width:100%;height:100%;object-fit:cover;transform:scale(.82)"></a>
+  <a href="/" class="logo" aria-label="Home"><img src="../assets/logo-mark.png" alt="Vorten Studio" style="width:42%;height:42%;object-fit:contain"></a>
   <a href="/work" class="nav-pill">Recent work</a>
 </header>
 
@@ -517,7 +519,7 @@ function dayPicker(onPick) {
   const title = el('strong'), prev = el('button', {className:'cal-nav', type:'button', textContent:'‹', ariaLabel:'Previous month'}),
         next = el('button', {className:'cal-nav', type:'button', textContent:'›', ariaLabel:'Next month'});
   const grid = el('div', {className:'cal-grid'}), status = el('p', {className:'cal-status'});
-  const who = el('div', {className:'cal-who'}, [el('img', {src:'../assets/logo.png', alt:''}), el('strong', {}, ['Vorten', el('span', {className:'full', textContent:' Studio'})])]);
+  const who = el('div', {className:'cal-who'}, [el('img', {src:'../assets/logo-mark.png', alt:''}), el('strong', {}, ['Vorten', el('span', {className:'full', textContent:' Studio'})])]);
   const tzSel = tzSelect(() => { tz = myTz(); state.a.date = null; state.a.slot = null; save(); onPick(); draw(); });
   box.append(el('div', {className:'cal-head'}, [who, tzSel]),
              el('div', {className:'cal-body'}, [el('div', {className:'cal-month'}, [title, el('div', {className:'cal-navs'}, [prev, next])]), grid, status]));
@@ -553,7 +555,7 @@ function timePicker(onPick) {
   const [y, mo, d] = state.a.date.split('-').map(Number);
   const tzLabel = (TIMEZONES.find(t => t[0] === tz) || [tz, tz.replace(/_/g, ' ')])[1].replace(' / ', '/');
   const dateLabel = new Date(y, mo - 1, d).toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
-  const who = el('div', {className:'cal-who'}, [el('img', {src:'../assets/logo.png', alt:''}), el('strong', {}, ['Vorten', el('span', {className:'full', textContent:' Studio'})])]);
+  const who = el('div', {className:'cal-who'}, [el('img', {src:'../assets/logo-mark.png', alt:''}), el('strong', {}, ['Vorten', el('span', {className:'full', textContent:' Studio'})])]);
   const hours = el('div', {className:'hours', role:'group', ariaLabel:'Clock format'});
   const h12 = el('button', {type:'button', textContent:'12h'}), h24 = el('button', {type:'button', textContent:'24h'});
   hours.append(h12, h24);

@@ -40,9 +40,9 @@
    "url": "https://vorten.studio/",
    "logo": {
     "@type": "ImageObject",
-    "url": "https://vorten.studio/assets/logo.png",
-    "width": 1024,
-    "height": 1024
+    "url": "https://vorten.studio/assets/logo-square.png",
+    "width": 512,
+    "height": 512
    },
    "image": "https://vorten.studio/assets/og-image.png",
    "email": "hello@vorten.studio",
@@ -143,7 +143,7 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "Why Vorten Studio?",
+     "name": "What makes Vorten different?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Most studios either design something pretty they can't build, or build whatever you ask for without questioning it. We do both, and we push back when something isn't worth building. You get a team that thinks about your business, not just the deliverable."
@@ -151,7 +151,7 @@
     },
     {
      "@type": "Question",
-     "name": "Who will I work with?",
+     "name": "Who’s on my team?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "The same small team from day one to launch. No account managers, no handoffs to junior people you never met. You work directly with the people designing and building your product."
@@ -159,7 +159,7 @@
     },
     {
      "@type": "Question",
-     "name": "How do we work together?",
+     "name": "What does working with you look like?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "We start with a short discovery call to understand the problem and what success looks like. From there you get a scoped plan, then weekly check-ins with working updates you can actually click through. No black box, no waiting a month to see progress."
@@ -167,7 +167,7 @@
     },
     {
      "@type": "Question",
-     "name": "What can you build?",
+     "name": "What kinds of products do you build?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Web apps, mobile apps, dashboards, marketplaces, internal tools, and the backend that runs them. If it's a digital product, we can design and ship it. If something is outside what we do well, we'll tell you upfront instead of figuring it out on your dime."
@@ -175,7 +175,7 @@
     },
     {
      "@type": "Question",
-     "name": "What if priorities change?",
+     "name": "What if our plans shift?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "They usually do. We work in short cycles so you can change direction between them without blowing up the budget or the timeline. If something big shifts, we re-scope together before anyone writes code."
@@ -183,7 +183,7 @@
     },
     {
      "@type": "Question",
-     "name": "Can you work with our in-house team?",
+     "name": "Can you work alongside our team?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Yes. We plug into your existing designers, developers, or PMs and fill whatever gap you have. We use your tools and your process, not ours."
@@ -191,7 +191,7 @@
     },
     {
      "@type": "Question",
-     "name": "Who owns the work?",
+     "name": "Who owns what you build?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "You do. Code, designs, files, all of it, handed over at the end of the project. No licensing, no retainer required to keep using what we built."
@@ -230,6 +230,10 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .nav-pill{white-space:nowrap}
 .logo{flex-shrink:0;overflow:hidden}
 @media(max-width:768px){header{gap:.5rem}.nav-pill{padding:0 .875rem}}
+/* nav over the green services band: logo + Recent work turn green */
+.logo img{transition:filter .3s}
+header.on-dark .logo,header.on-dark .nav-pill:not(.nav-pill-strong){background:#405E4F;color:var(--white);box-shadow:none}
+header.on-dark .logo img{filter:brightness(0) invert(1)}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
@@ -335,7 +339,7 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;max-width:34rem;margin:0 auto}
 .team-member{text-align:center}
 .team-avatar{width:7rem;height:7rem;border-radius:0.75rem;margin:0 auto 0.5rem;overflow:hidden;background:#fff}
-.team-avatar img{width:100%;height:auto;object-fit:contain;margin-top:auto;display:block;position:relative;top:0.75rem}
+.team-avatar img{width:100%;height:auto;object-fit:contain;margin-top:auto;display:block;position:relative;top:.25rem}
 .team-avatar.placeholder{display:flex;align-items:center;justify-content:center;background:var(--light-gray)}
 .team-avatar.placeholder svg{width:2rem;height:2rem;color:var(--gray)}
 .team-member h4{font-size:18px;font-weight:900;color:var(--dark)}
@@ -417,6 +421,8 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 }
 .mobile-br{display:none}
 @media(max-width:768px){.mobile-br{display:block}}
+/* mobile/touch: no button hover animations */
+@media(hover:none),(max-width:768px){.btn-arrow .ba-a,.btn-arrow .ba-arrow,.btn-arrow .ba-pad{transition:none}.btn-arrow:hover .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:none}.btn-arrow-ne:hover .ba-a{width:1.53em}.btn-arrow:hover .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em)}.btn-arrow-ne:hover .ba-pad{width:0}.btn-dark:hover svg,.btn-light:hover .tg-plane{animation:none}}
 </style>
 </head>
 <body>
@@ -424,7 +430,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- HEADER -->
 <header>
   <a href="/" class="logo" aria-label="Home">
-    <img src="assets/logo.png" alt="Vorten Studio" style="width:100%;height:100%;object-fit:cover;transform:scale(.82)">
+    <img src="assets/logo-mark.png" alt="Vorten Studio" style="width:42%;height:42%;object-fit:contain">
   </a>
   <a href="/work" class="nav-pill">Recent work</a>
   <a href="/intro" class="nav-pill nav-pill-strong btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
@@ -499,9 +505,9 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
       <div class="team-member"><div class="team-avatar"><img src="assets/team-6.png" alt="Rüdiger" loading="lazy" decoding="async"></div><h4>Rüdiger</h4><p>Illustration Designer</p></div>
     </div>
     <div class="team-grid" style="margin-top:1.25rem">
-      <div class="team-member"><div class="team-avatar placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><h4>Dario</h4><p>Full-stack Developer</p></div>
-      <div class="team-member"><div class="team-avatar placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><h4>Elin</h4><p>Strategist</p></div>
-      <div class="team-member"><div class="team-avatar placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div><h4>Noah</h4><p>Mobile Developer</p></div>
+      <div class="team-member"><div class="team-avatar"><img src="assets/team-7.png" alt="Dario" loading="lazy" decoding="async"></div><h4>Dario</h4><p>Full-stack Developer</p></div>
+      <div class="team-member"><div class="team-avatar"><img src="assets/team-8.png" alt="Elin" loading="lazy" decoding="async"></div><h4>Elin</h4><p>Strategist</p></div>
+      <div class="team-member"><div class="team-avatar"><img src="assets/team-9.png" alt="Noah" loading="lazy" decoding="async"></div><h4>Noah</h4><p>Mobile Developer</p></div>
     </div>
   </div>
 </section>
@@ -509,7 +515,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- TOOLS -->
 <section id="tools">
   <div class="container text-center">
-    <h2 class="section-title">Tools we've mastered</h2>
+    <h2 class="section-title">Tools we know inside out</h2>
     <div class="tools-bubble">
       <div class="tools-track">
         <span class="tool-logo"><img src="assets/logos/figma.svg" alt="Figma"><span>Figma</span></span>
@@ -552,7 +558,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- TRIAL -->
 <section id="trial">
   <div class="trial-card">
-    <h2>Start with a trial<br>week for only <span class="trial-price">$1,000</span></h2>
+    <h2>Try us for a week<br>for just <span class="trial-price">$1,000</span></h2>
     <div class="trial-copy">
       <p>You'll meet your dedicated PM, work directly with the designers and developers, and see how we operate up close.</p>
       <p>Like what you see? We move straight into the full project. Not quite right? You still leave with a real feel for how we'd work together.</p>
@@ -567,13 +573,13 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
   <div class="container text-center">
     <h2 class="section-title">FAQs</h2>
     <div class="faq-list" style="text-align:left">
-      <div class="faq-item open"><button class="faq-question">Why Vorten Studio? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Most studios either design something pretty they can't build, or build whatever you ask for without questioning it. We do both, and we push back when something isn't worth building. You get a team that thinks about your business, not just the deliverable.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Who will I work with? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>The same small team from day one to launch. No account managers, no handoffs to junior people you never met. You work directly with the people designing and building your product.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">How do we work together? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>We start with a short discovery call to understand the problem and what success looks like. From there you get a scoped plan, then weekly check-ins with working updates you can actually click through. No black box, no waiting a month to see progress.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">What can you build? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Web apps, mobile apps, dashboards, marketplaces, internal tools, and the backend that runs them. If it's a digital product, we can design and ship it. If something is outside what we do well, we'll tell you upfront instead of figuring it out on your dime.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">What if priorities change? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>They usually do. We work in short cycles so you can change direction between them without blowing up the budget or the timeline. If something big shifts, we re-scope together before anyone writes code.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Can you work with our in-house team? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. We plug into your existing designers, developers, or PMs and fill whatever gap you have. We use your tools and your process, not ours.</p></div></div></div>
-      <div class="faq-item"><button class="faq-question">Who owns the work? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>You do. Code, designs, files, all of it, handed over at the end of the project. No licensing, no retainer required to keep using what we built.</p></div></div></div>
+      <div class="faq-item open"><button class="faq-question">What makes Vorten different? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Most studios either design something pretty they can't build, or build whatever you ask for without questioning it. We do both, and we push back when something isn't worth building. You get a team that thinks about your business, not just the deliverable.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">Who’s on my team? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>The same small team from day one to launch. No account managers, no handoffs to junior people you never met. You work directly with the people designing and building your product.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">What does working with you look like? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>We start with a short discovery call to understand the problem and what success looks like. From there you get a scoped plan, then weekly check-ins with working updates you can actually click through. No black box, no waiting a month to see progress.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">What kinds of products do you build? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Web apps, mobile apps, dashboards, marketplaces, internal tools, and the backend that runs them. If it's a digital product, we can design and ship it. If something is outside what we do well, we'll tell you upfront instead of figuring it out on your dime.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">What if our plans shift? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>They usually do. We work in short cycles so you can change direction between them without blowing up the budget or the timeline. If something big shifts, we re-scope together before anyone writes code.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">Can you work alongside our team? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. We plug into your existing designers, developers, or PMs and fill whatever gap you have. We use your tools and your process, not ours.</p></div></div></div>
+      <div class="faq-item"><button class="faq-question">Who owns what you build? <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner"><p>You do. Code, designs, files, all of it, handed over at the end of the project. No licensing, no retainer required to keep using what we built.</p></div></div></div>
     </div>
   </div>
 </section>
@@ -1003,6 +1009,15 @@ function frame(now){const dt=Math.min(.05,(now-(last||now))/1000);last=now;if(!r
   scenes.forEach(S=>{if(S.visible||!S.drawn){S.tick&&S.tick(clock);S.render();S.drawn=true}});requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
 }
+</script>
+<script>
+// nav turns green while it sits over the services band
+(function(){
+  var h=document.querySelector('header'),sv=document.getElementById('services');
+  if(!h||!sv)return;
+  function u(){var y=h.getBoundingClientRect(),r=sv.getBoundingClientRect(),c=y.top+y.height/2;h.classList.toggle('on-dark',c>=r.top&&c<=r.bottom)}
+  addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();
+})();
 </script>
 </body>
 </html>

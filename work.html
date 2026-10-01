@@ -39,9 +39,9 @@
    "url": "https://vorten.studio/",
    "logo": {
     "@type": "ImageObject",
-    "url": "https://vorten.studio/assets/logo.png",
-    "width": 1024,
-    "height": 1024
+    "url": "https://vorten.studio/assets/logo-square.png",
+    "width": 512,
+    "height": 512
    },
    "image": "https://vorten.studio/assets/og-image.png",
    "email": "hello@vorten.studio",
@@ -208,6 +208,8 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 .footer-links a{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em;transition:color .2s}
 .footer-links a:hover{color:var(--dark)}
 @media(max-width:768px){.footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}}
+/* mobile/touch: no button hover animations */
+@media(hover:none),(max-width:768px){.btn-arrow .ba-a,.btn-arrow .ba-arrow,.btn-arrow .ba-pad{transition:none}.btn-arrow:hover .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:none}.btn-arrow-ne:hover .ba-a{width:1.53em}.btn-arrow:hover .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em)}.btn-arrow-ne:hover .ba-pad{width:0}.btn-dark:hover svg,.btn-light:hover .tg-plane{animation:none}}
 </style>
 </head>
 <body>
@@ -215,7 +217,7 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 <!-- HEADER -->
 <header>
   <a href="/" class="logo" aria-label="Home">
-    <img src="assets/logo.png" alt="Vorten Studio" style="width:100%;height:100%;object-fit:cover;transform:scale(.82)">
+    <img src="assets/logo-mark.png" alt="Vorten Studio" style="width:42%;height:42%;object-fit:contain">
   </a>
   <a href="/work" class="nav-pill">Recent work</a>
   <a href="/intro" class="nav-pill nav-pill-strong btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
