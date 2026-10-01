@@ -234,6 +234,8 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .logo img{transition:filter .3s}
 header.on-dark .logo,header.on-dark .nav-pill:not(.nav-pill-strong){background:#405E4F;color:var(--white);box-shadow:none}
 header.on-dark .logo img{filter:brightness(0) invert(1)}
+/* past the services band: Start a project turns main green */
+header.past-services .nav-pill-strong{background:var(--dark);color:var(--white)}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
@@ -1011,11 +1013,11 @@ requestAnimationFrame(frame);
 }
 </script>
 <script>
-// nav turns green while it sits over the services band
+// nav turns green while it sits over the services band; Start a project goes green once past it
 (function(){
   var h=document.querySelector('header'),sv=document.getElementById('services');
   if(!h||!sv)return;
-  function u(){var y=h.getBoundingClientRect(),r=sv.getBoundingClientRect(),c=y.top+y.height/2;h.classList.toggle('on-dark',c>=r.top&&c<=r.bottom)}
+  function u(){var y=h.getBoundingClientRect(),r=sv.getBoundingClientRect(),c=y.top+y.height/2;h.classList.toggle('on-dark',c>=r.top&&c<=r.bottom);h.classList.toggle('past-services',c>r.bottom)}
   addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();
 })();
 </script>
