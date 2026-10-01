@@ -22,31 +22,91 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 
 /* ─── FLOW ─── */
 .flow{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:6.5rem 1.25rem 6.5rem;text-align:center;overflow:hidden}
-.watermark{position:absolute;left:50%;bottom:0;width:min(66rem,200vw);height:auto;max-width:none;transform:translate(-50%,22.5%);opacity:.07;mix-blend-mode:multiply;pointer-events:none;user-select:none}
+.watermark{position:absolute;left:50%;bottom:0;width:min(70rem,121vw);height:auto;max-width:none;transform:translate(-50%,22.5%);opacity:.07;mix-blend-mode:multiply;pointer-events:none;user-select:none}
 .stage{position:relative;width:100%;max-width:60rem}
 .step{animation:step-in .45s cubic-bezier(.2,.8,.2,1)}
+.step.cal-step{padding-top:2.125rem} /* day + time: sit a little lower on the page */
 @keyframes step-in{from{opacity:0;transform:translateY(14px)}}
 .step h1{font-size:52px;font-weight:900;letter-spacing:-0.03em;line-height:1.07;white-space:pre-line;margin:0 auto 1.75rem;max-width:13em}
 .step .lede{max-width:26rem;margin:-0.75rem auto 1.75rem;font-size:16px;font-weight:500;line-height:1.5rem;color:var(--gray)}
 
-.field{display:block;width:min(26rem,100%);height:54px;margin:0 auto;border:0;border-radius:9999px;background:var(--white);padding:0 1.25rem;font:inherit;font-size:16px;font-weight:500;color:var(--dark);outline:none;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
-.field::placeholder{color:#A1A5A3}
-.field:focus{box-shadow:0 0 0 2px var(--dark)}
-textarea.field{height:9.5rem;border-radius:1.5rem;padding:1rem 1.25rem;resize:none;line-height:1.5rem;text-align:left;width:min(32rem,100%)}
+.field{display:block;width:min(26rem,100%);height:54px;margin:0 auto;border:0;border-radius:9999px;background:var(--white);padding:0 1.25rem;font:inherit;font-size:16px;font-weight:700;color:var(--dark);outline:none;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
+.field::placeholder{color:#A1A5A3;font-weight:500}
+.field:focus{box-shadow:0 1px 3px rgba(0,0,0,.06)}
+/* project details: big writing box, then an "Upload attachment" pill (like kargul) */
+.composer{width:min(40rem,100%);margin:0 auto;display:flex;flex-direction:column;gap:.75rem;text-align:left}
+.composer textarea.field{display:block;width:100%;height:18.25rem;border-radius:1.75rem;padding:1.25rem 1.5rem;resize:none;line-height:1.5rem}
+.upload{position:relative;display:flex;align-items:center;gap:.75rem;width:100%;height:58px;padding:0 1.5rem;border-radius:9999px;background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:16px;font-weight:500;color:#A1A5A3;text-align:left}
+.upload.has{color:var(--dark);font-weight:700}
+.upload .label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload svg{width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--dark)}
+.upload .clear{width:1.75rem;height:1.75rem;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;color:var(--gray);flex-shrink:0}
+.upload .clear:hover{color:var(--dark)}
+.file-note{font-size:14px;font-weight:700;color:#E7000A;padding:0 1.5rem;text-align:center}
 
 .opts{display:flex;flex-wrap:wrap;justify-content:center;gap:0.625rem;max-width:40rem;margin:0 auto}
 .opt{height:54px;padding:0 1.5rem;border-radius:9999px;background:var(--white);font-size:15px;font-weight:700;color:var(--dark);box-shadow:0 1px 3px rgba(0,0,0,.06);transition:background .2s,color .2s}
 .opt[aria-pressed="true"]{background:var(--dark);color:var(--white)}
+.opts.plain .opt{background:none;box-shadow:none;color:var(--gray);font-weight:700} /* "How can we help": text only until picked */
+.opts.plain .opt:hover{color:var(--dark)}
+.opts.plain .opt[aria-pressed="true"]{background:var(--white);color:var(--dark);font-weight:900;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+@media(min-width:641px){.opts.plain{flex-wrap:nowrap;max-width:none;gap:.25rem}.opts.plain .opt{padding:0 1.125rem;white-space:nowrap}} /* desktop: every option on one line */
 
-.actions{margin-top:1.75rem;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.actions{margin-top:1.75rem;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0.75rem}
 .go{height:54px;padding:0 1.5rem;border-radius:9999px;background:var(--dark);color:var(--white);font-size:15px;font-weight:700;transition:opacity .2s}
 .go:disabled{opacity:.4;cursor:default}
-.back{font-size:14px;font-weight:500;color:var(--gray);padding:.25rem .5rem}
-.back:hover{color:var(--dark)}
-.hint{font-size:12px;font-weight:500;color:#A1A5A3}
+.back{order:-1;height:54px;padding:0 .75rem;font-size:15px;font-weight:700;color:var(--dark);transition:opacity .2s} /* plain text, left of Continue */
+.back:hover{opacity:.7}
+/* "See our work": the middle word slides away and becomes an arrow (same as home) */
+.btn-arrow{display:inline-flex;align-items:center;gap:0}
+.btn-arrow .ba-t{margin-right:.26em}
+.btn-arrow .ba-a,.btn-arrow .ba-arrow{display:inline-flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:width .45s cubic-bezier(.4,0,.2,1),margin .45s cubic-bezier(.4,0,.2,1),opacity .22s ease,transform .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow:hover .ba-a{width:0;margin-right:0;opacity:0;transform:translateX(2.2em)}
+.btn-arrow .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em);overflow:visible;justify-content:flex-start}
+.btn-arrow:hover .ba-arrow{width:.52em;margin-left:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow .ba-arrow svg{width:.72em;height:.72em;flex-shrink:0}
+.btn-arrow .ba-pad{display:inline-block;flex-shrink:0;width:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow-ne .ba-a{width:1.53em}
+.btn-arrow-ne:hover .ba-pad{width:.505em}
+.mail{height:54px;padding:0 .75rem;display:inline-flex;align-items:center;font-size:15px;font-weight:900;color:var(--dark);transition:opacity .2s}
+.mail:hover{opacity:.7}
+.hint{order:2;flex-basis:100%;font-size:12px;font-weight:500;color:#A1A5A3}
 
-.cal{width:min(58rem,100%);min-height:36rem;margin:0 auto;background:var(--white);border-radius:1.5rem;overflow:hidden}
-.cal iframe{width:100%;min-height:36rem;border:0}
+.cal-card{width:min(30rem,100%);min-height:0;display:flex;flex-direction:column;margin:0 auto;background:var(--white);border-radius:2rem;padding:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:left} /* day + time cards: identical size */
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:var(--bg);border-radius:1.5rem 1.5rem 0 0;padding:1rem 1rem 1rem 1.125rem}
+.cal-who{display:flex;align-items:center;gap:.625rem;min-width:0}
+.cal-who img{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--white);object-fit:cover;flex-shrink:0}
+.cal-who strong{font-size:16px;font-weight:900;letter-spacing:-0.02em;white-space:nowrap}
+.cal-body{flex:1;padding:1rem .25rem .25rem}
+.cal-month{display:flex;align-items:center;justify-content:space-between;padding:0 .25rem .75rem}
+.cal-month strong{font-size:18px;font-weight:900;letter-spacing:-0.02em}
+.cal-month strong span{font-weight:500;color:var(--gray);margin-left:.3rem}
+.cal-navs{display:flex;gap:.125rem}
+.cal-nav{width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;color:var(--dark);font-size:20px;line-height:1;transition:opacity .2s}
+.cal-nav:disabled{opacity:.25;cursor:default}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.375rem .25rem}
+.cal-grid .dow{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--dark);text-align:center;padding:.25rem 0 .375rem}
+.day{height:2.5rem;border-radius:9999px;font-size:15px;font-weight:500;color:var(--gray);transition:background .2s,color .2s}
+.day:disabled{cursor:default}
+.day:not(:disabled){background:var(--bg);color:var(--dark);font-weight:900}
+.day:not(:disabled):hover{background:#DCE2DF}
+.day[aria-pressed="true"],.day[aria-pressed="true"]:hover{background:var(--dark);color:var(--white)}
+.cal-status{min-height:1.5rem;margin-top:.5rem;text-align:center;font-size:14px;font-weight:500;color:var(--gray)}
+.cal-status:empty{display:none}
+.tz{height:2.75rem;padding:0 2.5rem 0 1.125rem;border:0;border-radius:9999px;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%232C4E3E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right .9rem center/.75rem;appearance:none;-webkit-appearance:none;font:inherit;font-size:15px;font-weight:700;color:var(--dark);box-shadow:none;display:block;cursor:pointer;flex-shrink:0}
+.cal-head.stack{flex-wrap:wrap;row-gap:.75rem}
+.cal-sub{flex-basis:100%;font-size:15px;font-weight:500;color:var(--gray)}
+.hours{display:flex;background:var(--white);border-radius:9999px;padding:.25rem;flex-shrink:0}
+.hours button{height:2.25rem;padding:0 1rem;border-radius:9999px;font-size:14px;font-weight:500;color:var(--gray)}
+.hours button[aria-pressed="true"]{background:var(--bg);color:var(--dark);font-weight:900}
+.times{display:grid;grid-template-columns:repeat(3,1fr);gap:.25rem;padding:.75rem .25rem .25rem}
+.slot{height:2.9375rem;border-radius:9999px;font-size:16px;font-weight:500;color:var(--gray);transition:background .2s,color .2s}
+.slot:hover{color:var(--dark)}
+.slot[aria-pressed="true"]{background:var(--bg);color:var(--dark);font-weight:900}
+.book-error{margin-top:.75rem;font-size:14px;font-weight:700;color:#E7000A}
+.spam-note{width:min(32rem,100%);margin:1rem auto 0;padding:1rem 1.5rem;background:var(--white);border-radius:1.25rem;font-size:17px;font-weight:900;line-height:1.4;color:var(--dark);text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+@media(max-width:640px){.spam-note{font-size:16px;padding:.875rem 1.125rem}}
 
 .progress{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);width:20rem;max-width:calc(100% - 3rem);height:8px;border-radius:9999px;background:var(--white);overflow:hidden;z-index:5}
 .progress i{display:block;height:100%;width:0;background:var(--dark);border-radius:inherit;transition:width .45s cubic-bezier(.4,0,.2,1)}
@@ -54,12 +114,17 @@ textarea.field{height:9.5rem;border-radius:1.5rem;padding:1rem 1.25rem;resize:no
 @media(max-width:640px){
   header{gap:.5rem}
   .nav-pill{padding:0 .875rem}
-  .flow{padding:6rem 1.0625rem 5.5rem;align-items:flex-start}
-  .stage{margin-top:12vh}
-  .step h1{font-size:30px;margin-bottom:1.5rem}
+  .flow{padding:5.5rem 1.0625rem 5rem}   /* questions sit in the middle of the screen */
+  .step h1{font-size:37px;margin-bottom:1.5rem}
   .opt{height:50px;padding:0 1.25rem;font-size:14px}
-  .go{width:100%;max-width:26rem}
-  .cal{border-radius:1.25rem}
+  .slot{font-size:15px}
+  .cal-head{padding:.875rem;gap:.5rem}                  /* name and timezone stay side by side */
+  .cal-who .full{display:none}                            /* "Vorten Studio" → "Vorten" */
+  .cal-head > .tz{min-width:0;flex-shrink:1;font-size:14px;padding:0 2.25rem 0 1rem}
+  .cal-who strong{overflow:hidden;text-overflow:ellipsis}
+  .cal-card{padding:.5rem;border-radius:1.5rem}
+  .cal-head{border-radius:1.125rem 1.125rem 0 0}
+  .day{height:2.375rem;font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.step{animation:none}.progress i{transition:none}}
 </style>
@@ -79,19 +144,21 @@ textarea.field{height:9.5rem;border-radius:1.5rem;padding:1rem 1.25rem;resize:no
 
 <script>
 // ─── Start a project: one question per screen, then book a call (Cal.com) ───
-const CAL_LINK = 'vorten.studio/20min';
+// Booking goes through Cal.com's public API (same account as before: vorten.studio / 20min)
+const CAL = {api:'https://api.cal.com/v2', username:'vorten.studio', event:'20min'};
 const STEPS = [
   {id:'name',    type:'text', h:'What is your name?', ph:'Your name...', input:'text', ac:'name'},
   {id:'email',   type:'text', h:'What is your best email?', ph:'you@company.com', input:'email', ac:'email'},
   {id:'company', type:'text', h:'What is the name of your company?', ph:'Your company name...', ac:'organization'},
   {id:'website', type:'text', h:'What is your website URL?', ph:'yourcompany.com', input:'url', ac:'url', optional:true},
-  {id:'help',    type:'options', h:'How can we help?', multiple:true, lede:'Pick as many as you need.',
+  {id:'help',    type:'options', h:'How can we help?', multiple:true,
     options:['MVP Development','Web & Mobile Apps','Product Design','Product Strategy','Audits & Redesigns']},
-  {id:'budget',  type:'options', h:'What is your budget for the project?', options:['<$10K','$10K–$20K','$20K–$50K','$50K–$100K','$100K+']},
-  {id:'start',   type:'options', h:'When would you like to start?', options:['ASAP','1–2 weeks','2–4 weeks','1–3 months','3+ months']},
+  {id:'budget',  type:'options', h:'What is your budget for the project?', options:['<$5K','$5K-$10K','$10K-$25K','$25K-$50K','$50K+']},
+  {id:'start',   type:'options', h:'When would you like to start?', options:['ASAP','1-2 weeks','2-4 weeks','1-3 months','3+ months']},
   {id:'details', type:'textarea', h:'Tell us about\nyour project', ph:'What are you building, who is it for, and where are you today?', optional:true},
   {id:'referral',type:'options', h:'How did you find us?', options:['LinkedIn','Google','AI chat','Twitter/X','Friends','Other']},
-  {id:'book',    type:'book', h:'Pick a time to talk', lede:'A 20-minute intro call with the team.'},
+  {id:'date',    type:'date', h:'Choose a day'},
+  {id:'time',    type:'time', h:'Choose a time'},
   {id:'booked',  type:'booked'},
 ];
 const COUNTED = STEPS.length - 1; // the confirmation screen doesn't count toward progress
@@ -100,6 +167,7 @@ const KEY = 'vorten-intro';
 let state = {i:0, a:{}};
 try { const s = JSON.parse(sessionStorage.getItem(KEY)); if (s && s.a) state = s; } catch(e) {}
 if (state.i >= STEPS.length - 1) state.i = 0;   // never reopen on the confirmation screen
+if (!state.t0) state.t0 = Date.now();
 const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} };
 
 const stage = document.getElementById('stage'), bar = document.getElementById('bar');
@@ -109,6 +177,8 @@ const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 function valid(step) {
   const v = state.a[step.id];
   if (step.optional) return true;
+  if (step.type === 'date') return !!state.a.date;
+  if (step.type === 'time') return !!state.a.slot;
   if (step.type === 'options') return step.multiple ? Array.isArray(v) && v.length > 0 : !!v;
   if (step.input === 'email') return !!v && validEmail(v);
   return !!(v && v.trim());
@@ -123,8 +193,8 @@ function go(delta) {
 function render() {
   const step = STEPS[state.i];
   bar.style.width = (Math.min(state.i + 1, COUNTED) / COUNTED * 100) + '%';
-  bar.parentElement.style.display = (step.type === 'book' || step.type === 'booked') ? 'none' : ''; // calendar + confirmation: no progress bar over the content
-  const wrap = el('div', {className:'step'});
+  bar.parentElement.style.display = step.type === 'booked' ? 'none' : '';
+  const wrap = el('div', {className: (step.type === 'date' || step.type === 'time') ? 'step cal-step' : 'step'});
   if (step.h) wrap.append(el('h1', {textContent: step.h}));
   if (step.lede) wrap.append(el('p', {className:'lede', textContent: step.lede}));
 
@@ -132,7 +202,6 @@ function render() {
   const cont = el('button', {className:'go', type:'button', textContent:'Continue'});
   const refresh = () => {
     cont.disabled = !valid(step);
-    if (step.optional) cont.textContent = (state.a[step.id] || '').trim() ? 'Continue' : 'Skip';
   };
   cont.onclick = () => { if (valid(step)) go(1); };
 
@@ -145,14 +214,19 @@ function render() {
       const submit = e.key === 'Enter' && (step.type === 'text' || e.metaKey || e.ctrlKey);
       if (submit) { e.preventDefault(); cont.click(); }
     };
-    wrap.append(f);
+    if (step.type === 'textarea') wrap.append(composer(f)); else wrap.append(f);
+    if (step.id === 'name') {   // honeypot
+      const trap = el('input', {type:'text', name:'company_website', tabIndex:-1, autocomplete:'off', value: state.a.hp || '', ariaHidden:'true'});
+      trap.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+      trap.oninput = () => { state.a.hp = trap.value; save(); };
+      wrap.append(trap);
+    }
     setTimeout(() => f.focus({preventScroll:true}), 60);
     actions.append(cont);
-    if (step.type === 'textarea') actions.append(el('span', {className:'hint', textContent:'⌘ + Enter to continue'}));
   }
 
   if (step.type === 'options') {
-    const group = el('div', {className:'opts', role: step.multiple ? 'group' : 'radiogroup'});
+    const group = el('div', {className: ['help','budget','start','referral'].includes(step.id) ? 'opts plain' : 'opts', role: step.multiple ? 'group' : 'radiogroup'});
     group.setAttribute('aria-label', step.h);
     step.options.forEach(o => {
       const picked = () => step.multiple ? (state.a[step.id] || []).includes(o) : state.a[step.id] === o;
@@ -167,7 +241,6 @@ function render() {
           state.a[step.id] = o;
         }
         save(); group.querySelectorAll('.opt').forEach(x => x._sync()); refresh();
-        if (!step.multiple) setTimeout(() => { if (STEPS[state.i] === step) go(1); }, 260); // single choice moves on by itself
       };
       b._sync = sync; sync(); group.append(b);
     });
@@ -175,46 +248,257 @@ function render() {
     actions.append(cont);
   }
 
-  if (step.type === 'book') {
-    wrap.append(el('div', {className:'cal', id:'cal-embed'}));
-    requestAnimationFrame(mountCal);
+  if (step.type === 'date') { wrap.append(dayPicker(refresh)); actions.append(cont); }
+  if (step.type === 'time') {
+    wrap.append(timePicker(refresh));
+    cont.textContent = 'Submit booking';
+    cont.onclick = () => book(cont, wrap);
+    actions.append(cont);
   }
 
   if (step.type === 'booked') {
-    const first = (state.a.name || '').trim().split(/\s+/)[0];
-    wrap.append(el('h1', {textContent: `You're booked${first ? ', ' + first : ''}.`}));
-    wrap.append(el('p', {className:'lede', textContent: `We sent the invite to ${state.a.email || 'your inbox'}. Talk soon.`}));
-    actions.append(el('a', {className:'go', href:'/', textContent:'Back to home', style:'display:inline-flex;align-items:center'}));
+    celebrate();
+    wrap.append(el('h1', {textContent: "You're all set!"}));
+    // files aren't uploaded anywhere yet, so ask for them by email
+    const n = (state.a.attachments || []).length;
+    wrap.append(el('p', {className:'lede', textContent: n
+      ? `Send your ${n === 1 ? 'attachment' : n + ' attachments'} over to info@vorten.studio before we talk. In the meantime, have a look at what we've been building.`
+      : "Anything to share before we talk? Just email us. In the meantime, have a look at what we've been building."}));
+    const work = el('a', {className:'go btn-arrow btn-arrow-ne', href:'/work'});
+    work.innerHTML = '<span class="ba-pad"></span><span class="ba-t">See</span><span class="ba-a">our</span><span>work</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span><span class="ba-pad"></span>';
+    actions.append(work, el('a', {className:'mail', href:'mailto:info@vorten.studio', textContent:'info@vorten.studio'}));
     try { sessionStorage.removeItem(KEY); } catch(e) {}
   }
 
   if (state.i > 0 && step.type !== 'booked') {
-    actions.append(el('button', {className:'back', type:'button', textContent:'← Back', onclick: () => go(-1)}));
+    actions.append(el('button', {className:'back', type:'button', textContent:'Back', onclick: () => go(-1)}));
   }
   wrap.append(actions);
   refresh();
   stage.replaceChildren(wrap);
 }
 
-// Final step: Cal.com calendar, pre-filled with name + email and every answer in the booking notes
+// ─── attachments (project details step) ───
+const MAX_FILES = 5, MAX_BYTES = 1024 * 1024;
+const files = [];   // File objects live in memory only; their names are kept with the answers
+const fmtSize = b => b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1024 / 1024).toFixed(1) + ' MB';
+function composer(textarea) {
+  const box = el('div', {className:'composer'});
+  const input = el('input', {type:'file', multiple:true, hidden:true,
+    accept:'image/*,.pdf,.doc,.docx,.ppt,.pptx,.key,.xls,.xlsx,.csv,.txt,.zip,.fig,.sketch'});
+  const pill = el('div', {className:'upload', role:'button', tabIndex:0});
+  const label = el('span', {className:'label'});
+  const clip = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 7.5 8.2 12.8a3.2 3.2 0 0 1-4.5-4.5l5.6-5.6a2.1 2.1 0 0 1 3 3L6.7 11.3a1.1 1.1 0 0 1-1.5-1.5l5-5"/></svg>';
+  const clear = el('button', {className:'clear', type:'button', textContent:'×', ariaLabel:'Remove attachments'});
+  const note = el('p', {className:'file-note'});
+  const open = () => input.click();
+  pill.onclick = e => { if (!clear.contains(e.target)) open(); };
+  pill.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
+  clear.onclick = () => { files.length = 0; sync(); draw(); };
+  const sync = () => { state.a.attachments = files.map(f => f.name); save(); textarea.dispatchEvent(new Event('input')); };
+  const draw = (msg = '') => {
+    const has = files.length > 0;
+    pill.classList.toggle('has', has);
+    label.textContent = has ? files.map(f => f.name).join(', ') : 'Upload attachment';
+    pill.title = has ? files.map(f => `${f.name} (${fmtSize(f.size)})`).join('\n') : '';
+    pill.replaceChildren(label);
+    if (has) pill.append(clear);
+    pill.insertAdjacentHTML('beforeend', clip);
+    note.textContent = msg; note.hidden = !msg;
+  };
+  input.onchange = () => {
+    let msg = '';
+    for (const file of input.files) {
+      if (files.length >= MAX_FILES) { msg = `Up to ${MAX_FILES} files.`; break; }
+      if (file.size > MAX_BYTES) { msg = "Each attachment must be under 1 MB."; continue; }
+      if (!files.some(f => f.name === file.name && f.size === file.size)) files.push(file);
+    }
+    input.value = ''; sync(); draw(msg);
+  };
+  state.a.attachments = files.map(f => f.name); save(); // files don't survive a reload; keep the answers in step
+  draw();
+  box.append(textarea, pill, note, input);
+  return box;
+}
+
+// ─── booking: day → time, availability + booking via Cal.com ───
 function summary() {
   const a = state.a, list = v => Array.isArray(v) ? v.join(', ') : (v || '—');
   return [
     `Company: ${a.company || '—'}`, `Website: ${a.website || '—'}`, `Help with: ${list(a.help)}`,
     `Budget: ${a.budget || '—'}`, `Start: ${a.start || '—'}`, `Found us via: ${a.referral || '—'}`,
+    `Attachments: ${(a.attachments || []).length ? a.attachments.join(', ') : '—'}`,
     '', (a.details || '').trim() || '(no project details)'
   ].join('\n');
 }
-function mountCal() {
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
-  if (!window.__calInit) { Cal('init', 'intro', {origin:'https://cal.com'}); window.__calInit = true;
-    Cal.ns.intro('ui', {theme:'light', cssVarsPerTheme:{light:{'cal-brand':'#2C4E3E'}}, hideEventTypeDetails:false, layout:'month_view'});
-    ['bookingSuccessful','bookingSuccessfulV2'].forEach(action => Cal.ns.intro('on', {action, callback: () => { if (STEPS[state.i].type === 'book') go(1); }}));
-  }
-  Cal.ns.intro('inline', {elementOrSelector:'#cal-embed', calLink: CAL_LINK, layout:'month_view',
-    config: {theme:'light', name: state.a.name || '', email: state.a.email || '', notes: summary()}});
+const TIMEZONES = [
+  ['America/Los_Angeles','San Francisco / PT'], ['America/Denver','Denver / MT'], ['America/Chicago','Chicago / CT'],
+  ['America/New_York','New York / ET'], ['America/Sao_Paulo','São Paulo / BRT'], ['Europe/London','London / GMT'],
+  ['Europe/Madrid','Madrid / CET'], ['Europe/Berlin','Berlin / CET'], ['Asia/Dubai','Dubai / GST'],
+  ['Asia/Kolkata','India / IST'], ['Asia/Singapore','Singapore / SGT'], ['Australia/Sydney','Sydney / AET'],
+];
+function tzSelect(onChange) {
+  const sel = el('select', {className:'tz', ariaLabel:'Time zone'});
+  const cur = myTz(), list = TIMEZONES.some(t => t[0] === cur) ? TIMEZONES : [[cur, cur.replace(/_/g, ' ')], ...TIMEZONES];
+  list.forEach(([v, l]) => sel.append(el('option', {value:v, textContent:l, selected: v === cur})));
+  sel.onchange = () => { state.a.tz = sel.value; save(); onChange(); };
+  return sel;
 }
-
+const myTz = () => state.a.tz || Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/New_York';
+const pad = n => String(n).padStart(2, '0');
+const ymd = (y, m, d) => `${y}-${pad(m + 1)}-${pad(d)}`;
+const todayIn = tz => new Intl.DateTimeFormat('en-CA', {timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
+const slotCache = {};
+// Calls run 10:00am–2:20pm studio time (New York; last start 2:20pm). Filtered here; set the same hours in Cal.com availability.
+const STUDIO_TZ = 'America/New_York', FIRST_MIN = 10 * 60, LAST_MIN = 14 * 60 + 20;
+const studioMinutes = iso => { const [h, m] = new Intl.DateTimeFormat('en-US', {timeZone: STUDIO_TZ, hour:'numeric', minute:'2-digit', hourCycle:'h23'}).format(new Date(iso)).split(':').map(Number); return h * 60 + m; };
+function onlyFrom10(days) {
+  const out = {};
+  for (const [day, list] of Object.entries(days)) { const keep = list.filter(sl => { const t = studioMinutes(sl.start); return t >= FIRST_MIN && t <= LAST_MIN; }); if (keep.length) out[day] = keep; }
+  return out;
+}
+async function monthSlots(tz, y, m) {
+  const key = `${tz}|${y}-${m}`;
+  if (!slotCache[key]) {
+    const today = todayIn(tz), first = ymd(y, m, 1), last = ymd(y, m, new Date(y, m + 1, 0).getDate());
+    const start = first < today ? today : first;
+    const q = new URLSearchParams({username: CAL.username, eventTypeSlug: CAL.event, start, end: last, timeZone: tz});
+    slotCache[key] = fetch(`${CAL.api}/slots?${q}`, {headers: {'cal-api-version': '2024-09-04'}})
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(j => onlyFrom10(j.data || {}))
+      .catch(e => { delete slotCache[key]; throw e; });
+  }
+  return slotCache[key];
+}
+function dayPicker(onPick) {
+  let tz = myTz(); const box = el('div', {className:'cal-card'});
+  const [ty, tm] = todayIn(tz).split('-').map(Number);
+  let y = ty, m = tm - 1;
+  let hops = state.a.date ? 0 : 2;   // on first open, skip ahead past months with no open days (up to 2)
+  if (state.a.date) { const [sy, sm] = state.a.date.split('-').map(Number); y = sy; m = sm - 1; }
+  const title = el('strong'), prev = el('button', {className:'cal-nav', type:'button', textContent:'‹', ariaLabel:'Previous month'}),
+        next = el('button', {className:'cal-nav', type:'button', textContent:'›', ariaLabel:'Next month'});
+  const grid = el('div', {className:'cal-grid'}), status = el('p', {className:'cal-status'});
+  const who = el('div', {className:'cal-who'}, [el('img', {src:'assets/logo.png', alt:''}), el('strong', {}, ['Vorten', el('span', {className:'full', textContent:' Studio'})])]);
+  const tzSel = tzSelect(() => { tz = myTz(); state.a.date = null; state.a.slot = null; save(); onPick(); draw(); });
+  box.append(el('div', {className:'cal-head'}, [who, tzSel]),
+             el('div', {className:'cal-body'}, [el('div', {className:'cal-month'}, [title, el('div', {className:'cal-navs'}, [prev, next])]), grid, status]));
+  const draw = async () => {
+    title.replaceChildren(new Date(y, m, 1).toLocaleDateString('en-US', {month:'long'}), el('span', {textContent: y}));
+    prev.disabled = y === ty && m === tm - 1;
+    grid.replaceChildren(...['MON','TUE','WED','THU','FRI','SAT','SUN'].map(d => el('span', {className:'dow', textContent:d})));
+    const lead = (new Date(y, m, 1).getDay() + 6) % 7 /* Monday first */, days = new Date(y, m + 1, 0).getDate(), buttons = [];
+    for (let i = 0; i < lead; i++) grid.append(el('span'));
+    for (let d = 1; d <= days; d++) { const b = el('button', {className:'day', type:'button', textContent:d, disabled:true}); b.dataset.date = ymd(y, m, d); buttons.push(b); grid.append(b); }
+    status.textContent = 'Loading availability…';
+    try {
+      const slots = await monthSlots(tz, y, m);
+      let any = false;
+      buttons.forEach(b => {
+        const open = (slots[b.dataset.date] || []).length > 0; any = any || open;
+        b.disabled = !open;
+        b.setAttribute('aria-pressed', state.a.date === b.dataset.date ? 'true' : 'false');
+        b.onclick = () => { state.a.date = b.dataset.date; state.a.slot = null; save(); buttons.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); onPick(); };
+      });
+      if (!any && hops-- > 0) { m++; if (m > 11) { m = 0; y++; } return draw(); }
+      hops = 0;
+      status.textContent = any ? '' : 'No open days this month — try the next one.';
+    } catch (e) { status.textContent = "Couldn't load availability. Please refresh or email hello@vorten.studio."; }
+  };
+  prev.onclick = () => { m--; if (m < 0) { m = 11; y--; } draw(); };
+  next.onclick = () => { m++; if (m > 11) { m = 0; y++; } draw(); };
+  draw();
+  return box;
+}
+function timePicker(onPick) {
+  const tz = myTz(), box = el('div', {className:'cal-card'});
+  const [y, mo, d] = state.a.date.split('-').map(Number);
+  const tzLabel = (TIMEZONES.find(t => t[0] === tz) || [tz, tz.replace(/_/g, ' ')])[1].replace(' / ', '/');
+  const dateLabel = new Date(y, mo - 1, d).toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+  const who = el('div', {className:'cal-who'}, [el('img', {src:'assets/logo.png', alt:''}), el('strong', {}, ['Vorten', el('span', {className:'full', textContent:' Studio'})])]);
+  const hours = el('div', {className:'hours', role:'group', ariaLabel:'Clock format'});
+  const h12 = el('button', {type:'button', textContent:'12h'}), h24 = el('button', {type:'button', textContent:'24h'});
+  hours.append(h12, h24);
+  const times = el('div', {className:'times', role:'radiogroup', ariaLabel:'Available times'}), status = el('p', {className:'cal-status'});
+  box.append(el('div', {className:'cal-head stack'}, [who, hours, el('p', {className:'cal-sub', textContent:`${tzLabel}  -  ${dateLabel}`})]),
+             el('div', {className:'cal-body'}, [times, status]));
+  let slots = [];
+  const fmt = iso => state.a.h24
+    ? new Date(iso).toLocaleTimeString('en-GB', {timeZone: tz, hour:'2-digit', minute:'2-digit'})
+    : new Date(iso).toLocaleTimeString('en-US', {timeZone: tz, hour:'numeric', minute:'2-digit'}).replace(' ', '').toLowerCase();
+  const paint = () => {
+    h12.setAttribute('aria-pressed', state.a.h24 ? 'false' : 'true'); h24.setAttribute('aria-pressed', state.a.h24 ? 'true' : 'false');
+    times.replaceChildren(...slots.map(sl => {
+      const b = el('button', {className:'slot', type:'button', textContent: fmt(sl.start)});
+      b.setAttribute('aria-pressed', state.a.slot === sl.start ? 'true' : 'false');
+      b.onclick = () => { state.a.slot = sl.start; save(); times.querySelectorAll('.slot').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); onPick(); };
+      return b;
+    }));
+  };
+  h12.onclick = () => { state.a.h24 = false; save(); paint(); };
+  h24.onclick = () => { state.a.h24 = true; save(); paint(); };
+  status.textContent = 'Loading times…'; paint();
+  monthSlots(tz, y, mo - 1).then(all => {
+    slots = all[state.a.date] || [];
+    status.textContent = slots.length ? '' : 'No times left on this day — go back and pick another.';
+    paint();
+  }).catch(() => { status.textContent = "Couldn't load times. Please refresh or email hello@vorten.studio."; });
+  return box;
+}
+// ─── spam check (conservative: only obvious bots / junk) ───
+const THROWAWAY = /@(mailinator|yopmail|10minutemail|guerrillamail|sharklasers|trashmail|tempmail|temp-mail|getnada|dispostable|maildrop|throwawaymail|fakeinbox|mintemail|emailondeck|moakt|mohmal|spamgourmet)\./i;
+const SPAMMY = /\b(backlinks?|seo services|casino|viagra|cialis|crypto ?(signals|investment)|forex|payday loan|escort|onlyfans|guest post)\b/i;
+const mashed = v => (v || '').toLowerCase().split(/[^a-z]+/).some(w => w.length >= 6 && (/[bcdfghjklmnpqrstvwxz]{6,}/.test(w) || !/[aeiouy]/.test(w)));
+function looksLikeSpam(a) {
+  if ((a.hp || '').trim()) return true;                                   // filled the hidden trap field
+  if (state.t0 && Date.now() - state.t0 < 8000) return true;              // whole flow in under 8 seconds
+  if (THROWAWAY.test(a.email || '')) return true;                         // disposable inbox
+  if (/https?:|www\.|<[a-z]/i.test(`${a.name} ${a.company}`)) return true; // links / markup in name or company
+  if (mashed(a.name) || mashed(a.company)) return true;                   // keyboard mash, e.g. "xkqjzbt"
+  const d = a.details || '';
+  if ((d.match(/https?:\/\//g) || []).length >= 3 || SPAMMY.test(d)) return true;
+  return false;
+}
+async function book(btn, wrap) {
+  if (!state.a.slot) return;
+  wrap.querySelector('.spam-note')?.remove();
+  if (looksLikeSpam(state.a)) {
+    wrap.append(el('p', {className:'spam-note', textContent:'This looks like spam. Go back and edit your details, or email us at info@vorten.studio'}));
+    return;
+  }
+  const a = state.a, tz = myTz();
+  wrap.querySelector('.book-error')?.remove();
+  btn.disabled = true; btn.textContent = 'Booking…';
+  try {
+    const r = await fetch(`${CAL.api}/bookings`, {method:'POST',
+      headers: {'cal-api-version':'2024-08-13', 'Content-Type':'application/json'},
+      body: JSON.stringify({start: new Date(a.slot).toISOString(), username: CAL.username, eventTypeSlug: CAL.event,
+        attendee: {name: a.name.trim(), email: a.email.trim(), timeZone: tz, language: 'en'},
+        bookingFieldsResponses: {notes: summary()}, metadata: {source: 'vorten.studio/intro'}})});
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.status === 'error') throw new Error(j.error?.message || r.status);
+    a.when = new Date(a.slot).toLocaleString('en-US', {timeZone: tz, weekday:'long', month:'long', day:'numeric', hour:'numeric', minute:'2-digit'});
+    go(1);
+  } catch (e) {
+    Object.keys(slotCache).forEach(k => delete slotCache[k]);   // availability may have changed
+    btn.disabled = false; btn.textContent = 'Submit booking';
+    console.error('[booking] Cal.com said:', e.message);
+    const taken = /not available|already has booking|conflict/i.test(e.message);
+    wrap.append(el('p', {className:'book-error', textContent: taken
+      ? "That time was just taken. Please pick another time."
+      : `Booking didn't go through (${e.message}). Please try again or email hello@vorten.studio.`}));
+  }
+}
+// confetti on the booked screen (brand greens + white), skipped for reduced motion
+function celebrate() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  import('https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.module.mjs').then(({default: confetti}) => {
+    const colors = ['#2C4E3E', '#00AF38', '#8FC9A3', '#FFFFFF', '#C9D6CF'];
+    const burst = (x, angle) => confetti({particleCount: 70, spread: 70, startVelocity: 55, angle, origin: {x, y: .75}, colors, scalar: 1.05, ticks: 260});
+    burst(.15, 60); burst(.85, 120);
+    setTimeout(() => confetti({particleCount: 90, spread: 110, startVelocity: 40, origin: {x: .5, y: .45}, colors, ticks: 260}), 250);
+  }).catch(() => {});
+}
 render();
 </script>
 </body>
