@@ -166,13 +166,6 @@ body{font-family:'Satoshi',system-ui,-apple-system,sans-serif;background:var(--b
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 
-/* ─── HEADER ─── */
-header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:999;display:flex;gap:0.875rem;align-items:center}
-.logo{width:2.75rem;height:2.75rem;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden;flex-shrink:0}
-.nav-pill{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:color .3s;white-space:nowrap}
-.nav-pill:hover{color:var(--dark)}
-.nav-pill-strong{font-weight:700;color:var(--dark)}
-@media(max-width:768px){header{gap:.5rem}.nav-pill{padding:0 .875rem}}
 /* "Start a project": the "a" slides away and becomes an arrow (same as home) */
 .btn-arrow{gap:0}
 .btn-arrow .ba-t{margin-right:.26em}
@@ -184,7 +177,7 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .btn-arrow .ba-arrow svg{width:.72em;height:.72em;flex-shrink:0}
 
 /* ─── WORK PAGE ─── */
-.work-hero{padding:5.5rem var(--global-px) 2.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.625rem}
+.work-hero{padding:8.5rem var(--global-px) 2.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.625rem}
 .work-hero h1{font-size:28px;font-weight:900;color:var(--dark)}
 .work-hero p{font-size:13px;font-weight:700;color:var(--gray)}
 .work-tabs{display:flex;gap:0;background:var(--white);border-radius:9999px;padding:0.25rem;margin-top:0.5rem}
@@ -199,6 +192,15 @@ header{position:fixed;top:0.75rem;left:50%;transform:translateX(-50%);z-index:99
 .work-grid-item.card-logo{padding:1rem}
 .work-grid-item.card-logo img{object-fit:contain;object-position:center;border-radius:0.75rem}
 @media(max-width:768px){.work-grid{grid-template-columns:1fr}}
+/* project card: category tabs on top, screenshot in a white frame, name tab bottom-left */
+.work-card{display:flex;flex-direction:column;align-items:center;min-width:0}
+.wc-tags{display:flex;gap:.375rem}
+.wc-tags span{background:var(--white);border-radius:.75rem .75rem 0 0;padding:.5rem .875rem .25rem;font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--dark)}
+.wc-frame{position:relative;width:100%;background:var(--white);border-radius:var(--card-radius);padding:.4375rem;overflow:hidden}
+.wc-frame img{width:100%;aspect-ratio:1.39;object-fit:cover;object-position:top;border-radius:1rem 1rem 0 0;transition:transform .3s}
+.work-card:hover .wc-frame img{transform:scale(1.02)}
+.wc-name{position:absolute;left:0;bottom:0;background:var(--white);border-top-right-radius:var(--card-radius);padding:.4375rem 1.625rem .9375rem 2rem;font-size:16px;font-weight:900;letter-spacing:-0.02em;color:var(--dark)}
+.work-grid:has(>.work-card:only-child){grid-template-columns:minmax(0,38rem);justify-content:center} /* one project: centered */
 
 /* ─── LIGHTBOX ─── */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -230,48 +232,101 @@ footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.
 @media(max-width:768px){.footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}}
 /* mobile/touch: no button hover animations */
 @media(hover:none),(max-width:768px){.btn-arrow .ba-a,.btn-arrow .ba-arrow,.btn-arrow .ba-pad{transition:none}.btn-arrow:hover .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:none}.btn-arrow-ne:hover .ba-a{width:1.53em}.btn-arrow:hover .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em)}.btn-arrow-ne:hover .ba-pad{width:0}.btn-dark:hover svg,.btn-light:hover .tg-plane{animation:none}}
+/* ─── HEADER: promo bar + full-width nav ─── */
+html{scroll-padding-top:6.5rem}
+header{position:fixed;top:0;left:0;right:0;z-index:999}
+.topbar{position:relative;z-index:2}
+/* nav row slides up under the promo bar on scroll up, back on scroll down; goes green over [data-nav="dark"] sections */
+.nav-row{position:relative;z-index:1;background:var(--bg);transition:transform .35s cubic-bezier(.4,0,.2,1),background-color .3s}
+header.nav-hidden .nav-row{transform:translateY(-100%)}
+.nav-logo,.nav-links a,.nav-work,.nav-cta{transition:color .3s,background-color .3s}
+.nav-logo img{transition:filter .3s}
+header.scrolled .nav-row{background:var(--white)}
+header.scrolled .nav-cta{background:var(--bg);box-shadow:none} /* keeps the pill visible on the white bar */
+header.on-dark .nav-row{background:#405E4F}
+header.on-dark .nav-logo,header.on-dark .nav-work,header.on-dark .nav-links a:hover,header.on-dark .nav-links a[aria-current]{color:var(--white)}
+header.on-dark .nav-logo img{filter:brightness(0) invert(1)}
+header.on-dark .nav-links a{color:rgba(255,255,255,.65)}
+header.on-dark .nav-cta{background:var(--dark);color:var(--white);box-shadow:none}
+.topbar{display:flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:0 1rem;background:var(--dark);color:var(--white);font-size:13px;font-weight:700;letter-spacing:-0.01em;white-space:nowrap}
+.topbar svg{width:.85em;height:.85em;transition:transform .3s}
+.topbar:hover svg{transform:translateX(3px)}
+.site-nav{max-width:90rem;margin:0 auto;height:4.25rem;padding:0 1.5rem;display:flex;align-items:center;gap:1.75rem}
+.nav-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);flex-shrink:0}
+.nav-logo img{height:.66em;width:auto;object-fit:contain} /* mark matches the letter height, sits on the baseline */
+.nav-links{display:flex;gap:1.375rem}
+.nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;transition:color .3s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--dark)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:1.5rem}
+.nav-work{font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
+.nav-cta{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;white-space:nowrap}
+@media(max-width:900px){.nav-links{display:none}}
+@media(max-width:640px){.site-nav{height:4.25rem;padding:.5rem 1.125rem 0}.nav-work{display:none}.nav-cta{height:2.5rem;padding:0 1rem}}
+/* mobile menu: two-dash toggle turns into an X and opens the links under the nav */
+.nav-toggle{display:none;width:2.5rem;height:2.5rem;border:none;border-radius:50%;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nav-toggle i{display:block;width:16px;height:3px;border-radius:0;background:var(--dark);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+header.menu-open .nav-toggle i:first-child{transform:translateY(4px) rotate(45deg)}
+header.menu-open .nav-toggle i:last-child{transform:translateY(-4px) rotate(-45deg)}
+header.on-dark .nav-toggle i{background:var(--white)}
+/* menu panel: full screen under the promo bar, centered links, CTAs pinned to the bottom (like kargul) */
+.nav-menu{position:fixed;top:6.5rem;left:0;right:0;bottom:0;display:flex;flex-direction:column;background:var(--bg);padding:0 .75rem 1rem;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .45s cubic-bezier(.65,0,.35,1) .2s,visibility 0s .65s} /* wipes down from the nav like kargul; on close it waits for the items to slide up first */
+.menu-links{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+.menu-links a{font-size:18px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
+.menu-ctas{display:flex;flex-direction:column;gap:.625rem}
+.menu-ctas a{height:3.25rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+.menu-ctas .m-work{background:var(--white);color:var(--dark)}
+.menu-ctas .m-start{background:var(--dark);color:var(--white)}
+header.menu-open .nav-menu{clip-path:inset(0);visibility:visible;transition:clip-path .65s cubic-bezier(.65,0,.35,1),visibility 0s}
+header.menu-open .nav-row{background:var(--bg)}
+header.menu-open .nav-cta{display:none}
+/* each menu item drops down out of its own mask in turn when opening (following the wipe), and slides back up behind it in reverse when closing (no fade) */
+.menu-links a,.m-clip{display:block;overflow:hidden}
+.menu-links a span{display:block}
+.menu-links a span,.m-clip a{transform:translateY(-110%);transition:transform .45s cubic-bezier(.22,1,.36,1);transition-delay:calc((var(--n) - var(--i)) * 35ms)}
+.menu-links a span{padding:.125rem 0} /* room for descenders inside the mask */
+header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;transition:transform .72s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i) * 60ms + 215ms)}
+@media(min-width:641px){.nav-menu{top:6.5rem}} /* nav row is taller above phone width */
+@media(max-width:900px){.nav-toggle{display:flex;margin-right:-.5rem} /* dashes line up with the page margin */.nav-right{gap:.5rem}}
+
+@media(max-width:640px){:root{--global-px:1.125rem}} /* mobile: tighter side margins */
+
+@media(max-width:900px){header.scrolled .nav-cta{background:var(--dark);color:var(--white)}} /* mobile: Start a project goes dark green once scrolled */
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-  <a href="/" class="logo" aria-label="Home">
-    <img src="../assets/logo-mark.png" alt="Vorten Studio" style="width:42%;height:42%;object-fit:contain">
-  </a>
-  <a href="/work" class="nav-pill">Recent work</a>
-  <a href="/intro" class="nav-pill nav-pill-strong btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
+  <a href="/intro" class="topbar">Get your product audited. For free <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+  <div class="nav-row">
+  <nav class="site-nav">
+    <a href="/" class="nav-logo" aria-label="Vorten Studio home"><img src="../assets/logo-mark.png" alt="">vorten</a>
+    <div class="nav-links"><a href="/work" aria-current="page">Recent work</a><a href="/raw-files">Raw files</a><a href="#">Insights</a><a href="#">Product audit</a><a href="#">Careers</a></div>
+    <div class="nav-right">
+      <a href="/work" class="nav-work">See our work</a>
+      <a href="/intro" class="nav-cta btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </nav>
+  <div class="nav-menu">
+    <div class="menu-links"><a href="/work"><span>Recent work</span></a><a href="/raw-files"><span>Raw files</span></a><a href="#"><span>Insights</span></a><a href="#"><span>Product audit</span></a><a href="#"><span>Careers</span></a></div>
+    <div class="menu-ctas"><div class="m-clip"><a href="/work" class="m-work">See our work</a></div><div class="m-clip"><a href="/intro" class="m-start">Start a project</a></div></div>
+  </div>
+  </div>
 </header>
 
 <!-- WORK HERO -->
 <div class="work-hero">
   <h1>Built here</h1>
   <p>Digital products and brand systems<br>built with founders bringing the idea.</p>
-  <div class="work-tabs">
-    <button class="work-tab active" data-filter="product"><span>Product</span></button>
-    <button class="work-tab" data-filter="web"><span>Web</span></button>
-    <button class="work-tab" data-filter="brand"><span>Brand</span></button>
-  </div>
 </div>
 
 <!-- WORK GRID -->
 <div class="work-grid" id="work-grid">
-  <div class="work-grid-item" data-cat="web"><img src="../assets/project-3.png" alt="Elite Property Management"></div>
-  <div class="work-grid-item card-logo" data-cat="brand"><img src="../assets/project-5.png" alt="UntzDrop logo" style="background:#1D1713"></div>
-  <div class="work-grid-item" data-cat="product"><img src="../assets/project-8.png" alt="WeOut app"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/project-1.png" alt="Lighter project" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item card-logo" data-cat="brand"><img src="../assets/project-7.png" alt="Elite PM logo" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/project-4.png" alt="UntzDrop" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item card-logo" data-cat="brand"><img src="../assets/project-6.png" alt="Vo logo" style="background:#f3f9f7" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="product"><img src="../assets/project-2.png" alt="Dashboard project" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="product"><img src="../assets/work-1.png" alt="Email inbox" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="product"><img src="../assets/work-2.png" alt="Chat inbox" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="product"><img src="../assets/work-3.png" alt="Calendar" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/work-4.png" alt="Elite PM section" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/work-5.png" alt="UntzDrop events" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/work-6.png" alt="UntzDrop how it works" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/work-7.png" alt="UntzDrop DJ section" loading="lazy" decoding="async"></div>
-  <div class="work-grid-item" data-cat="web"><img src="../assets/work-8.png" alt="WeOut landing" loading="lazy" decoding="async"></div>
+  <a href="/work/tiger-construction" class="work-card">
+    <div class="wc-tags"><span>Construction</span><span>B2C</span></div>
+    <div class="wc-frame"><img src="../assets/work/tiger/home.jpg" alt="Tiger Construction website"><span class="wc-name">Tiger Construction</span></div>
+  </a>
 </div>
 
 <!-- LIGHTBOX -->
@@ -309,7 +364,7 @@ let visibleItems=[];
 let currentIdx=0;
 
 function getVisibleItems(){
-  return [...document.querySelectorAll('.work-grid-item')].filter(i=>i.style.display!=='none');
+  return [...document.querySelectorAll('div.work-grid-item')].filter(i=>i.style.display!=='none');
 }
 function showSlide(){
   visibleItems=getVisibleItems();
@@ -356,7 +411,7 @@ document.addEventListener('keydown',(e)=>{if(!lightbox.classList.contains('open'
 
 // Click handler for grid items
 document.addEventListener('click',(e)=>{
-  const item=e.target.closest('.work-grid-item');
+  const item=e.target.closest('div.work-grid-item');
   if(!item)return;
   visibleItems=getVisibleItems();
   const idx=visibleItems.indexOf(item);
@@ -368,7 +423,6 @@ function filterWork(filter){
     item.style.display=(item.dataset.cat===filter)?'':'none';
   });
 }
-filterWork('product');
 document.querySelectorAll('.work-tab').forEach(tab=>{
   tab.addEventListener('click',()=>{
     document.querySelectorAll('.work-tab').forEach(t=>t.classList.remove('active'));
@@ -376,6 +430,32 @@ document.querySelectorAll('.work-tab').forEach(tab=>{
     filterWork(tab.dataset.filter);
   });
 });
+</script>
+<script>
+// nav: only hides on scroll up inside the home hero (promo bar stays); green over [data-nav="dark"] sections
+(function(){
+  var h=document.querySelector('header'),row=h&&h.querySelector('.nav-row');if(!row)return;
+  var dark=[].slice.call(document.querySelectorAll('[data-nav="dark"]')),hero=document.getElementById('hero'),lastY=scrollY,ticking=false;
+  function u(){ticking=false;var y=scrollY;
+    h.classList.toggle('scrolled',y>10);
+    if(Math.abs(y-lastY)>4){h.classList.toggle('nav-hidden',!!hero&&y<lastY&&y>120&&hero.getBoundingClientRect().bottom>row.offsetTop+row.offsetHeight);lastY=y}
+    var c=row.offsetTop+row.offsetHeight/2;
+    h.classList.toggle('on-dark',dark.some(function(s){var b=s.getBoundingClientRect();return c>=b.top&&c<=b.bottom}))}
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(u)}},{passive:true});
+  addEventListener('resize',u);u();
+})();
+</script>
+<script>
+// mobile menu: full-screen panel; page scroll is locked while it's open
+(function(){
+  var h=document.querySelector('header'),b=h&&h.querySelector('.nav-toggle');if(!b)return;
+  function set(o){h.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':'';
+    if(o)h.classList.remove('on-dark','scrolled','nav-hidden');else dispatchEvent(new Event('scroll'))}
+  var items=h.querySelectorAll('.menu-links span,.m-clip a');items.forEach(function(a,i){a.style.setProperty('--i',i);a.style.setProperty('--n',items.length-1)}); // stagger order
+  b.addEventListener('click',function(){set(!h.classList.contains('menu-open'))});
+  h.querySelectorAll('.nav-menu a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  addEventListener('resize',function(){if(innerWidth>900&&h.classList.contains('menu-open'))set(false)});
+})();
 </script>
 </body>
 </html>

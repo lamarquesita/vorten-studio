@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiger Construction | Vorten Studio</title>
+<meta name="description" content="Website design and development for Tiger Construction, a residential and commercial contractor in South Florida.">
+<link rel="canonical" href="https://vorten.studio/work/tiger-construction">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#E8ECEA">
+<link rel="icon" type="image/png" href="../../favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<!-- social previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vorten Studio">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Tiger Construction | Vorten Studio">
+<meta property="og:description" content="Website design and development for Tiger Construction, a residential and commercial contractor in South Florida.">
+<meta property="og:url" content="https://vorten.studio/work/tiger-construction">
+<meta property="og:image" content="https://vorten.studio/assets/work/tiger/home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@vortenstudio">
+<meta name="twitter:title" content="Tiger Construction | Vorten Studio">
+<meta name="twitter:description" content="Website design and development for Tiger Construction, a residential and commercial contractor in South Florida.">
+<meta name="twitter:image" content="https://vorten.studio/assets/work/tiger/home.jpg">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "CreativeWork",
+   "@id": "https://vorten.studio/work/tiger-construction#work",
+   "name": "Tiger Construction website",
+   "url": "https://vorten.studio/work/tiger-construction",
+   "image": "https://vorten.studio/assets/work/tiger/home.jpg",
+   "creator": {
+    "@id": "https://vorten.studio/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://vorten.studio/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Recent work",
+     "item": "https://vorten.studio/work"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Tiger Construction",
+     "item": "https://vorten.studio/work/tiger-construction"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#E8ECEA;--dark:#2C4E3E;--gray:#787B79;--light-gray:#e8e8e3;
+  --accent:#FF4D00;--green:#00AF38;--white:#fff;--card-radius:1.5rem;
+  --global-px:1.5rem;--max-w:72rem;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Satoshi',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--dark);line-height:1.5;overflow-x:hidden;font-weight:700}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* "Start a project": the "a" slides away and becomes an arrow (same as home) */
+.btn-arrow{gap:0}
+.btn-arrow .ba-t{margin-right:.26em}
+.btn-arrow .ba-a,.btn-arrow .ba-arrow{display:inline-flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:width .45s cubic-bezier(.4,0,.2,1),margin .45s cubic-bezier(.4,0,.2,1),opacity .22s ease,transform .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow:hover .ba-a{width:0;margin-right:0;opacity:0;transform:translateX(2.2em)}
+.btn-arrow .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em);overflow:visible;justify-content:flex-start}
+.btn-arrow:hover .ba-arrow{width:.52em;margin-left:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow .ba-arrow svg{width:.72em;height:.72em;flex-shrink:0}
+
+/* ─── CASE STUDY ─── */
+.cs-hero{padding:10.5rem var(--global-px) 1.25rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.crumbs{display:flex;gap:0.375rem;align-items:center;font-size:13px;font-weight:500;color:var(--gray)}
+.crumbs a{transition:color .3s}
+.crumbs a:hover{color:var(--dark)}
+.crumbs strong{color:var(--dark);font-weight:700}
+.cs-hero h1{margin-top:-.375rem;font-size:36px;font-weight:900;color:var(--dark);letter-spacing:-0.02em}
+.tags{display:flex;gap:0.375rem;flex-wrap:wrap;justify-content:center}
+.tag{padding:0.375rem 0.75rem;background:var(--white);border-radius:9999px;font-size:10px;font-weight:900;letter-spacing:0.04em;text-transform:uppercase;color:var(--dark)}
+.cs-cover{max-width:42.25rem;margin:0 auto;padding:0 var(--global-px)}
+.cs-cover .shot{border-radius:var(--card-radius);overflow:hidden}
+.cs-cover .shot img{width:100%;aspect-ratio:1.39;object-fit:cover;object-position:top}
+/* tags sit on the cover's edges like tabs: square side touches the image */
+.cs-cover .tag{padding:0.5rem 0.875rem}
+.tabs-top .tag{border-radius:0.75rem 0.75rem 0 0;padding-top:0.375rem;padding-bottom:0.25rem}
+.tabs-bottom .tag{border-radius:0 0 0.75rem 0.75rem;padding-top:0.25rem;padding-bottom:0.375rem}
+.cs-body{max-width:42.25rem;margin:0 auto;padding:3rem var(--global-px) 0;display:flex;flex-direction:column;gap:2.75rem}
+.cs-cover+.cs-body{padding-top:1.5rem} /* Overview sits closer to the cover */
+.cs-body h2{font-size:18px;font-weight:900;color:var(--dark);margin-bottom:0.625rem;letter-spacing:-0.01em}
+.cs-body p{font-size:14px;font-weight:500;color:var(--gray);line-height:1.65}
+.cs-body p+p{margin-top:0.875rem}
+.visit{display:flex;align-items:center;justify-content:center;gap:0.5rem;height:3rem;margin-top:1.5rem;background:var(--white);border-radius:9999px;font-size:15px;font-weight:900;color:var(--dark);transition:transform .3s}
+.visit:hover{transform:translateY(-1px)}
+.visit svg{width:1.15em;height:1.15em;margin:0 -.2em;transform:translateY(.06em)} /* arrow glyph fills ~45% of the viewBox: this makes it x-height */
+.gallery-title{max-width:42.25rem;margin:3rem auto 0;padding:0 var(--global-px);font-size:18px;font-weight:900}
+/* gallery: full-bleed row that drifts left forever (like kargul) and can be dragged; track holds two copies and wraps by half */
+.gallery{overflow:hidden;padding-top:1rem;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.gallery.dragging{cursor:grabbing}
+.gallery-track{display:flex;gap:1rem;width:max-content;will-change:transform}
+.gallery-track img{pointer-events:none;width:39rem;aspect-ratio:1.39;object-fit:cover;object-position:top;border-radius:var(--card-radius);flex-shrink:0}
+@media(max-width:640px){.gallery-track img{width:80vw}}
+.more{max-width:42.25rem;margin:0 auto;padding:3.5rem var(--global-px) 0}
+.more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
+.more-head h2{font-size:18px;font-weight:900}
+.more-head a{font-size:13px;font-weight:700;color:var(--gray);transition:color .3s}
+.more-head a:hover{color:var(--dark)}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.more-grid a{border-radius:1rem;overflow:hidden;background:#fff;padding:0.625rem 0 0 0.625rem;aspect-ratio:33/26.5}
+.more-grid img{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:0.5rem 0.5rem 0 0;transition:transform .3s}
+.more-grid a:hover img{transform:scale(1.03)}
+@media(max-width:768px){.more-grid{grid-template-columns:repeat(2,1fr)}.more-grid a:nth-child(3){display:none}}
+
+/* ─── FOOTER ─── */
+footer{padding:3.5rem var(--global-px) 1.5rem}
+.footer-inner{max-width:33.75rem;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
+.footer-links{display:flex;gap:1rem}
+.footer-links a{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em;transition:color .2s}
+.footer-links a:hover{color:var(--dark)}
+@media(max-width:768px){.footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}}
+/* mobile/touch: no button hover animations */
+@media(hover:none),(max-width:768px){.btn-arrow .ba-a,.btn-arrow .ba-arrow{transition:none}.btn-arrow:hover .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:none}.btn-arrow:hover .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em)}}
+/* ─── HEADER: promo bar + full-width nav ─── */
+html{scroll-padding-top:6.5rem}
+header{position:fixed;top:0;left:0;right:0;z-index:999}
+.topbar{position:relative;z-index:2}
+/* nav row slides up under the promo bar on scroll up, back on scroll down; goes green over [data-nav="dark"] sections */
+.nav-row{position:relative;z-index:1;background:var(--bg);transition:transform .35s cubic-bezier(.4,0,.2,1),background-color .3s}
+header.nav-hidden .nav-row{transform:translateY(-100%)}
+.nav-logo,.nav-links a,.nav-work,.nav-cta{transition:color .3s,background-color .3s}
+.nav-logo img{transition:filter .3s}
+header.scrolled .nav-row{background:var(--white)}
+header.scrolled .nav-cta{background:var(--bg);box-shadow:none} /* keeps the pill visible on the white bar */
+header.on-dark .nav-row{background:#405E4F}
+header.on-dark .nav-logo,header.on-dark .nav-work,header.on-dark .nav-links a:hover,header.on-dark .nav-links a[aria-current]{color:var(--white)}
+header.on-dark .nav-logo img{filter:brightness(0) invert(1)}
+header.on-dark .nav-links a{color:rgba(255,255,255,.65)}
+header.on-dark .nav-cta{background:var(--dark);color:var(--white);box-shadow:none}
+.topbar{display:flex;align-items:center;justify-content:center;gap:.5rem;height:2.25rem;padding:0 1rem;background:var(--dark);color:var(--white);font-size:13px;font-weight:700;letter-spacing:-0.01em;white-space:nowrap}
+.topbar svg{width:.85em;height:.85em;transition:transform .3s}
+.topbar:hover svg{transform:translateX(3px)}
+.site-nav{max-width:90rem;margin:0 auto;height:4.25rem;padding:0 1.5rem;display:flex;align-items:center;gap:1.75rem}
+.nav-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);flex-shrink:0}
+.nav-logo img{height:.66em;width:auto;object-fit:contain} /* mark matches the letter height, sits on the baseline */
+.nav-links{display:flex;gap:1.375rem}
+.nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;transition:color .3s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--dark)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:1.5rem}
+.nav-work{font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
+.nav-cta{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;white-space:nowrap}
+@media(max-width:900px){.nav-links{display:none}}
+@media(max-width:640px){.site-nav{height:4.25rem;padding:.5rem 1.125rem 0}.nav-work{display:none}.nav-cta{height:2.5rem;padding:0 1rem}}
+
+/* ─── CTA (same as home: heading, buttons, 3D scene) ─── */
+#cta{--section-py:3rem;--max-w:72rem}
+.cta-wrap{margin-top:4rem} /* breathing room after Tools used */
+#cta .container{max-width:var(--max-w);margin:0 auto}
+#cta h2{font-weight:900;letter-spacing:-0.02em;line-height:1.2;color:var(--dark)}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
+.btn-dark{background:var(--dark);color:var(--white)}
+.btn-light{background:var(--white);color:var(--dark)}
+.btn svg{width:0.9375rem;height:0.9375rem;flex-shrink:0}
+.btn-dark{overflow:hidden}
+.btn-dark{overflow:hidden}
+.btn-dark:hover svg{animation:logo-loop 1.2s cubic-bezier(.4,0,.2,1) forwards}
+.btn-light:hover .tg-plane{animation:plane-send 1.3s ease forwards}
+@keyframes logo-loop{
+  0%{transform:translateY(0) rotate(0)}
+  25%{transform:translateY(-20px) rotate(0);opacity:0}
+  26%{transform:translateY(20px) rotate(0);opacity:0}
+  55%{transform:translateY(0) rotate(0);opacity:1}
+  100%{transform:translateY(0) rotate(360deg)}
+}
+/* the "a" travels right past "project" and becomes an arrow */
+.btn-arrow{gap:0}
+.btn-arrow .ba-t{margin-right:.26em}
+.btn-arrow .ba-a,.btn-arrow .ba-arrow{display:inline-flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:width .45s cubic-bezier(.4,0,.2,1),margin .45s cubic-bezier(.4,0,.2,1),opacity .22s ease,transform .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow .ba-a{width:.52em;margin-right:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow:hover .ba-a{width:0;margin-right:0;opacity:0;transform:translateX(2.2em)}
+.btn-arrow .ba-arrow{width:0;margin-left:0;opacity:0;transform:translateX(-.7em);overflow:visible;justify-content:flex-start}
+.btn-arrow:hover .ba-arrow{width:.52em;margin-left:.26em;opacity:1;transform:translateX(0)}
+.btn-arrow .ba-arrow svg{width:.72em;height:.72em;flex-shrink:0}
+.btn-arrow .ba-pad{display:inline-block;flex-shrink:0;width:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.btn-arrow-ne .ba-a{width:1.53em}
+.btn-arrow-ne:hover .ba-pad{width:.505em}
+.btn-dark.btn-arrow:hover svg{animation:none}
+.tg-plane{transform-origin:8px 8px}
+@keyframes plane-send{
+  0%{transform:translate(0,0) scale(1);opacity:1}
+  15%{transform:translate(10px,-6px) scale(0.5);opacity:0.3}
+  30%{transform:translate(18px,-12px) scale(0.2);opacity:0}
+  31%{transform:translate(-14px,12px) scale(0.2);opacity:0}
+  45%{transform:translate(-6px,5px) scale(0.5);opacity:0.3}
+  60%{transform:translate(0,0) scale(1);opacity:1}
+  100%{transform:translate(0,0) scale(1);opacity:1}
+}
+#cta{padding:var(--section-py) var(--global-px);text-align:center}
+#cta h2{font-size:52px;margin-bottom:1.5rem}
+@media(max-width:640px){#services .section-title,#tools .section-title,#team .section-title,#faq .section-title,.trial-card h2{font-size:28px}#cta h2{font-size:37px}} /* mobile: section titles 28px, CTA 37px */
+.cta-buttons{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap}
+.cta-buttons .btn{padding:1rem 1.625rem;font-size:0.9375rem;font-weight:800}
+.cta-buttons .btn-light{font-weight:700}
+.cta-wrap{position:relative;overflow:hidden}
+.cta-wrap>#cta,.cta-wrap>footer{position:relative;z-index:1}
+.cta-floor{position:absolute;left:50%;transform:translateX(-50%);width:170vw;top:42%;bottom:0;perspective:760px;perspective-origin:50% 0;pointer-events:none;color:var(--dark);z-index:0}
+.cta-floor i{position:absolute;left:0;right:0;top:0;height:300%;display:block;transform:rotateX(63deg);transform-origin:50% 0;
+  background-image:repeating-linear-gradient(to right,currentColor 0 1px,transparent 1px 40px),repeating-linear-gradient(to bottom,currentColor 0 1px,transparent 1px 40px);
+  opacity:.17;animation:floor-run 3.2s linear infinite;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%);
+  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.9) 10%,rgba(0,0,0,.6) 38%,transparent 70%)}
+.cta-scene{max-width:78rem;margin:-1rem auto 0;color:var(--dark);pointer-events:none;position:relative;z-index:1}
+.cta-scene{aspect-ratio:16/7}
+@media(max-width:640px){.cta-scene{aspect-ratio:5/4;margin-top:.5rem}.cta-buttons{flex-direction:column;gap:.75rem}.cta-buttons .btn{display:flex;width:100%;justify-content:center;padding:1.125rem 1.5rem}}
+#cta3d{position:absolute;left:0;width:100%;bottom:0;display:block;z-index:0;pointer-events:none}
+.cta-scene.no-webgl{display:none}
+{to{background-position:0 40px,0 40px}}
+@media(prefers-reduced-motion:reduce){
+  .cta-floor i{animation:none!important}
+
+}
+/* mobile menu: two-dash toggle turns into an X and opens the links under the nav */
+.nav-toggle{display:none;width:2.5rem;height:2.5rem;border:none;border-radius:50%;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nav-toggle i{display:block;width:16px;height:3px;border-radius:0;background:var(--dark);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+header.menu-open .nav-toggle i:first-child{transform:translateY(4px) rotate(45deg)}
+header.menu-open .nav-toggle i:last-child{transform:translateY(-4px) rotate(-45deg)}
+header.on-dark .nav-toggle i{background:var(--white)}
+/* menu panel: full screen under the promo bar, centered links, CTAs pinned to the bottom (like kargul) */
+.nav-menu{position:fixed;top:6.5rem;left:0;right:0;bottom:0;display:flex;flex-direction:column;background:var(--bg);padding:0 .75rem 1rem;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .45s cubic-bezier(.65,0,.35,1) .2s,visibility 0s .65s} /* wipes down from the nav like kargul; on close it waits for the items to slide up first */
+.menu-links{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+.menu-links a{font-size:18px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
+.menu-ctas{display:flex;flex-direction:column;gap:.625rem}
+.menu-ctas a{height:3.25rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+.menu-ctas .m-work{background:var(--white);color:var(--dark)}
+.menu-ctas .m-start{background:var(--dark);color:var(--white)}
+header.menu-open .nav-menu{clip-path:inset(0);visibility:visible;transition:clip-path .65s cubic-bezier(.65,0,.35,1),visibility 0s}
+header.menu-open .nav-row{background:var(--bg)}
+header.menu-open .nav-cta{display:none}
+/* each menu item drops down out of its own mask in turn when opening (following the wipe), and slides back up behind it in reverse when closing (no fade) */
+.menu-links a,.m-clip{display:block;overflow:hidden}
+.menu-links a span{display:block}
+.menu-links a span,.m-clip a{transform:translateY(-110%);transition:transform .45s cubic-bezier(.22,1,.36,1);transition-delay:calc((var(--n) - var(--i)) * 35ms)}
+.menu-links a span{padding:.125rem 0} /* room for descenders inside the mask */
+header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;transition:transform .72s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i) * 60ms + 215ms)}
+@media(min-width:641px){.nav-menu{top:6.5rem}} /* nav row is taller above phone width */
+@media(max-width:900px){.nav-toggle{display:flex;margin-right:-.5rem} /* dashes line up with the page margin */.nav-right{gap:.5rem}}
+
+@media(max-width:640px){:root{--global-px:1.125rem}} /* mobile: tighter side margins */
+@media(max-width:640px){.cs-hero{padding-top:9.5rem}.cs-hero h1{font-size:28px}.cta-wrap{margin-top:1.5rem}} /* mobile: breadcrumb closer to the nav */
+
+@media(max-width:900px){header.scrolled .nav-cta{background:var(--dark);color:var(--white)}} /* mobile: Start a project goes dark green once scrolled */
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="/intro" class="topbar">Get your product audited. For free <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+  <div class="nav-row">
+  <nav class="site-nav">
+    <a href="/" class="nav-logo" aria-label="Vorten Studio home"><img src="../../assets/logo-mark.png" alt="">vorten</a>
+    <div class="nav-links"><a href="/work" aria-current="page">Recent work</a><a href="/raw-files">Raw files</a><a href="#">Insights</a><a href="#">Product audit</a><a href="#">Careers</a></div>
+    <div class="nav-right">
+      <a href="/work" class="nav-work">See our work</a>
+      <a href="/intro" class="nav-cta btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </nav>
+  <div class="nav-menu">
+    <div class="menu-links"><a href="/work"><span>Recent work</span></a><a href="/raw-files"><span>Raw files</span></a><a href="#"><span>Insights</span></a><a href="#"><span>Product audit</span></a><a href="#"><span>Careers</span></a></div>
+    <div class="menu-ctas"><div class="m-clip"><a href="/work" class="m-work">See our work</a></div><div class="m-clip"><a href="/intro" class="m-start">Start a project</a></div></div>
+  </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/work">Work</a><span>›</span><strong>Tiger Construction</strong></nav>
+  <h1>Tiger Construction</h1>
+</div>
+
+<div class="cs-cover">
+  <div class="tags tabs-top"><span class="tag">Construction</span><span class="tag">B2C</span></div>
+  <div class="shot"><img src="../../assets/work/tiger/home.jpg" alt="Tiger Construction homepage hero"></div>
+  <div class="tags tabs-bottom"><span class="tag">Website</span></div>
+</div>
+
+<div class="cs-body">
+  <section>
+    <h2>Overview</h2>
+    <p>Tiger Construction is a full-service remodeling and construction company serving homes and businesses across Miami-Dade, Broward and Palm Beach.</p>
+    <p>Renovations, new construction, interior design, and every trade in between: HVAC, electrical, plumbing and demolition.</p>
+    <p>One licensed team, one contract, from demo to final walkthrough.</p>
+    <p>They came to us to design and build their website, the quote request flow, and the visual direction for the brand online.</p>
+    <a href="https://www.tigerconstructiongroup.com/" class="visit" target="_blank" rel="noopener">Visit website <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a>
+  </section>
+
+  <section>
+    <h2>Challenge</h2>
+    <p>Most contractor websites are either outdated or generic: stock photos, walls of text, and a contact form buried at the bottom.</p>
+    <p>Tiger’s biggest strength is that clients only deal with one team instead of juggling five contractors. They needed a site that made that obvious in seconds, felt premium enough for luxury South Florida homeowners, and still spoke directly to business owners, property managers and HOAs looking for commercial work.</p>
+  </section>
+
+  <section>
+    <h2>Outcome</h2>
+    <p>We designed and developed the full website in Framer, with a clean, high-contrast layout that puts the work front and center and keeps the copy short and direct.</p>
+    <p>The hero leads with a custom Midjourney visual. From there, every trade is easy to scan, residential and commercial clients each get their own section, and project pages showcase recent work.</p>
+    <p>The main deliverable was the quote request flow, designed and built entirely in Framer: a focused, distraction-free page where clients pick what they need, describe the project, and submit in under a minute.</p>
+    <p>The result is a website that feels as organized and reliable as the team behind it, and turns visitors into quote requests.</p>
+  </section>
+</div>
+
+<h2 class="gallery-title">Gallery</h2>
+<div class="gallery">
+  <div class="gallery-track">
+    <img src="../../assets/work/tiger/project-pavilion.jpg" alt="Commercial pavilion project page" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/project-salon.jpg" alt="Salon buildout project page" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/interior.jpg" alt="Interior design service page" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/quote.jpg" alt="Request a quote form" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/project-pavilion.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/project-salon.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/interior.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="../../assets/work/tiger/quote.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  </div>
+</div>
+
+<div class="cs-body">
+  <section>
+    <h2>Tools used</h2>
+    <p>Figma, Framer, Rive</p>
+  </section>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap">
+<section id="cta">
+  <div class="container">
+    <h2>Got something<br>to build? Let's talk</h2>
+    <div class="cta-scene" aria-hidden="true"><canvas id="cta3d"></canvas></div>
+    <div class="cta-buttons">
+      <a href="/intro" class="btn btn-dark btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
+      <a href="/work" class="btn btn-light btn-arrow btn-arrow-ne"><span class="ba-pad"></span><span class="ba-t">See</span><span class="ba-a">our</span><span>work</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span><span class="ba-pad"></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Vorten Studio</p>
+    <div class="footer-links">
+      <a href="mailto:hello@vorten.studio">hello@vorten.studio</a>
+      <a href="https://x.com/vortenstudio" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://linkedin.com/company/vorten-studio" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+// nav: only hides on scroll up inside the home hero (promo bar stays); green over [data-nav="dark"] sections
+(function(){
+  var h=document.querySelector('header'),row=h&&h.querySelector('.nav-row');if(!row)return;
+  var dark=[].slice.call(document.querySelectorAll('[data-nav="dark"]')),hero=document.getElementById('hero'),lastY=scrollY,ticking=false;
+  function u(){ticking=false;var y=scrollY;
+    h.classList.toggle('scrolled',y>10);
+    if(Math.abs(y-lastY)>4){h.classList.toggle('nav-hidden',!!hero&&y<lastY&&y>120&&hero.getBoundingClientRect().bottom>row.offsetTop+row.offsetHeight);lastY=y}
+    var c=row.offsetTop+row.offsetHeight/2;
+    h.classList.toggle('on-dark',dark.some(function(s){var b=s.getBoundingClientRect();return c>=b.top&&c<=b.bottom}))}
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(u)}},{passive:true});
+  addEventListener('resize',u);u();
+})();
+</script>
+<script>
+// gallery: constant drift left, drag (mouse or touch) to scrub; wraps seamlessly over the duplicated half
+(function(){
+  var g=document.querySelector('.gallery'),t=g&&g.querySelector('.gallery-track');if(!t)return;
+  var speed=matchMedia('(prefers-reduced-motion: reduce)').matches?0:50,x=0,half=0,last=0,drag=null;
+  function measure(){var imgs=t.children,n=imgs.length/2;half=imgs[n].offsetLeft-imgs[0].offsetLeft}
+  function frame(now){var dt=Math.min(.05,(now-(last||now))/1000);last=now;
+    if(!drag)x-=speed*dt;
+    if(half){x%=half;if(x>0)x-=half}
+    t.style.transform='translateX('+x+'px)';requestAnimationFrame(frame)}
+  g.addEventListener('pointerdown',function(e){drag={id:e.pointerId,start:e.clientX,x:x};g.setPointerCapture(e.pointerId);g.classList.add('dragging')});
+  g.addEventListener('pointermove',function(e){if(drag&&e.pointerId===drag.id)x=drag.x+e.clientX-drag.start});
+  function end(e){if(drag&&e.pointerId===drag.id){drag=null;g.classList.remove('dragging')}}
+  g.addEventListener('pointerup',end);g.addEventListener('pointercancel',end);
+  addEventListener('resize',measure);addEventListener('load',measure);measure();requestAnimationFrame(frame);
+})();
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module">
+// ─── CTA: isometric traced 3D scene (WebGL) ───
+import * as THREE from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+const canvas=document.getElementById('cta3d');
+const holder=canvas.parentElement,wrapEl=document.querySelector('.cta-wrap');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true})}catch(e){canvas.parentElement.classList.add('no-webgl');throw e}
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+wrapEl.prepend(canvas); // grid runs to the bottom of the page; the illustration stays framed in .cta-scene
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const GRAY=0x787B79;
+
+const scene=new THREE.Scene();
+const camera=new THREE.OrthographicCamera(-10,10,5,-5,.1,200);
+const LOOK=new THREE.Vector3(0,.9,0);
+camera.position.set(20,16.5,20);camera.lookAt(LOOK);
+
+const world=new THREE.Group();scene.add(world);
+// invisible solids: write depth only, so hidden lines drop out and only the trace shows
+const mWhite=new THREE.MeshBasicMaterial({colorWrite:false,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1});
+const lineMat=new THREE.LineBasicMaterial({color:GRAY});
+const faintMat=new THREE.LineBasicMaterial({color:GRAY,transparent:true,opacity:.35});
+const dashMat=()=>new THREE.LineDashedMaterial({color:GRAY,dashSize:.14,gapSize:.12,transparent:true,opacity:.8});
+function outline(mesh,th=25,mat=lineMat){mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry,th),mat));return mesh}
+const box=(w,h,d,th)=>outline(new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mWhite),th);
+const P=(u,y,v)=>new THREE.Vector3((u+v)*.7071,y,(v-u)*.7071);
+const seg=(pts,mat=dashMat())=>{const l=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),mat);l.computeLineDistances();return l};
+
+
+// grid floor
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+  uniforms:{uIn:{value:0},uRes:{value:new THREE.Vector2(1,1)},uTop:{value:140}},
+  vertexShader:`varying vec2 vP;void main(){vP=position.xy;gl_Position=projectionMatrix*viewMatrix*modelMatrix*vec4(position,1.);}`,
+  fragmentShader:`varying vec2 vP;uniform float uIn;uniform vec2 uRes;uniform float uTop;
+    float grid(vec2 p,float s){vec2 g=abs(fract(p/s-.5)-.5)/fwidth(p/s);return 1.-min(min(g.x,g.y),1.);}
+    void main(){vec2 f=gl_FragCoord.xy;float fade=smoothstep(0.,uTop,uRes.y-f.y)*smoothstep(0.,.14,f.x/uRes.x)*smoothstep(0.,.14,1.-f.x/uRes.x)*uIn;
+      float a=grid(vP,.25)*.075+grid(vP,1.)*.14;gl_FragColor=vec4(vec3(.47,.48,.475),a*fade);}`}));
+floor.rotation.x=-Math.PI/2;scene.add(floor); // outside `world`, so the grid doesn't breathe
+
+const items=[];
+function add(obj,{at,delay=0,amp=0}={}){obj.position.copy(at);obj.userData={base:at.clone(),delay,amp};obj.scale.setScalar(.0001);world.add(obj);items.push(obj);return obj}
+
+// 1 · Centerpiece — the Vorten mark, every stripe extruded into a solid
+const LOGO=["M108.2 152.0C110.4 150.8 112.3 151.4 113.6 151.5C114.8 151.6 114.6 151.4 115.5 152.5C116.4 153.6 118.0 156.0 118.9 157.9C119.8 159.7 119.9 160.0 120.9 163.7C121.9 167.5 124.0 175.3 124.8 180.3C125.6 185.4 125.4 191.6 125.8 194.0C126.1 196.5 126.7 191.9 126.7 195.0C126.7 198.1 126.7 206.5 125.8 212.6C124.8 218.6 121.9 227.6 120.9 231.1C119.8 234.6 119.9 233.2 119.4 233.6C118.9 233.9 118.4 233.8 118.0 233.1C117.5 232.3 116.5 231.6 117.0 229.2C117.5 226.7 120.1 221.8 120.9 218.4C121.7 215.0 121.5 210.5 121.9 208.7C122.2 206.9 122.7 209.2 122.8 207.7C123.0 206.2 123.0 201.3 122.8 199.9C122.7 198.4 122.0 200.0 121.9 198.9C121.7 197.8 122.2 195.3 121.9 193.0C121.5 190.8 121.5 189.6 119.9 185.2C118.3 180.8 114.3 170.7 112.1 166.7C109.9 162.7 108.3 162.2 106.7 161.3C105.2 160.4 104.2 160.6 102.8 161.3C101.4 162.0 100.5 161.5 98.4 165.7C96.4 169.8 92.4 180.8 90.6 186.2C88.8 191.6 88.2 195.0 87.7 197.9C87.2 200.8 87.8 202.6 87.7 203.8C87.5 204.9 86.9 201.7 86.7 204.8C86.5 207.8 86.5 219.2 86.7 222.3C86.9 225.4 87.5 221.8 87.7 223.3C87.8 224.8 87.5 229.7 87.7 231.1C87.8 232.6 88.3 230.2 88.7 232.1C89.0 234.1 89.1 240.1 89.6 242.8C90.1 245.6 91.3 246.4 91.6 248.7C91.9 251.0 92.5 254.3 91.6 256.5C90.7 258.7 87.3 262.9 86.2 261.9C85.1 260.9 85.2 252.7 84.7 250.7C84.3 248.6 83.9 251.0 83.8 249.7C83.6 248.4 83.9 244.2 83.8 242.8C83.6 241.5 83.0 243.7 82.8 241.9C82.6 240.1 83.0 233.9 82.8 232.1C82.6 230.3 81.8 235.7 81.8 231.1C81.8 226.6 82.5 209.3 82.8 204.8C83.1 200.2 83.4 205.2 83.8 203.8C84.1 202.3 83.0 201.8 84.7 196.0C86.5 190.1 91.9 174.8 94.5 168.6C97.1 162.4 98.1 161.6 100.4 158.8C102.7 156.1 106.0 153.2 108.2 152.0Z", "M151.2 144.2C151.7 143.5 152.0 134.8 152.1 144.2C152.3 153.6 152.3 191.2 152.1 200.8C152.0 210.5 151.5 199.1 151.2 201.8C150.8 204.6 150.5 214.7 150.2 217.5C149.9 220.2 149.4 217.5 149.2 218.4C149.0 219.4 149.4 222.3 149.2 223.3C149.0 224.3 148.4 223.3 148.2 224.3C148.1 225.3 148.4 228.2 148.2 229.2C148.1 230.2 147.4 229.2 147.3 230.2C147.1 231.1 147.7 232.1 147.3 235.0C146.8 238.0 145.0 243.5 144.3 247.7C143.7 252.0 143.9 258.1 143.3 260.4C142.8 262.8 141.9 261.9 140.9 261.9C139.9 261.9 138.1 261.2 137.5 260.4C136.9 259.7 137.3 258.2 137.5 257.5C137.7 256.8 138.3 257.5 138.5 256.5C138.6 255.5 138.3 252.6 138.5 251.6C138.6 250.7 138.8 253.9 139.4 250.7C140.1 247.4 141.6 236.0 142.4 232.1C143.2 228.2 143.8 229.7 144.3 227.2C144.8 224.8 144.8 220.1 145.3 217.5C145.8 214.8 146.9 213.7 147.3 211.6C147.6 209.5 147.1 206.1 147.3 204.8C147.4 203.5 148.1 205.4 148.2 203.8C148.4 202.2 148.1 196.6 148.2 195.0C148.4 193.4 149.0 201.5 149.2 194.0C149.4 186.5 149.0 157.5 149.2 150.1C149.4 142.6 150.2 149.4 150.2 149.1C150.2 148.8 149.0 148.9 149.2 148.1C149.4 147.3 150.7 144.8 151.2 144.2Z", "M155.1 146.2C155.2 135.1 156.9 146.0 157.0 146.2C157.2 146.3 156.0 146.8 156.0 147.1C156.0 147.5 156.9 145.2 157.0 148.1C157.2 151.0 156.9 161.8 157.0 164.7C157.2 167.6 157.8 163.6 158.0 165.7C158.2 167.8 157.8 175.3 158.0 177.4C158.2 179.5 158.7 173.0 159.0 178.4C159.3 183.8 160.0 204.3 160.0 209.6C160.0 215.0 159.1 207.8 159.0 210.6C158.8 213.4 159.1 223.5 159.0 226.2C158.8 229.0 158.2 225.1 158.0 227.2C157.8 229.3 158.2 236.8 158.0 238.9C157.8 241.1 157.2 236.8 157.0 239.9C156.9 243.0 157.2 254.4 157.0 257.5C156.9 260.6 156.2 257.5 156.0 258.5C155.9 259.5 156.5 262.1 156.0 263.4C155.6 264.6 154.5 265.4 153.6 265.8C152.7 266.2 151.2 267.8 150.7 265.8C150.1 263.8 150.1 255.8 150.2 253.6C150.3 251.4 151.0 254.1 151.2 252.6C151.3 251.2 151.0 246.3 151.2 244.8C151.3 243.3 151.7 247.6 152.1 243.8C152.6 240.1 153.6 226.1 154.1 222.3C154.6 218.6 154.9 222.8 155.1 221.4C155.2 219.9 154.9 215.0 155.1 213.5C155.2 212.1 156.0 223.8 156.0 212.6C156.0 201.3 154.9 157.2 155.1 146.2Z", "M160.0 148.1C160.6 147.9 162.4 147.0 162.9 148.1C163.4 149.2 162.7 153.6 162.9 154.9C163.0 156.2 163.5 153.6 163.9 155.9C164.2 158.2 164.5 166.3 164.8 168.6C165.2 170.9 165.7 168.6 165.8 169.6C166.0 170.6 165.3 171.5 165.8 174.5C166.3 177.4 168.1 182.8 168.7 187.2C169.4 191.6 169.4 198.4 169.7 200.8C170.0 203.3 170.5 199.9 170.7 201.8C170.9 203.8 170.5 210.6 170.7 212.6C170.9 214.5 171.3 205.7 171.7 213.5C172.0 221.4 173.5 250.9 172.7 259.5C171.8 268.0 167.8 264.0 166.3 264.8C164.8 265.6 164.1 275.2 163.9 264.3C163.6 253.5 164.8 210.8 164.8 199.9C164.8 189.0 164.0 200.8 163.9 198.9C163.7 196.9 164.0 190.1 163.9 188.2C163.7 186.2 163.0 188.6 162.9 187.2C162.7 185.7 163.0 180.8 162.9 179.4C162.7 177.9 162.4 182.5 161.9 178.4C161.4 174.3 160.4 159.0 160.0 154.9C159.5 150.9 159.1 154.9 159.0 154.0C158.8 153.0 158.8 150.1 159.0 149.1C159.1 148.1 159.3 148.3 160.0 148.1Z", "M128.7 148.1C129.6 147.0 129.7 147.1 130.2 147.6C130.7 148.1 131.2 148.5 131.6 151.0C132.0 153.6 132.3 160.6 132.6 162.8C132.9 164.9 133.4 162.3 133.6 163.7C133.7 165.2 133.4 170.1 133.6 171.5C133.7 173.0 134.4 167.6 134.6 172.5C134.7 177.4 134.7 196.0 134.6 200.8C134.4 205.7 133.7 200.8 133.6 201.8C133.4 202.8 134.1 203.9 133.6 206.7C133.1 209.5 132.1 214.2 130.7 218.4C129.2 222.7 125.9 229.0 124.8 232.1C123.7 235.2 124.4 235.6 123.8 237.0C123.2 238.4 121.9 240.6 121.4 240.4C120.9 240.2 120.0 239.2 120.9 236.0C121.8 232.8 125.3 225.9 126.7 221.4C128.2 216.8 129.2 215.2 129.7 208.7C130.2 202.2 129.8 186.8 129.7 182.3C129.5 177.7 129.0 183.4 128.7 181.3C128.4 179.2 128.4 173.3 127.7 169.6C127.1 165.8 125.3 161.5 124.8 158.8C124.3 156.2 124.1 155.8 124.8 154.0C125.4 152.2 127.8 149.2 128.7 148.1Z", "M145.3 144.2C145.6 136.7 146.9 138.2 147.3 144.2C147.6 150.2 147.4 174.2 147.3 180.3C147.1 186.5 146.6 177.9 146.3 181.3C146.0 184.7 145.6 197.4 145.3 200.8C145.0 204.3 144.8 199.1 144.3 201.8C143.8 204.6 144.0 210.0 142.4 217.5C140.7 224.9 135.9 241.2 134.6 246.8C133.3 252.3 134.8 249.4 134.6 250.7C134.3 251.9 133.8 253.5 133.1 254.1C132.4 254.7 130.7 254.8 130.2 254.1C129.6 253.3 129.6 251.1 129.7 249.7C129.8 248.3 129.0 250.7 130.7 245.8C132.3 240.9 137.3 227.4 139.4 220.4C141.6 213.4 142.7 207.4 143.3 203.8C144.0 200.2 143.2 199.9 143.3 198.9C143.5 197.9 144.2 199.4 144.3 197.9C144.5 196.5 144.2 191.6 144.3 190.1C144.5 188.6 145.1 196.8 145.3 189.1C145.5 181.5 145.0 151.7 145.3 144.2Z", "M139.4 144.2C139.9 144.0 141.1 143.2 141.4 144.2C141.7 145.2 141.2 148.9 141.4 150.1C141.6 151.2 142.2 144.5 142.4 151.0C142.5 157.5 142.5 182.6 142.4 189.1C142.2 195.6 141.6 188.8 141.4 190.1C141.2 191.4 142.2 192.4 141.4 196.9C140.6 201.5 138.3 211.6 136.5 217.5C134.7 223.3 132.1 227.7 130.7 232.1C129.2 236.5 128.5 241.5 127.7 243.8C127.0 246.2 126.8 245.9 126.3 246.3C125.7 246.7 124.7 246.7 124.3 246.3C123.9 245.9 122.8 246.8 123.8 243.8C124.9 240.8 128.2 235.4 130.7 228.2C133.1 221.0 137.2 206.4 138.5 200.8C139.8 195.3 138.3 196.1 138.5 195.0C138.6 193.8 139.4 202.3 139.4 194.0C139.4 185.7 138.5 153.5 138.5 145.2C138.5 136.9 139.0 144.4 139.4 144.2Z", "M90.6 163.7C92.8 158.0 91.6 163.1 92.1 163.2C92.6 163.4 95.2 159.4 93.5 164.7C91.8 170.0 84.3 187.8 81.8 195.0C79.4 202.2 79.4 204.8 78.9 207.7C78.4 210.6 79.0 211.6 78.9 212.6C78.7 213.5 78.2 208.8 77.9 213.5C77.6 218.3 76.9 236.2 76.9 240.9C76.9 245.6 77.6 238.0 77.9 241.9C78.2 245.8 79.1 260.3 78.9 264.3C78.6 268.3 77.1 266.3 76.4 265.8C75.8 265.3 75.2 264.4 75.0 261.4C74.7 258.4 75.1 250.2 75.0 247.7C74.8 245.3 74.2 249.7 74.0 246.8C73.8 243.8 73.8 233.1 74.0 230.2C74.2 227.2 74.7 232.4 75.0 229.2C75.3 225.9 75.3 215.8 76.0 210.6C76.6 205.4 76.4 205.7 78.9 197.9C81.3 190.1 88.4 169.5 90.6 163.7Z", "M166.8 153.0C166.9 150.3 168.1 152.0 169.2 152.5C170.4 153.0 172.7 154.0 173.6 155.9C174.5 157.8 174.0 161.1 174.6 163.7C175.3 166.3 175.6 164.4 177.5 171.5C179.5 178.7 184.5 197.1 186.3 206.7C188.1 216.3 187.8 225.3 188.3 229.2C188.8 233.1 189.1 227.7 189.3 230.2C189.4 232.6 189.7 240.6 189.3 243.8C188.8 247.1 187.5 248.0 186.3 249.7C185.1 251.4 182.9 253.9 181.9 254.1C181.0 254.2 181.2 258.6 180.5 250.7C179.7 242.8 178.2 214.2 177.5 206.7C176.9 199.2 177.0 208.5 176.6 205.7C176.1 203.0 175.9 196.3 174.6 190.1C173.3 183.9 170.0 174.8 168.7 168.6C167.4 162.4 166.7 155.7 166.8 153.0Z", "M178.5 161.8C177.0 155.9 180.8 162.9 182.4 164.7C184.0 166.5 186.0 168.8 188.3 172.5C190.6 176.3 194.5 183.8 196.1 187.2C197.7 190.6 197.6 190.8 198.0 193.0C198.5 195.3 198.7 199.4 199.0 200.8C199.3 202.3 199.8 199.4 200.0 201.8C200.2 204.3 200.6 211.3 200.0 215.5C199.4 219.7 198.0 229.3 196.6 226.7C195.1 224.1 194.2 210.7 191.2 199.9C188.2 189.0 180.0 167.6 178.5 161.8Z", "M111.1 190.1C111.3 188.5 111.9 188.6 113.1 191.1C114.2 193.5 117.1 201.0 118.0 204.8C118.8 208.5 118.4 210.4 118.0 213.5C117.5 216.7 116.2 222.7 115.5 223.8C114.9 224.9 114.5 224.0 114.0 220.4C113.6 216.7 113.4 205.1 113.1 201.8C112.7 198.6 112.4 202.8 112.1 200.8C111.8 198.9 111.0 191.7 111.1 190.1Z"];
+const svg=new SVGLoader().parse(`<svg xmlns="http://www.w3.org/2000/svg">${LOGO.map(d=>`<path d="${d}"/>`).join('')}</svg>`);
+const logo=new THREE.Group();const stripes=[];
+const bb=new THREE.Box2();svg.paths.forEach(p=>p.subPaths.forEach(sp=>sp.getPoints().forEach(pt=>bb.expandByPoint(pt))));
+const c=bb.getCenter(new THREE.Vector2()),sz=bb.getSize(new THREE.Vector2()),S=4/sz.y;
+svg.paths.forEach(p=>SVGLoader.createShapes(p).forEach(shape=>{
+  const pts=shape.getPoints();const cx=pts.reduce((a,q)=>a+q.x,0)/pts.length;const nx=(cx-bb.min.x)/sz.x;
+  const depth=(.16+.2*Math.sin(nx*Math.PI))/S;
+  const g=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:false,curveSegments:24});
+  g.translate(-c.x,-c.y,-depth/2);g.scale(S,-S,S);
+  const m=outline(new THREE.Mesh(g,mWhite),35);m.userData.nx=nx;logo.add(m);stripes.push(m)}));
+stripes.sort((a,b)=>a.userData.nx-b.userData.nx);
+const logoHold=new THREE.Group();logo.position.y=2.25;logoHold.add(logo);
+const plinth=new THREE.Group();
+[[2.5,.3,0],[2,.3,.3]].forEach(([r,h,y])=>{const d=outline(new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,72),mWhite),40);d.position.y=y+h/2;plinth.add(d);
+  const v=[];for(let i=0;i<96;i++){const a=i/96*Math.PI*2,x=Math.cos(a)*r*1.002,z=Math.sin(a)*r*1.002;v.push(x,-h/2,z,x,h/2,z)}
+  const hg=new THREE.BufferGeometry();hg.setAttribute('position',new THREE.Float32BufferAttribute(v,3));d.add(new THREE.LineSegments(hg,faintMat))});
+plinth.add(seg(Array.from({length:97},(_,i)=>{const a=i/96*Math.PI*2;return new THREE.Vector3(Math.cos(a)*3.5,.01,Math.sin(a)*3.5)})));
+logoHold.position.y=.6;
+const center=new THREE.Group();center.add(plinth,logoHold);
+add(center,{at:new THREE.Vector3(0,0,0),delay:0});
+
+// rounded rectangle path (centered), used for rounded solids and rounded trace lines
+const rrPts=(w,h,r,n=8)=>{const pts=[],hw=w/2,hh=h/2;[[hw-r,hh-r,0],[-hw+r,hh-r,1],[-hw+r,-hh+r,2],[hw-r,-hh+r,3]].forEach(([cx,cy,q])=>{for(let i=0;i<=n;i++){const a=(q+i/n)*Math.PI/2;pts.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}});pts.push(pts[0]);return pts};
+// rounded slab: rounded rect w×h in XY, thickness t along +Z (centered); crisp outline + corner silhouettes
+function rslab(w,h,t,r){const sh=new THREE.Shape(rrPts(w,h,r).slice(0,-1).map(([x,y])=>new THREE.Vector2(x,y)));
+  const g=new THREE.ExtrudeGeometry(sh,{depth:t,bevelEnabled:false,curveSegments:12});g.translate(0,0,-t/2);
+  const m=outline(new THREE.Mesh(g,mWhite),30);const v=[],hw=w/2-r,hh=h/2-r;
+  [[hw,hh,1],[-hw,hh,1],[-hw,-hh,-1],[hw,-hh,-1],[hw,hh,-1],[-hw,hh,-1],[-hw,-hh,1],[hw,-hh,1]].forEach(([cx,cy,sx],i)=>{const a=Math.PI/4+Math.floor(i%4)*Math.PI/2;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;if(i<4)v.push(x,y,-t/2,x,y,t/2)});
+  const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.Float32BufferAttribute(v,3));m.add(new THREE.LineSegments(sg,lineMat));return m}
+// 2 · Open laptop (traced product drawing)
+// flat line helpers: rectangles, polylines and circles drawn on a plane (xy = screen, xz = deck)
+const L2=(pts,plane)=>{const v=pts.map(([a,b])=>plane==='xz'?new THREE.Vector3(a,0,b):new THREE.Vector3(a,b,0));return new THREE.Line(new THREE.BufferGeometry().setFromPoints(v),lineMat)};
+const R2=(x,y,w,h,plane)=>L2([[x,y],[x+w,y],[x+w,y+h],[x,y+h],[x,y]],plane);
+const RR2=(cx,cy,w,h,r,plane)=>L2(rrPts(w,h,r).map(([a,b])=>[cx+a,cy+b]),plane);
+const C2=(x,y,r,plane,n=24)=>L2(Array.from({length:n+1},(_,i)=>{const a=i/n*Math.PI*2;return [x+Math.cos(a)*r,y+Math.sin(a)*r]}),plane);
+const laptop=new THREE.Group();
+{const lb=rslab(3,2,.1,.16);lb.rotation.x=-Math.PI/2;lb.position.y=.05;laptop.add(lb)}
+const deck=new THREE.Group();deck.position.y=.102;laptop.add(deck);
+// keyboard well + key grid (rows × columns), spacebar row
+const kx=-1.25,kz=-.9,kw=2.5,kr=.2;
+deck.add(RR2(kx+kw/2,kz+kr*2.5,kw,kr*5,.06,'xz'));
+for(let r=1;r<5;r++)deck.add(L2([[kx,kz+r*kr],[kx+kw,kz+r*kr]],'xz'));
+for(let r=0;r<4;r++){const off=(r%2)*.1;for(let c=1;c<12;c++){const x=kx+off+c*(kw/12);if(x<kx+kw-.02)deck.add(L2([[x,kz+r*kr],[x,kz+(r+1)*kr]],'xz'))}}
+[-.55,.55,-.85,.85].forEach(x=>deck.add(L2([[x,kz+4*kr],[x,kz+5*kr]],'xz')));
+deck.add(RR2(0,.555,1,.55,.07,'xz'));
+deck.add(L2([[-.2,.999],[-.2,.95],[.2,.95],[.2,.999]],'xz'));
+// lid
+const hinge=new THREE.Group();hinge.position.set(0,.1,-1);laptop.add(hinge);
+const lid=rslab(3,1.9,.06,.14);lid.position.y=.95;hinge.add(lid);
+const scr=new THREE.Group();scr.position.set(0,.95,.032);hinge.add(scr);
+scr.add(RR2(0,-.02,2.76,1.6,.06,'xy'));
+scr.add(C2(0,.88,.018,'xy',12));
+// website wireframe on the screen
+scr.add(L2([[-1.38,.6],[1.38,.6]],'xy'));
+[-1.28,-1.2,-1.12].forEach(x=>scr.add(C2(x,.7,.025,'xy',12)));
+scr.add(R2(-.6,.65,1.2,.1,'xy'));
+scr.add(L2([[-1.2,.38],[-.15,.38]],'xy'));scr.add(L2([[-1.2,.26],[-.35,.26]],'xy'));
+scr.add(L2([[-1.2,.1],[-.45,.1]],'xy'));scr.add(L2([[-1.2,.03],[-.6,.03]],'xy'));
+scr.add(R2(-1.2,-.2,.42,.13,'xy'));
+scr.add(R2(.1,-.25,1.1,.7,'xy'));scr.add(L2([[.1,-.25],[1.2,.45]],'xy'));scr.add(L2([[.1,.45],[1.2,-.25]],'xy'));
+[-1.2,-.4,.4].forEach(x=>scr.add(R2(x,-.72,.72,.34,'xy')));
+hinge.rotation.x=-.26;
+add(laptop,{at:new THREE.Vector3(-6.5,0,0),delay:.35});
+
+// 3 · Phone — rounded handset leaning on a rounded dock, app UI traced on the screen
+const phone=new THREE.Group();
+const dock=rslab(1.5,1,.12,.2);dock.rotation.x=-Math.PI/2;dock.position.y=.06;phone.add(dock);
+{const groove=RR2(0,-.12,1.25,.25,.08,'xy');groove.position.z=.061;dock.add(groove)}
+const ph=new THREE.Group();ph.position.set(0,.12,.12);ph.rotation.x=-.14;phone.add(ph);
+const hand=rslab(1.05,2.15,.1,.2);hand.position.y=1.075;ph.add(hand);
+const ps=new THREE.Group();ps.position.set(0,1.075,.052);ph.add(ps);
+ps.add(RR2(0,0,.93,2.03,.15,'xy'));
+ps.add(RR2(0,.9,.26,.075,.037,'xy'));
+ps.add(L2([[-.38,.9],[-.28,.9]],'xy'));ps.add(R2(.26,.88,.1,.04,'xy'));
+ps.add(L2([[-.36,.7],[.05,.7]],'xy'));
+// scrolling feed: cards and list rows move up and fade at the screen edges
+const FEED_TOP=.6,FEED_BOT=-.68;
+const fl=(g,m,pts)=>g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts.map(([x,y])=>new THREE.Vector3(x,y,0))),m));
+const feedItems=[];let feedLen=0;
+['card','row','row','card','row','row'].forEach(kind=>{
+  const g=new THREE.Group(),m=new THREE.LineBasicMaterial({color:GRAY,transparent:true});const h=kind==='card'?.46:.22;
+  if(kind==='card'){fl(g,m,rrPts(.72,.42,.05));fl(g,m,[[-.36,-.21],[.36,.21]]);fl(g,m,[[-.36,.21],[.36,-.21]])}
+  else{fl(g,m,Array.from({length:17},(_,i)=>{const a=i/16*Math.PI*2;return [-.27+Math.cos(a)*.07,Math.sin(a)*.07]}));fl(g,m,[[-.14,.03],[.3,.03]]);fl(g,m,[[-.14,-.04],[.12,-.04]])}
+  g.userData={off:feedLen+h/2,h,m};feedLen+=h+.08;ps.add(g);feedItems.push(g)});
+const tabMark=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-.05,-.885,0),new THREE.Vector3(.05,-.885,0)]),lineMat);ps.add(tabMark);
+ps.add(L2([[-.465,-.72],[.465,-.72]],'xy'));
+[-.3,-.1,.1,.3].forEach(x=>ps.add(C2(x,-.82,.04,'xy',12)));
+ps.add(L2([[-.14,-.96],[.14,-.96]],'xy'));
+// side buttons on the right edge
+[[.4,.2],[.12,.12]].forEach(([y,l])=>{const b=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(.526,1.075+y,-.02),new THREE.Vector3(.526,1.075+y-l,-.02)]),lineMat);ph.add(b)});
+add(phone,{at:new THREE.Vector3(0,0,-5.5),delay:.5});
+
+
+// 5 · Growth steps (bars rising left→right)
+const bars=new THREE.Group();const barM=[];
+for(let i=0;i<5;i++){const b=box(.5,1,1);b.position.set(-1.25+i*.5,0,0);bars.add(b);barM.push(b)}
+add(bars,{at:new THREE.Vector3(5.5,0,0),delay:.8});
+
+// 6 · Code editor window standing on a small foot; code types itself out
+const editor=new THREE.Group();
+const foot=rslab(1,.6,.06,.1);foot.rotation.x=-Math.PI/2;foot.position.y=.03;editor.add(foot);
+const EW=2.5,EH=1.75,EY=.06+EH/2;
+const win=rslab(EW,EH,.08,.12);win.position.y=EY;editor.add(win);
+const ed=new THREE.Group();ed.position.set(0,EY,.042);editor.add(ed);
+ed.add(L2([[-1.25,.6],[1.25,.6]],'xy'));
+[-1.1,-1,-.9].forEach(x=>ed.add(C2(x,.74,.03,'xy',12)));
+ed.add(RR2(-.47,.7,.56,.2,.03,'xy'));ed.add(RR2(.13,.7,.5,.2,.03,'xy'));
+ed.add(L2([[-.95,.6],[-.95,-.875]],'xy'));
+const codeRows=[[0,[.35,.5]],[1,[.3,.25,.4]],[2,[.55]],[2,[.25,.35]],[1,[.2]],[0,[.15]],[0,[]],[0,[.4,.3]],[1,[.5,.2]],[0,[.15]]];
+const segs=[];let typedLen=0;
+codeRows.forEach(([ind,parts],r)=>{const y=.45-r*.135;ed.add(L2([[-1.13,y],[-1.03,y]],'xy'));
+  let x=-.85+ind*.15;parts.forEach(len=>{const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,y,0),new THREE.Vector3(x,y,0)]);
+    const l=new THREE.Line(g,lineMat);ed.add(l);segs.push({l,x,y,len,at:typedLen});typedLen+=len;x+=len+.06});typedLen+=.25});
+const caret=L2([[0,-.05],[0,.05]],'xy');ed.add(caret);
+add(editor,{at:new THREE.Vector3(0,0,6),delay:.95});
+
+// 7 · Extruded cursor hovering the laptop screen, tapping the button
+const arrow=new THREE.Shape([[0,0],[0,-1.1],[.3,-.82],[.52,-1.3],[.68,-1.22],[.47,-.76],[.86,-.76]].map(p=>new THREE.Vector2(...p)));
+const cg=new THREE.ExtrudeGeometry(arrow,{depth:.14,bevelEnabled:false});
+const cursor=outline(new THREE.Mesh(cg,mWhite),20);cursor.scale.setScalar(.34);
+cursor.position.set(-.93,-.15,.2);scr.add(cursor);
+
+// traced circuit paths on the floor (right-angle runs) + travelling points
+
+// front objects are static so their outline never moves
+barM.forEach((b,i)=>{const h=.7+.3*i;b.scale.y=h;b.position.y=h/2});
+// equal visible traces: the two objects in front of the ring would hide part of their trace,
+// so push each one out until its silhouette meets the trace end exactly (orthographic ray test)
+{const toCam=camera.position.clone().sub(LOOK).normalize(),rc=new THREE.Raycaster();
+  const hides=(obj,p)=>{rc.set(p.clone().addScaledVector(toCam,.01),toCam);return rc.intersectObject(obj,true).some(h=>h.object.isMesh)};
+  [[editor,'z'],[bars,'x']].forEach(([obj,ax])=>{obj.scale.setScalar(1);const end=new THREE.Vector3(0,.015,0);end[ax]=5;
+    let lo=obj.position[ax],hi=lo+8;for(let k=0;k<32;k++){const mid=(lo+hi)/2;obj.position[ax]=mid;obj.updateMatrixWorld(true);if(hides(obj,end))lo=mid;else hi=mid}
+    obj.position[ax]=obj.userData.base[ax]=hi+.004;obj.scale.setScalar(.0001)})}
+
+// traces follow the floor grid: world x/z, right angles, snapped to 0.5
+const run=(...pts)=>pts.map(([x,z])=>new THREE.Vector3(x,.015,z));
+const traces=[
+  // one straight run per side, all the same length (ring r=3.5 → object edge at 5)
+  run([0,3.5],[0,editor.position.z-.3]),  // front: runs on behind the editor to its foot's real edge
+  run([-3.5,0],[-5,0]),
+  run([0,-3.5],[0,-5]),
+  run([3.5,0],[bars.position.x-1.5,0]), // front: runs on behind the first bar to its real face (hidden past x=5)
+];
+const traceCurves=traces.map(pts=>new THREE.CurvePath());
+traces.forEach((pts,i)=>{for(let k=0;k<pts.length-1;k++)traceCurves[i].add(new THREE.LineCurve3(pts[k],pts[k+1]))});
+const traceLines=traces.map(pts=>{const l=seg(pts);world.add(l);return l});
+const dotMat=new THREE.MeshBasicMaterial({color:GRAY});
+const nodes=[];traces.forEach(pts=>[pts[0],pts[pts.length-1]].forEach(p=>{const n=new THREE.Mesh(new THREE.SphereGeometry(.06,10,8),dotMat);n.position.copy(p);world.add(n);nodes.push(n)}));
+const DOT_SPEED=1.8;const traceLens=traceCurves.map(c=>c.getLength()),LOOP=Math.max(...traceLens);
+const dots=traceCurves.map(()=>{const d=new THREE.Mesh(new THREE.SphereGeometry(.07,12,8),dotMat);world.add(d);return d});
+
+// canvas covers from the illustration box to the bottom of the section; the ortho frustum is offset so the
+// illustration frames inside .cta-scene exactly as before, and the extra canvas below just shows more floor
+function fit(){const wr=wrapEl.getBoundingClientRect(),hr=holder.getBoundingClientRect();if(!hr.width)return;
+  const top=hr.top-wr.top,Wc=wr.width,Hc=wr.height-top;if(Hc<=0)return;
+  canvas.style.top=top+'px';renderer.setSize(Wc,Hc,false);
+  const aspect=hr.width/hr.height,needW=aspect<1.6?13.6:19,needH=9.6, /* phones: zoom in, the composition is ~13 units wide */halfH=Math.max(needH/2,needW/2/aspect),u=2*halfH/hr.height;
+  const pcx=hr.left-wr.left+hr.width/2,pcy=hr.height/2;
+  Object.assign(camera,{left:-pcx*u,right:(Wc-pcx)*u,top:pcy*u,bottom:-(Hc-pcy)*u});camera.updateProjectionMatrix();
+  const dpr=renderer.getPixelRatio();floor.material.uniforms.uRes.value.set(Wc*dpr,Hc*dpr);floor.material.uniforms.uTop.value=140*dpr}
+new ResizeObserver(fit).observe(holder);new ResizeObserver(fit).observe(wrapEl);fit();
+
+const back=x=>{const c=1.3;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const prog=(el,d,len=.8)=>Math.min(1,Math.max(0,(el-d)/len));
+let last=0,clock=0,visible=false,raf=0;
+function frame(now){
+  const dt=Math.min(.05,(now-(last||now))/1000);last=now;if(!reduce)clock+=dt;const t=clock;
+  const el=99; // no entrance: everything is in place from the first frame
+  floor.material.uniforms.uIn.value=prog(el,0,1.2);
+  for(const o of items){const u=o.userData,k=prog(el,u.delay);o.scale.setScalar(k<=0?.0001:back(k));o.position.y=u.base.y+Math.sin(t*1.1+u.delay*5)*u.amp}
+  // logo: slow turn so its depth reads, stripes ripple forward in sequence
+  stripes.forEach((s,i)=>{s.position.z=.07*Math.sin(t*1.4-i*.55)});
+  logo.position.y=2.25+Math.sin(t*.9)*.06;
+  
+  traceLines.forEach((l,i)=>l.geometry.setDrawRange(0,Math.ceil(traces[i].length*prog(el,1.1+i*.12,.6))));
+  // same speed on every trace: distance per second, not fraction of the path
+  {const dist=(t*DOT_SPEED)%LOOP;dots.forEach((d,i)=>{const L=traceLens[i];d.visible=dist<=L;if(d.visible)d.position.copy(traceCurves[i].getPointAt(dist/L))})}
+  {const ph=(t%2.4)/2.4,tap=ph>.8?Math.sin((ph-.8)/.2*Math.PI):0;cursor.position.z=.2-.16*tap;cursor.position.x=-.93+.05*Math.sin(t*.8)}
+  barM.forEach((b,i)=>{const h=.7+.3*i+.25*Math.sin(t*1.6-i*.7);b.scale.y=h;b.position.y=h/2});
+  // phone: feed scrolls, items fade in/out at the edges; active-tab mark hops every 2.4s
+  {const sc=t*.22;feedItems.forEach(g=>{const u=g.userData;const y=FEED_TOP-((u.off-sc)%feedLen+feedLen)%feedLen;g.position.y=y;
+      const top=y+u.h/2,bot=y-u.h/2;const vis=Math.min(1,(FEED_TOP-top)/.15,(bot-FEED_BOT)/.15);
+      u.m.opacity=Math.max(0,Math.min(1,vis));g.visible=u.m.opacity>0.01});
+    const tab=Math.floor(t/2.4)%4,tx=-.3+tab*.2;tabMark.position.x+=(tx-tabMark.position.x)*.2}
+  // editor: code types out over 4.5s, holds 1.5s, loops; caret follows and blinks
+  {const cyc=t%6,typed=Math.min(typedLen,cyc/4.5*typedLen);let cx=-.85,cy=.45;
+    segs.forEach(sg=>{const v=Math.max(0,Math.min(sg.len,typed-sg.at));const a=sg.l.geometry.attributes.position;a.setX(1,sg.x+v);a.needsUpdate=true;sg.l.visible=v>0;
+      if(typed>=sg.at){cx=sg.x+v;cy=sg.y}});
+    caret.position.set(cx+.04,cy,0);caret.visible=typed<typedLen||Math.floor(t*2.2)%2===0}
+  world.scale.setScalar(1+.015*Math.sin(t*1.25)); // breathing, ~5s cycle
+  renderer.render(scene,camera);
+  raf=(visible&&!reduce)?requestAnimationFrame(frame):0;
+}
+new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible&&!raf){last=0;raf=requestAnimationFrame(frame)}},{threshold:.1}).observe(canvas);
+</script>
+<script>
+// mobile menu: full-screen panel; page scroll is locked while it's open
+(function(){
+  var h=document.querySelector('header'),b=h&&h.querySelector('.nav-toggle');if(!b)return;
+  function set(o){h.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':'';
+    if(o)h.classList.remove('on-dark','scrolled','nav-hidden');else dispatchEvent(new Event('scroll'))}
+  var items=h.querySelectorAll('.menu-links span,.m-clip a');items.forEach(function(a,i){a.style.setProperty('--i',i);a.style.setProperty('--n',items.length-1)}); // stagger order
+  b.addEventListener('click',function(){set(!h.classList.contains('menu-open'))});
+  h.querySelectorAll('.nav-menu a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  addEventListener('resize',function(){if(innerWidth>900&&h.classList.contains('menu-open'))set(false)});
+})();
+</script>
+</body>
+</html>
