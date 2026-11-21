@@ -206,8 +206,8 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#E8ECEA;--dark:#2C4E3E;--gray:#787B79;--light-gray:#e8e8e3;
-  --accent:#FF4D00;--green:#00AF38;--white:#fff;--card-radius:1.5rem;
-  --section-py:3rem;--global-px:1.5rem;--max-w:72rem;
+  --accent:#FF4D00;--green:#00AF38;--white:#fff;--card-radius:0;
+  --section-py:3rem;--global-px:1.5rem;--max-w:70rem;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:'Satoshi',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--dark);line-height:1.5;overflow-x:hidden;font-weight:700}
@@ -222,7 +222,7 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 
 
 /* ─── BUTTONS ─── */
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:9999px;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 0.875rem;border-radius:0;font-size:0.875rem;font-weight:700;letter-spacing:-0.01em;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
 .btn-dark{background:var(--dark);color:var(--white)}
 .btn-light{background:var(--white);color:var(--dark)}
 .btn svg{width:0.9375rem;height:0.9375rem;flex-shrink:0}
@@ -264,10 +264,10 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 /* ─── HERO ─── */
 #hero{padding-top:15.25rem;padding-bottom:3rem;text-align:center;position:relative;overflow:hidden}
 .hero-watermark{position:absolute;top:8.5rem;left:50%;transform:translateX(-50%);width:11rem;height:11rem;opacity:0.06;pointer-events:none;object-fit:contain}
-.hero-badge{position:relative;display:inline-flex;align-items:center;gap:0.4375rem;background:var(--white);border-radius:9999px;padding:0.4375rem 0.875rem;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:0.5rem}
+.hero-badge{position:relative;display:inline-flex;align-items:center;gap:0.4375rem;background:var(--white);border-radius:0;padding:0.4375rem 0.875rem;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:0.5rem}
 .hero-badge .dot-wrap{position:relative;width:0.5rem;height:0.5rem;flex-shrink:0}
-.hero-badge .dot-ripple{position:absolute;inset:0;border-radius:50%;background:var(--green);animation:ripple 2.05s cubic-bezier(.45,0,.55,1) infinite}
-.hero-badge .dot{position:absolute;inset:0;border-radius:50%;background:var(--green)}
+.hero-badge .dot-ripple{position:absolute;inset:0;border-radius:0;background:var(--green);animation:ripple 2.05s cubic-bezier(.45,0,.55,1) infinite}
+.hero-badge .dot{position:absolute;inset:0;border-radius:0;background:var(--green)}
 @keyframes ripple{0%{opacity:.7;transform:scale(1)}44%,100%{opacity:0;transform:scale(2.35)}}
 #hero h1{position:relative;font-size:52px;font-weight:900;letter-spacing:-0.03em;line-height:1.08;max-width:52rem;margin:0 auto}
 .hero-subtitle{max-width:44rem;margin:0 auto;margin-top:1.125rem;font-size:1rem;font-weight:600;position:relative}
@@ -287,13 +287,13 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 }
 
 /* ─── SERVICES ─── */
-#services{padding:4.5rem var(--global-px);margin:5.75rem 0 0;background:var(--dark);border-radius:2.25rem} /* full-width band, rounded corners */
-#services .container{max-width:76rem}
+#services{padding:4.5rem var(--global-px);margin:5.75rem 0 0;background:var(--dark);border-radius:0} /* full-width band, rounded corners */
+#services .container{max-width:72rem}
 @media(max-width:640px){#services{margin-left:0;margin-right:0;border-radius:0;padding-top:3.25rem}#services .services-subtitle{margin-bottom:1.75rem}#services .service-card{gap:1.125rem}.service-card .service-visual{margin-top:-3rem;margin-bottom:-2.75rem;height:15.5rem}.service-card h3{position:relative;z-index:1}} /* mobile: full-width band, straight edges */
 #services .section-title{margin-bottom:0.75rem;color:var(--white);font-size:36px}
 .services-subtitle{max-width:26rem;margin:0 auto 3rem;font-size:14px;font-weight:500;color:#A1A5A3}
-.services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:76rem;margin:0 auto}
-.service-card{background:#405E4F;border-radius:20px;padding:1.125rem 1.75rem 1.375rem;text-align:left;display:flex;flex-direction:column;gap:1.875rem;grid-column:span 3}
+.services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:72rem;margin:0 auto}
+.service-card{background:#405E4F;border-radius:0;padding:1.125rem 1.75rem 1.375rem;text-align:left;display:flex;flex-direction:column;gap:1.875rem;grid-column:span 3}
 .service-card.span-2{grid-column:span 2}
 .service-card h3{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--white)}
 .service-visual{position:relative;height:13rem;margin:0 -1.75rem}
@@ -301,10 +301,37 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 .service-card h3,.service-card p,.service-tags{position:relative;z-index:1} /* text always sits above the drawing */
 .service-card p{font-size:14px;font-weight:500;line-height:22px;color:#A1A5A3}
 .service-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:auto}
-.service-tags span{background:var(--dark);border-radius:9999px;padding:0.1875rem 0.75rem;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white)}
+.service-tags span{background:var(--dark);border-radius:0;padding:0.1875rem 0.75rem;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white)}
 @media(max-width:768px){
   .services-grid{grid-template-columns:1fr}
   .service-card,.service-card.span-2{grid-column:span 1}
+}
+
+/* ─── HOW WE COMPARE ─── */
+#compare{padding:4.5rem var(--global-px) var(--section-py)}
+#compare .section-title{margin-bottom:4.5rem;font-size:36px}
+.compare-table{max-width:72rem;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(9,1fr) auto} /* one grid: every column and every row the same size */
+.cmp-row{grid-column:1/-1;display:grid;grid-template-columns:subgrid;border-bottom:1px solid #D3D9D6}
+.cmp-row>span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:4.75rem;padding:.75rem 1.75rem;font-size:14px;font-weight:500;line-height:1.6;color:var(--gray)}
+.cmp-row>span+span{border-left:1px solid #D3D9D6}
+.cmp-row>span[role=rowheader]{justify-content:flex-start;text-align:left;padding-left:1rem;font-size:16px;font-weight:900;color:var(--dark)}
+.cmp-row>.cmp-us{background:var(--white)}
+.cmp-head>span{font-size:18px;font-weight:900;color:var(--dark)}
+.cmp-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.007em;color:var(--dark)}
+.cmp-logo img{height:.66em;width:auto}
+.cmp-foot{border-bottom:0}
+.cmp-foot>span{min-height:1.75rem}
+.cmp-head>span:first-child,.cmp-foot>span:first-child{border-left:0}
+@media(max-width:768px){
+  .compare-table{display:flex;flex-direction:column;gap:.875rem}
+  .cmp-head,.cmp-foot{display:none}
+  .cmp-row{grid-template-columns:1fr;border-bottom:0;background:var(--white)}
+  .cmp-row>span{display:block;min-height:0;text-align:left;padding:.75rem 1.25rem;font-size:14px}
+  .cmp-row>span+span{border-left:0;border-top:1px solid var(--bg)}
+  .cmp-row>span[role=rowheader]{padding-top:1.125rem;font-size:16px}
+  .cmp-row>.cmp-us{background:var(--dark);color:var(--white);font-weight:700}
+  .cmp-row>span[data-col]::before{content:attr(data-col);display:block;font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--dark);margin-bottom:.125rem}
+  .cmp-row>.cmp-us[data-col]::before{color:#A1A5A3}
 }
 
 /* ─── TOOLS ─── */
@@ -312,7 +339,7 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 #tools .section-title{margin-bottom:2.5rem;font-size:36px}
 .tools-subtitle{font-size:0.625rem;color:var(--gray);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:0.25rem}
 .tools-subtitle svg{width:0.625rem;height:0.625rem}
-.tools-bubble{background:var(--white);border-radius:9999px;padding:2rem 0 2.25rem;max-width:48rem;margin:0 auto;overflow:hidden}
+.tools-bubble{background:var(--white);border-radius:0;padding:2rem 0 2.25rem;max-width:48rem;margin:0 auto;overflow:hidden}
 .tools-track{display:flex;gap:3rem;animation:tools-scroll 55s linear infinite;width:max-content;align-items:center;padding:0 1rem}
 .tools-track .tool-logo{display:flex;align-items:center;gap:0.5rem;font-size:1rem;font-weight:500;color:var(--dark);opacity:.55;white-space:nowrap;flex-shrink:0}
 .tools-track .tool-logo svg{height:2rem;width:auto}
@@ -324,22 +351,22 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 #team .section-title{margin-bottom:3rem;font-size:36px}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;max-width:34rem;margin:0 auto}
 .team-member{text-align:center}
-.team-avatar{width:7rem;height:7rem;border-radius:0.75rem;margin:0 auto 0.5rem;overflow:hidden;background:#fff}
+.team-avatar{width:6.25rem;height:6.25rem;border-radius:0;margin:0 auto 0.5rem;overflow:hidden;background:#fff}
 .team-avatar img{width:100%;height:auto;object-fit:contain;margin-top:auto;display:block;position:relative;top:.25rem}
 .team-avatar.placeholder{display:flex;align-items:center;justify-content:center;background:var(--light-gray)}
 .team-avatar.placeholder svg{width:2rem;height:2rem;color:var(--gray)}
 .team-member h4{font-size:18px;font-weight:900;color:var(--dark)}
 .team-member p{font-size:14px;font-weight:500;color:var(--gray);letter-spacing:-0.3px;line-height:18px}
-.team-more-badge{width:3.5rem;height:3.5rem;border-radius:0.625rem;background:var(--dark);color:var(--white);display:flex;align-items:center;justify-content:center;margin:0 auto 0.375rem}
+.team-more-badge{width:3.5rem;height:3.5rem;border-radius:0;background:var(--dark);color:var(--white);display:flex;align-items:center;justify-content:center;margin:0 auto 0.375rem}
 .team-more-badge span{font-size:0.75rem;font-weight:700}
 
 /* ─── FAQ ─── */
 #faq{padding:var(--section-py) var(--global-px)}
 #faq .section-title{margin-bottom:3rem;font-size:36px}
 .faq-list{max-width:34rem;margin:0 auto;display:flex;flex-direction:column;gap:0.875rem}
-.faq-item{background:var(--white);border-radius:1.8rem;overflow:hidden}
-.faq-question{width:100%;background:none;border:none;text-align:left;padding:1.25rem;font-size:16px;font-weight:900;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:1rem}
-.faq-item.open .faq-question{padding-bottom:0.5rem}
+.faq-item{background:var(--white);border-radius:0;overflow:hidden}
+.faq-question{width:100%;background:none;border:none;text-align:left;padding:.875rem 1rem;font-size:16px;font-weight:900;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:1rem}
+.faq-item.open .faq-question{padding-bottom:0.375rem}
 .faq-arrow{width:1.25rem;height:1.25rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s}
 .faq-arrow svg{width:1rem;height:1rem;color:var(--dark)}
 .faq-item.open .faq-arrow{transform:rotate(180deg)}
@@ -347,14 +374,14 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 .faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
 .faq-item.open .faq-answer{grid-template-rows:1fr}
 .faq-answer-inner{overflow:hidden}
-.faq-answer p{padding:0 1.25rem 1rem;font-size:14px;font-weight:500;letter-spacing:-0.3px}
+.faq-answer p{padding:0 1rem .875rem;font-size:14px;font-weight:500;letter-spacing:-0.3px}
 
 /* ─── TRIAL ─── */
 #trial{margin:1.5rem 0 0}
-.trial-card{background:var(--white);border-radius:2.25rem;padding:4.5rem 2rem;text-align:center} /* full-width band, rounded corners (like services) */
+.trial-card{background:var(--white);border-radius:0;padding:4.5rem 2rem;text-align:center} /* full-width band, rounded corners (like services) */
 @media(max-width:640px){#trial{margin-left:0;margin-right:0}.trial-card{border-radius:0;padding:3.25rem var(--global-px)}} /* mobile: full-width band, straight edges (like services) */
 .trial-card h2{font-size:36px;font-weight:900;color:var(--dark);max-width:36rem;margin:0 auto;line-height:1.25}
-.trial-price{display:inline-flex;background:var(--bg);border-radius:9999px;padding:0.25rem 1.125rem;font-size:0.85em;white-space:nowrap;transform:rotate(-4deg)}
+.trial-price{display:inline-flex;background:var(--bg);border-radius:0;padding:0.25rem 1.125rem;font-size:0.85em;white-space:nowrap;transform:rotate(-4deg)}
 .trial-copy{max-width:28rem;margin:2rem auto 2.5rem;display:flex;flex-direction:column;gap:1rem}
 .trial-copy p{font-size:14px;font-weight:500;color:var(--gray);line-height:1.6}
 .trial-card .btn{padding:1rem 5.25rem;font-size:1rem}
@@ -363,7 +390,7 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 /* ─── CTA ─── */
 #cta{padding:var(--section-py) var(--global-px);text-align:center}
 #cta h2{font-size:52px;margin-bottom:1.5rem}
-@media(max-width:640px){#services .section-title,#tools .section-title,#team .section-title,#faq .section-title,.trial-card h2{font-size:28px}#cta h2{font-size:37px}} /* mobile: section titles 28px, CTA 37px */
+@media(max-width:640px){#services .section-title,#compare .section-title,#tools .section-title,#team .section-title,#faq .section-title,.trial-card h2{font-size:28px}#cta h2{font-size:37px}} /* mobile: section titles 28px, CTA 37px */
 .cta-buttons{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap}
 .cta-buttons .btn{padding:1rem 1.625rem;font-size:0.9375rem;font-weight:800}
 .cta-buttons .btn-light{font-weight:700}
@@ -388,22 +415,42 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 
 /* ─── FOOTER ─── */
 .footer-divider{display:none}
-footer{padding:3.5rem var(--global-px) 1.5rem}
-.footer-inner{max-width:33.75rem;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
-footer p{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em}
-.footer-links{display:flex;gap:1rem}
-.footer-links a{font-size:0.875rem;font-weight:700;color:var(--gray);letter-spacing:-0.02em;transition:color .2s}
-.footer-links a:hover{color:var(--dark)}
+/* ─── FOOTER ─── */
+.site-footer{padding-top:3rem;text-align:left}
+.footer-band{position:relative;overflow:hidden;background:var(--dark);color:var(--white);padding:4.5rem var(--global-px) 0}
+.footer-inner{position:relative;z-index:1;max-width:72rem;margin:0 auto;display:flex;justify-content:space-between;gap:3.5rem}
+.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem}
+.footer-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.007em;color:var(--white)}
+.footer-logo img{height:.66em;width:auto;filter:brightness(0) invert(1)}
+.footer-copy{font-size:14px;font-weight:500;color:#A1A5A3}
+.footer-copy-m{display:none}
+.footer-nav{display:flex;flex-wrap:wrap;gap:3.5rem}
+.fcol{display:flex;flex-direction:column;gap:.875rem}
+.fcol-title{font-size:16px;font-weight:900;color:var(--white)}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.fcol a{font-size:14px;font-weight:500;color:#A1A5A3;transition:color .3s;white-space:nowrap}
+.fcol a:hover{color:var(--white)}
+.footer-social{display:flex;gap:.75rem}
+.footer-social a{width:2.25rem;height:2.25rem;display:grid;place-items:center;background:#405E4F;color:var(--white)}
+.footer-social a:hover{background:#4D6E5E}
+.footer-social svg{width:1rem;height:1rem}
+.footer-wordmark{font-size:37.5vw;transform:translateX(.73vw);font-weight:900;letter-spacing:-0.007em;line-height:.74;color:#365848;-webkit-text-stroke:1.25px #466A5B;text-align:center;margin:2.5rem -10vw -0.5vw;white-space:nowrap;user-select:none;pointer-events:none}
+@media(max-width:900px){
+  .footer-inner{flex-direction:column;gap:3rem}
+  .footer-brand{display:none}
+  .footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 1.5rem}
+  .footer-copy-m{display:block}
+  .footer-band{padding-top:3.25rem}
+}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   .team-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
-  .team-avatar{width:78%;height:auto;aspect-ratio:1;max-width:5.5rem;border-radius:1.375rem}
+  .team-avatar{width:78%;height:auto;aspect-ratio:1;max-width:5rem;border-radius:0}
   .team-grid.team-grid-5{grid-template-columns:repeat(3,1fr)}
   .team-member h4{font-size:18px}
   .team-member p{font-size:13px;line-height:16px}
   :root{--section-py:3.5rem}
-  .footer-inner{flex-direction:column-reverse;gap:1rem;text-align:center}
 }
 .mobile-br{display:none}
 @media(max-width:768px){.mobile-br{display:block}}
@@ -418,6 +465,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:999}
 header.nav-hidden .nav-row{transform:translateY(-100%)}
 .nav-logo,.nav-links a,.nav-work,.nav-cta{transition:color .3s,background-color .3s}
 .nav-logo img{transition:filter .3s}
+.logo-word{position:relative;top:-0.03em}
 header.scrolled .nav-row{background:var(--white)}
 header.scrolled .nav-cta{background:var(--bg);box-shadow:none} /* keeps the pill visible on the white bar */
 header.on-dark .nav-row{background:#405E4F}
@@ -429,18 +477,18 @@ header.on-dark .nav-cta{background:var(--dark);color:var(--white);box-shadow:non
 .topbar svg{width:.85em;height:.85em;transition:transform .3s}
 .topbar:hover svg{transform:translateX(3px)}
 .site-nav{max-width:90rem;margin:0 auto;height:4.25rem;padding:0 1.5rem;display:flex;align-items:center;gap:1.75rem}
-.nav-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);flex-shrink:0}
+.nav-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.007em;color:var(--dark);flex-shrink:0}
 .nav-logo img{height:.66em;width:auto;object-fit:contain} /* mark matches the letter height, sits on the baseline */
 .nav-links{display:flex;gap:1.375rem}
 .nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;transition:color .3s}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--dark)}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:1.5rem}
 .nav-work{font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
-.nav-cta{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;white-space:nowrap}
+.nav-cta{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:0;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;white-space:nowrap}
 @media(max-width:900px){.nav-links{display:none}}
 @media(max-width:640px){.site-nav{height:4.25rem;padding:.5rem 1.125rem 0}.nav-work{display:none}.nav-cta{height:2.5rem;padding:0 1rem}}
 /* mobile menu: two-dash toggle turns into an X and opens the links under the nav */
-.nav-toggle{display:none;width:2.5rem;height:2.5rem;border:none;border-radius:50%;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nav-toggle{display:none;width:2.5rem;height:2.5rem;border:none;border-radius:0;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
 .nav-toggle i{display:block;width:16px;height:3px;border-radius:0;background:var(--dark);transition:transform .3s cubic-bezier(.4,0,.2,1)}
 header.menu-open .nav-toggle i:first-child{transform:translateY(4px) rotate(45deg)}
 header.menu-open .nav-toggle i:last-child{transform:translateY(-4px) rotate(-45deg)}
@@ -450,7 +498,7 @@ header.on-dark .nav-toggle i{background:var(--white)}
 .menu-links{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
 .menu-links a{font-size:18px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
 .menu-ctas{display:flex;flex-direction:column;gap:.625rem}
-.menu-ctas a{height:3.25rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+.menu-ctas a{height:3.25rem;border-radius:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
 .menu-ctas .m-work{background:var(--white);color:var(--dark)}
 .menu-ctas .m-start{background:var(--dark);color:var(--white)}
 header.menu-open .nav-menu{clip-path:inset(0);visibility:visible;transition:clip-path .65s cubic-bezier(.65,0,.35,1),visibility 0s}
@@ -474,11 +522,11 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 
 <!-- HEADER -->
 <header>
-  <a href="/intro" class="topbar">Get your product audited. For free <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+  <a href="/audit" class="topbar">Get your product audited. For free <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
   <div class="nav-row">
   <nav class="site-nav">
-    <a href="/" class="nav-logo" aria-label="Vorten Studio home"><img src="assets/logo-mark.png" alt="">vorten</a>
-    <div class="nav-links"><a href="/work">Recent work</a><a href="/raw-files">Raw files</a><a href="#">Insights</a><a href="#">Product audit</a><a href="#">Careers</a></div>
+    <a href="/" class="nav-logo" aria-label="Vorten Studio home"><img src="assets/logo-mark.png" alt=""><span class="logo-word">vorten</span></a>
+    <div class="nav-links"><a href="/work">Recent work</a><a href="/raw-files">Raw files</a><a href="#">Insights</a><a href="/audit">Product audit</a><a href="#">Careers</a></div>
     <div class="nav-right">
       <a href="/work" class="nav-work">See our work</a>
       <a href="/intro" class="nav-cta btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
@@ -486,7 +534,7 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
     </div>
   </nav>
   <div class="nav-menu">
-    <div class="menu-links"><a href="/work"><span>Recent work</span></a><a href="/raw-files"><span>Raw files</span></a><a href="#"><span>Insights</span></a><a href="#"><span>Product audit</span></a><a href="#"><span>Careers</span></a></div>
+    <div class="menu-links"><a href="/work"><span>Recent work</span></a><a href="/raw-files"><span>Raw files</span></a><a href="#"><span>Insights</span></a><a href="/audit"><span>Product audit</span></a><a href="#"><span>Careers</span></a></div>
     <div class="menu-ctas"><div class="m-clip"><a href="/work" class="m-work">See our work</a></div><div class="m-clip"><a href="/intro" class="m-start">Start a project</a></div></div>
   </div>
   </div>
@@ -542,6 +590,70 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
         <p>Already have a product that isn't performing? We dig into your analytics, user feedback, and flows to find what's holding it back. You get a prioritized plan for what to fix, and our team can handle the redesign and development to get it done.</p>
         <div class="service-tags"><span>Amplitude</span><span>Mixpanel</span><span>FullStory</span><span>Optimizely</span><span>UX Audits</span><span>Funnel Analysis</span><span>A/B Testing</span><span>Conversion Optimization</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE COMPARE -->
+<section id="compare">
+  <div class="container text-center">
+    <h2 class="section-title">How Vorten stacks up</h2>
+    <div class="compare-table" role="table" aria-label="Vorten compared with an in-house hire and freelancers">
+      <div class="cmp-row cmp-head" role="row">
+        <span role="columnheader"></span>
+        <span role="columnheader" class="cmp-us"><span class="cmp-logo"><img src="assets/logo-mark.png" alt=""><span class="logo-word">vorten</span></span></span>
+        <span role="columnheader">In-house hire</span>
+        <span role="columnheader">Freelancers</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Getting started</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">A one-week trial for $600</span>
+        <span role="cell" data-col="In-house hire">Months of recruiting and onboarding</span>
+        <span role="cell" data-col="Freelancers">Weeks of vetting portfolios</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Skills on hand</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">Strategy, design, web, mobile and backend under one roof</span>
+        <span role="cell" data-col="In-house hire">Whatever one person knows</span>
+        <span role="cell" data-col="Freelancers">One specialty each</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Who you work with</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">The same small team from day one to launch</span>
+        <span role="cell" data-col="In-house hire">Your hire, and their learning curve</span>
+        <span role="cell" data-col="Freelancers">Whoever is free this month</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Management</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">A dedicated PM runs the project</span>
+        <span role="cell" data-col="In-house hire">You manage them</span>
+        <span role="cell" data-col="Freelancers">You coordinate everyone</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Visibility</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">Weekly check-ins with working builds you can click through</span>
+        <span role="cell" data-col="In-house hire">Depends on the person</span>
+        <span role="cell" data-col="Freelancers">Updates when they find time</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Changing course</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">Short cycles, so you can pivot without blowing the budget</span>
+        <span role="cell" data-col="In-house hire">New direction may need new hires</span>
+        <span role="cell" data-col="Freelancers">Often means re-scoping and re-quoting</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Ownership</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">You own all code, designs and files</span>
+        <span role="cell" data-col="In-house hire">Knowledge leaves when they do</span>
+        <span role="cell" data-col="Freelancers">Handover quality varies</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader">Commitment</span>
+        <span role="cell" class="cmp-us" data-col="Vorten">Start with one week, no long-term lock-in</span>
+        <span role="cell" data-col="In-house hire">Salary, benefits and a hard hire to undo</span>
+        <span role="cell" data-col="Freelancers">Low rates, but rework adds up</span>
+      </div>
+      <div class="cmp-row cmp-foot" aria-hidden="true"><span></span><span class="cmp-us"></span><span></span><span></span></div>
     </div>
   </div>
 </section>
@@ -614,7 +726,7 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 <!-- TRIAL -->
 <section id="trial">
   <div class="trial-card">
-    <h2>Try us for a week<br>for just <span class="trial-price">$1,000</span></h2>
+    <h2>Try us for a week<br>for just <span class="trial-price">$600</span></h2>
     <div class="trial-copy">
       <p>You'll meet your dedicated PM, work directly with the designers and developers, and see how we operate up close.</p>
       <p>Like what you see? We move straight into the full project. Not quite right? You still leave with a real feel for how we'd work together.</p>
@@ -653,14 +765,59 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <p>&copy; 2026 Vorten Studio</p>
-    <div class="footer-links">
-      <a href="mailto:hello@vorten.studio">hello@vorten.studio</a>
-      <a href="https://x.com/vortenstudio" target="_blank" rel="noopener">Twitter/X</a>
-      <a href="https://linkedin.com/company/vorten-studio" target="_blank" rel="noopener">LinkedIn</a>
+<footer class="site-footer">
+  <div class="footer-band">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Vorten Studio home"><img src="/assets/logo-mark.png" alt=""><span class="logo-word">vorten</span></a>
+        <span class="footer-copy">&copy; 2026. Vorten Studio</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+      <div class="fcol">
+        <span class="fcol-title">Pages</span>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/work">Recent work</a></li>
+          <li><a href="/raw-files">Raw files</a></li>
+          <li><a href="/intro">Start a project</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <span class="fcol-title">Ask AI about us</span>
+        <ul>
+          <li><a href="https://chatgpt.com/?q=Using%20https%3A//vorten.studio%2C%20explain%20why%20I%20should%20hire%20Vorten%20Studio%20for%20product%20design%20and%20development.%20Cover%20what%20makes%20them%20stand%20out%2C%20the%20work%20they%27ve%20delivered%2C%20how%20they%20work%2C%20and%20what%20it%27s%20like%20to%20work%20with%20them." target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+          <li><a href="https://claude.ai/new?q=Using%20https%3A//vorten.studio%2C%20explain%20why%20I%20should%20hire%20Vorten%20Studio%20for%20product%20design%20and%20development.%20Cover%20what%20makes%20them%20stand%20out%2C%20the%20work%20they%27ve%20delivered%2C%20how%20they%20work%2C%20and%20what%20it%27s%20like%20to%20work%20with%20them." target="_blank" rel="noopener noreferrer">Claude</a></li>
+          <li><a href="https://www.google.com/search?udm=50&amp;q=Using%20https%3A//vorten.studio%2C%20explain%20why%20I%20should%20hire%20Vorten%20Studio%20for%20product%20design%20and%20development.%20Cover%20what%20makes%20them%20stand%20out%2C%20the%20work%20they%27ve%20delivered%2C%20how%20they%20work%2C%20and%20what%20it%27s%20like%20to%20work%20with%20them." target="_blank" rel="noopener noreferrer">Gemini</a></li>
+          <li><a href="https://www.perplexity.ai/search?q=Using%20https%3A//vorten.studio%2C%20explain%20why%20I%20should%20hire%20Vorten%20Studio%20for%20product%20design%20and%20development.%20Cover%20what%20makes%20them%20stand%20out%2C%20the%20work%20they%27ve%20delivered%2C%20how%20they%20work%2C%20and%20what%20it%27s%20like%20to%20work%20with%20them." target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+          <li><a href="https://grok.com/?q=Using%20https%3A//vorten.studio%2C%20explain%20why%20I%20should%20hire%20Vorten%20Studio%20for%20product%20design%20and%20development.%20Cover%20what%20makes%20them%20stand%20out%2C%20the%20work%20they%27ve%20delivered%2C%20how%20they%20work%2C%20and%20what%20it%27s%20like%20to%20work%20with%20them." target="_blank" rel="noopener noreferrer">Grok</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <span class="fcol-title">Recent work</span>
+        <ul>
+          <li><a href="/work/tiger-construction">Tiger Construction</a></li>
+          <li><a href="/work">All projects</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <span class="fcol-title">Contact</span>
+        <ul>
+          <li><a href="mailto:hello@vorten.studio">Email</a></li>
+          <li><a href="#"><!-- TODO: https://wa.me/NUMBER -->WhatsApp</a></li>
+          <li><a href="#"><!-- TODO: https://t.me/USERNAME -->Telegram</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <span class="fcol-title">Social</span>
+        <div class="footer-social">
+          <a href="https://x.com/vortenstudio" target="_blank" rel="noopener noreferrer" aria-label="Vorten on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://linkedin.com/company/vorten-studio" target="_blank" rel="noopener noreferrer" aria-label="Vorten on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        </div>
+      </div>
+      </nav>
+      <span class="footer-copy footer-copy-m">&copy; 2026. Vorten Studio</span>
     </div>
+    <div class="footer-wordmark" aria-hidden="true">vorten</div>
   </div>
 </footer>
 </div>

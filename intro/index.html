@@ -163,22 +163,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .step h1{font-size:52px;font-weight:900;letter-spacing:-0.03em;line-height:1.07;white-space:pre-line;margin:0 auto 1.75rem;max-width:13em}
 .step .lede{max-width:26rem;margin:-0.75rem auto 1.75rem;font-size:16px;font-weight:500;line-height:1.5rem;color:var(--gray)}
 
-.field{display:block;width:min(26rem,100%);height:54px;margin:0 auto;border:0;border-radius:9999px;background:var(--white);padding:0 1.25rem;font:inherit;font-size:16px;font-weight:700;color:var(--dark);outline:none;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
-.field::placeholder{color:#A1A5A3;font-weight:500}
+.field{display:block;width:min(26rem,100%);height:54px;margin:0 auto;border:0;border-radius:0;background:var(--white);padding:0 1.25rem;font:inherit;font-size:16px;font-weight:700;color:var(--dark);outline:none;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .2s}
+/* first screen: name / company / email / website in a 2×2 grid with labels above */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2rem;width:min(48rem,100%);margin:0 auto;text-align:left}
+.contact-field{display:flex;flex-direction:column;gap:.75rem}
+.contact-label{font-size:17px;font-weight:900;color:var(--dark)}
+.contact-label span{font-weight:500;color:var(--gray)}
+.contact-grid .field{width:100%;height:44px;padding:0 .8125rem}
+@media(max-width:640px){.contact-grid{grid-template-columns:1fr;gap:1.125rem}}
+.field::placeholder{color:#787B79;font-weight:500;font-size:14px}
 .field:focus{box-shadow:0 1px 3px rgba(0,0,0,.06)}
 /* project details: big writing box, then an "Upload attachment" pill (like kargul) */
 .composer{width:min(40rem,100%);margin:0 auto;display:flex;flex-direction:column;gap:.75rem;text-align:left}
-.composer textarea.field{display:block;width:100%;height:18.25rem;border-radius:1.75rem;padding:1.25rem 1.5rem;resize:none;line-height:1.5rem}
-.upload{position:relative;display:flex;align-items:center;gap:.75rem;width:100%;height:58px;padding:0 1.5rem;border-radius:9999px;background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:16px;font-weight:500;color:#A1A5A3;text-align:left}
+.composer textarea.field{display:block;width:100%;height:18.25rem;border-radius:0;padding:1.25rem 1.5rem;resize:none;line-height:1.5rem}
+.upload{position:relative;display:flex;align-items:center;gap:.75rem;width:100%;height:58px;padding:0 1.5rem;border-radius:0;background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:16px;font-weight:500;color:#A1A5A3;text-align:left}
 .upload.has{color:var(--dark);font-weight:700}
 .upload .label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .upload svg{width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--dark)}
-.upload .clear{width:1.75rem;height:1.75rem;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;color:var(--gray);flex-shrink:0}
+.upload .clear{width:1.75rem;height:1.75rem;border-radius:0;display:grid;place-items:center;font-size:18px;line-height:1;color:var(--gray);flex-shrink:0}
 .upload .clear:hover{color:var(--dark)}
 .file-note{font-size:14px;font-weight:700;color:#E7000A;padding:0 1.5rem;text-align:center}
 
 .opts{display:flex;flex-wrap:wrap;justify-content:center;gap:0.625rem;max-width:40rem;margin:0 auto}
-.opt{height:54px;padding:0 1.5rem;border-radius:9999px;background:var(--white);font-size:15px;font-weight:700;color:var(--dark);box-shadow:0 1px 3px rgba(0,0,0,.06);transition:background .2s,color .2s}
+.opt{height:54px;padding:0 1.5rem;border-radius:0;background:var(--white);font-size:15px;font-weight:700;color:var(--dark);box-shadow:0 1px 3px rgba(0,0,0,.06);transition:background .2s,color .2s}
 .opt[aria-pressed="true"]{background:var(--dark);color:var(--white)}
 .opts.plain .opt{background:none;box-shadow:none;color:var(--gray);font-weight:700} /* "How can we help": text only until picked */
 .opts.plain .opt:hover{color:var(--dark)}
@@ -186,7 +193,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media(min-width:641px){.opts.plain{flex-wrap:nowrap;max-width:none;gap:.25rem}.opts.plain .opt{padding:0 1.125rem;white-space:nowrap}} /* desktop: every option on one line */
 
 .actions{margin-top:1.75rem;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0.75rem}
-.go{height:54px;padding:0 1.5rem;border-radius:9999px;background:var(--dark);color:var(--white);font-size:15px;font-weight:700;transition:opacity .2s}
+.go{height:54px;padding:0 1.5rem;border-radius:0;background:var(--dark);color:var(--white);font-size:15px;font-weight:700;transition:opacity .2s}
 .go:disabled{opacity:.4;cursor:default}
 .back{order:-1;height:54px;padding:0 .75rem;font-size:15px;font-weight:700;color:var(--dark);transition:opacity .2s} /* plain text, left of Continue */
 .back:hover{opacity:.7}
@@ -206,43 +213,43 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mail:hover{opacity:.7}
 .hint{order:2;flex-basis:100%;font-size:12px;font-weight:500;color:#A1A5A3}
 
-.cal-card{width:min(30rem,100%);min-height:0;display:flex;flex-direction:column;margin:0 auto;background:var(--white);border-radius:2rem;padding:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:left} /* day + time cards: identical size */
-.cal-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:var(--bg);border-radius:1.5rem 1.5rem 0 0;padding:1rem 1rem 1rem 1.125rem}
+.cal-card{width:min(30rem,100%);min-height:0;display:flex;flex-direction:column;margin:0 auto;background:var(--white);border-radius:0;padding:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:left} /* day + time cards: identical size */
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:var(--bg);border-radius:0;padding:1rem 1rem 1rem 1.125rem}
 .cal-who{display:flex;align-items:center;gap:.625rem;min-width:0}
-.cal-who img{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--white);object-fit:contain;padding:.4rem;flex-shrink:0}
+.cal-who img{width:2.25rem;height:2.25rem;border-radius:0;background:var(--white);object-fit:contain;padding:.4rem;flex-shrink:0}
 .cal-who strong{font-size:16px;font-weight:900;letter-spacing:-0.02em;white-space:nowrap}
 .cal-body{flex:1;padding:1rem .25rem .25rem}
 .cal-month{display:flex;align-items:center;justify-content:space-between;padding:0 .25rem .75rem}
 .cal-month strong{font-size:18px;font-weight:900;letter-spacing:-0.02em}
 .cal-month strong span{font-weight:500;color:var(--gray);margin-left:.3rem}
 .cal-navs{display:flex;gap:.125rem}
-.cal-nav{width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;color:var(--dark);font-size:20px;line-height:1;transition:opacity .2s}
+.cal-nav{width:2rem;height:2rem;border-radius:0;display:grid;place-items:center;color:var(--dark);font-size:20px;line-height:1;transition:opacity .2s}
 .cal-nav:disabled{opacity:.25;cursor:default}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.375rem .25rem}
 .cal-grid .dow{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--dark);text-align:center;padding:.25rem 0 .375rem}
-.day{height:2.5rem;border-radius:9999px;font-size:15px;font-weight:500;color:var(--gray);transition:background .2s,color .2s}
+.day{height:2.5rem;border-radius:0;font-size:15px;font-weight:500;color:var(--gray);transition:background .2s,color .2s}
 .day:disabled{cursor:default}
 .day:not(:disabled){background:var(--bg);color:var(--dark);font-weight:900}
 .day:not(:disabled):hover{background:#DCE2DF}
 .day[aria-pressed="true"],.day[aria-pressed="true"]:hover{background:var(--dark);color:var(--white)}
 .cal-status{min-height:1.5rem;margin-top:.5rem;text-align:center;font-size:14px;font-weight:500;color:var(--gray)}
 .cal-status:empty{display:none}
-.tz{height:2.75rem;padding:0 2.5rem 0 1.125rem;border:0;border-radius:9999px;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%232C4E3E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right .9rem center/.75rem;appearance:none;-webkit-appearance:none;font:inherit;font-size:15px;font-weight:700;color:var(--dark);box-shadow:none;display:block;cursor:pointer;flex-shrink:0}
+.tz{height:2.75rem;padding:0 2.5rem 0 1.125rem;border:0;border-radius:0;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%232C4E3E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right .9rem center/.75rem;appearance:none;-webkit-appearance:none;font:inherit;font-size:15px;font-weight:700;color:var(--dark);box-shadow:none;display:block;cursor:pointer;flex-shrink:0}
 .cal-head.stack{flex-wrap:wrap;row-gap:.75rem}
 .cal-sub{flex-basis:100%;font-size:15px;font-weight:500;color:var(--gray)}
-.hours{display:flex;background:var(--white);border-radius:9999px;padding:.25rem;flex-shrink:0}
-.hours button{height:2.25rem;padding:0 1rem;border-radius:9999px;font-size:14px;font-weight:500;color:var(--gray)}
+.hours{display:flex;background:var(--white);border-radius:0;padding:.25rem;flex-shrink:0}
+.hours button{height:2.25rem;padding:0 1rem;border-radius:0;font-size:14px;font-weight:500;color:var(--gray)}
 .hours button[aria-pressed="true"]{background:var(--bg);color:var(--dark);font-weight:900}
 .times{display:grid;grid-template-columns:repeat(3,1fr);gap:.25rem;padding:.75rem .25rem .25rem}
-.slot{height:2.9375rem;border-radius:9999px;font-size:16px;font-weight:500;color:var(--gray);transition:background .2s,color .2s}
+.slot{height:2.9375rem;border-radius:0;font-size:16px;font-weight:500;color:var(--gray);transition:background .2s,color .2s}
 .slot:hover{color:var(--dark)}
 .slot[aria-pressed="true"]{background:var(--bg);color:var(--dark);font-weight:900}
 .book-error{margin-top:.75rem;font-size:14px;font-weight:700;color:#E7000A}
-.spam-note{width:min(32rem,100%);margin:1rem auto 0;padding:1rem 1.5rem;background:var(--white);border-radius:1.25rem;font-size:17px;font-weight:900;line-height:1.4;color:var(--dark);text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.spam-note{width:min(32rem,100%);margin:1rem auto 0;padding:1rem 1.5rem;background:var(--white);border-radius:0;font-size:17px;font-weight:900;line-height:1.4;color:var(--dark);text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 @media(max-width:640px){.spam-note{font-size:16px;padding:.875rem 1.125rem}}
 
-.progress{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);width:20rem;max-width:calc(100% - 3rem);height:8px;border-radius:9999px;background:var(--white);overflow:hidden;z-index:5}
-.progress i{display:block;height:100%;width:0;background:var(--dark);border-radius:inherit;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.progress{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);width:20rem;max-width:calc(100% - 3rem);height:8px;border-radius:0;background:var(--white);overflow:hidden;z-index:5}
+.progress i{display:block;height:100%;width:0;background:var(--dark);border-radius:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
 
 @media(max-width:640px){
   .flow{padding:8rem 1.0625rem 5rem}   /* questions sit in the middle of the screen */
@@ -253,8 +260,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .cal-who .full{display:none}                            /* "Vorten Studio" → "Vorten" */
   .cal-head > .tz{min-width:0;flex-shrink:1;font-size:14px;padding:0 2.25rem 0 1rem}
   .cal-who strong{overflow:hidden;text-overflow:ellipsis}
-  .cal-card{padding:.5rem;border-radius:1.5rem}
-  .cal-head{border-radius:1.125rem 1.125rem 0 0}
+  .cal-card{padding:.5rem;border-radius:0}
+  .cal-head{border-radius:0}
   .day{height:2.375rem;font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.step{animation:none}.progress i{transition:none}}
@@ -269,6 +276,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:999}
 header.nav-hidden .nav-row{transform:translateY(-100%)}
 .nav-logo,.nav-links a,.nav-work,.nav-cta{transition:color .3s,background-color .3s}
 .nav-logo img{transition:filter .3s}
+.logo-word{position:relative;top:-0.03em}
 header.scrolled .nav-row{background:var(--white)}
 header.scrolled .nav-cta{background:var(--bg);box-shadow:none} /* keeps the pill visible on the white bar */
 header.on-dark .nav-row{background:#405E4F}
@@ -280,18 +288,18 @@ header.on-dark .nav-cta{background:var(--dark);color:var(--white);box-shadow:non
 .topbar svg{width:.85em;height:.85em;transition:transform .3s}
 .topbar:hover svg{transform:translateX(3px)}
 .site-nav{max-width:90rem;margin:0 auto;height:4.25rem;padding:0 1.5rem;display:flex;align-items:center;gap:1.75rem}
-.nav-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.04em;color:var(--dark);flex-shrink:0}
+.nav-logo{display:flex;align-items:baseline;gap:.375rem;font-size:24px;font-weight:900;letter-spacing:-0.007em;color:var(--dark);flex-shrink:0}
 .nav-logo img{height:.66em;width:auto;object-fit:contain} /* mark matches the letter height, sits on the baseline */
 .nav-links{display:flex;gap:1.375rem}
 .nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:-0.02em;transition:color .3s}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--dark)}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:1.5rem}
 .nav-work{font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
-.nav-cta{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:9999px;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;white-space:nowrap}
+.nav-cta{height:2.75rem;padding:0 1.25rem;background:var(--white);border-radius:0;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;white-space:nowrap}
 @media(max-width:900px){.nav-links{display:none}}
 @media(max-width:640px){.site-nav{height:4.25rem;padding:.5rem 1.125rem 0}.nav-work{display:none}.nav-cta{height:2.5rem;padding:0 1rem}}
 /* mobile menu: two-dash toggle turns into an X and opens the links under the nav */
-.nav-toggle{display:none;width:2.5rem;height:2.5rem;border:none;border-radius:50%;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nav-toggle{display:none;width:2.5rem;height:2.5rem;border:none;border-radius:0;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
 .nav-toggle i{display:block;width:16px;height:3px;border-radius:0;background:var(--dark);transition:transform .3s cubic-bezier(.4,0,.2,1)}
 header.menu-open .nav-toggle i:first-child{transform:translateY(4px) rotate(45deg)}
 header.menu-open .nav-toggle i:last-child{transform:translateY(-4px) rotate(-45deg)}
@@ -301,7 +309,7 @@ header.on-dark .nav-toggle i{background:var(--white)}
 .menu-links{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
 .menu-links a{font-size:18px;font-weight:700;color:var(--dark);letter-spacing:-0.02em}
 .menu-ctas{display:flex;flex-direction:column;gap:.625rem}
-.menu-ctas a{height:3.25rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+.menu-ctas a{height:3.25rem;border-radius:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
 .menu-ctas .m-work{background:var(--white);color:var(--dark)}
 .menu-ctas .m-start{background:var(--dark);color:var(--white)}
 header.menu-open .nav-menu{clip-path:inset(0);visibility:visible;transition:clip-path .65s cubic-bezier(.65,0,.35,1),visibility 0s}
@@ -322,11 +330,11 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 <body>
 
 <header>
-  <a href="/intro" class="topbar">Get your product audited. For free <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+  <a href="/audit" class="topbar">Get your product audited. For free <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
   <div class="nav-row">
   <nav class="site-nav">
-    <a href="/" class="nav-logo" aria-label="Vorten Studio home"><img src="../assets/logo-mark.png" alt="">vorten</a>
-    <div class="nav-links"><a href="/work">Recent work</a><a href="/raw-files">Raw files</a><a href="#">Insights</a><a href="#">Product audit</a><a href="#">Careers</a></div>
+    <a href="/" class="nav-logo" aria-label="Vorten Studio home"><img src="../assets/logo-mark.png" alt=""><span class="logo-word">vorten</span></a>
+    <div class="nav-links"><a href="/work">Recent work</a><a href="/raw-files">Raw files</a><a href="#">Insights</a><a href="/audit">Product audit</a><a href="#">Careers</a></div>
     <div class="nav-right">
       <a href="/work" class="nav-work">See our work</a>
       <a href="/intro" class="nav-cta btn-arrow"><span class="ba-t">Start</span><span class="ba-a">a</span><span>project</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
@@ -334,7 +342,7 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
     </div>
   </nav>
   <div class="nav-menu">
-    <div class="menu-links"><a href="/work"><span>Recent work</span></a><a href="/raw-files"><span>Raw files</span></a><a href="#"><span>Insights</span></a><a href="#"><span>Product audit</span></a><a href="#"><span>Careers</span></a></div>
+    <div class="menu-links"><a href="/work"><span>Recent work</span></a><a href="/raw-files"><span>Raw files</span></a><a href="#"><span>Insights</span></a><a href="/audit"><span>Product audit</span></a><a href="#"><span>Careers</span></a></div>
     <div class="menu-ctas"><div class="m-clip"><a href="/work" class="m-work">See our work</a></div><div class="m-clip"><a href="/intro" class="m-start">Start a project</a></div></div>
   </div>
   </div>
@@ -351,10 +359,12 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 // Booking goes through Cal.com's public API (cal.com/vortenstudio/first-call)
 const CAL = {api:'https://api.cal.com/v2', username:'vortenstudio', event:'first-call'};
 const STEPS = [
-  {id:'name',    type:'text', h:'What is your name?', ph:'Your name...', input:'text', ac:'name'},
-  {id:'email',   type:'text', h:'What is your best email?', ph:'you@company.com', input:'email', ac:'email'},
-  {id:'company', type:'text', h:'What is the name of your company?', ph:'Your company name...', ac:'organization'},
-  {id:'website', type:'text', h:'What is your website URL?', ph:'yourcompany.com', input:'url', ac:'url', optional:true, skip:true},
+  {id:'contact', type:'contact', h:'Tell us about you', fields:[
+    {id:'name',    label:'Name',         ph:'Your name',          ac:'name'},
+    {id:'company', label:'Company Name', ph:'Your company',       ac:'organization'},
+    {id:'email',   label:'Email',        ph:'you@company.com',    ac:'email', input:'email'},
+    {id:'website', label:'Website',      ph:'yourcompany.com',    ac:'url',   input:'url', optional:true},
+  ]},
   {id:'help',    type:'options', h:'How can we help?', multiple:true,
     options:['MVP Development','Web & Mobile Apps','Product Design','Product Strategy','Audits & Redesigns']},
   {id:'budget',  type:'options', h:'What is your budget for the project?', options:['<$5K','$5K-$10K','$10K-$25K','$25K-$50K','$50K+']},
@@ -381,6 +391,11 @@ const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 function valid(step) {
   const v = state.a[step.id];
   if (step.optional) return true;
+  if (step.type === 'contact') return step.fields.every(f => {
+    const fv = (state.a[f.id] || '').trim();
+    if (f.optional) return true;
+    return f.input === 'email' ? validEmail(fv) : !!fv;
+  });
   if (step.type === 'date') return !!state.a.date;
   if (step.type === 'time') return !!state.a.slot;
   if (step.type === 'options') return step.multiple ? Array.isArray(v) && v.length > 0 : !!v;
@@ -427,6 +442,26 @@ function render() {
       wrap.append(trap);
     }
     setTimeout(() => f.focus({preventScroll:true}), 60);
+    actions.append(cont);
+  }
+
+  if (step.type === 'contact') {
+    const grid = el('div', {className:'contact-grid'});
+    step.fields.forEach((fd, n) => {
+      const f = el('input', {className:'field', type: fd.input === 'email' ? 'email' : 'text', placeholder: fd.ph, value: state.a[fd.id] || '', autocomplete: fd.ac, id: 'f-' + fd.id});
+      if (fd.input === 'url') f.inputMode = 'url';
+      f.oninput = () => { state.a[fd.id] = f.value; save(); refresh(); };
+      f.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); cont.click(); } };
+      const lab = el('label', {className:'contact-label', htmlFor: 'f-' + fd.id}, [fd.label]);
+      grid.append(el('div', {className:'contact-field'}, [lab, f]));
+      if (n === 0) setTimeout(() => f.focus({preventScroll:true}), 60);
+    });
+    wrap.append(grid);
+    // honeypot: hidden from people, bots fill it in
+    const trap = el('input', {type:'text', name:'company_website', tabIndex:-1, autocomplete:'off', value: state.a.hp || '', ariaHidden:'true'});
+    trap.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+    trap.oninput = () => { state.a.hp = trap.value; save(); };
+    wrap.append(trap);
     actions.append(cont);
   }
 
