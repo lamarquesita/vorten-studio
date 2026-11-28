@@ -322,16 +322,16 @@ p{color:var(--gray);font-size:0.875rem;line-height:1.6}
 .cmp-foot{border-bottom:0}
 .cmp-foot>span{min-height:1.75rem}
 .cmp-head>span:first-child,.cmp-foot>span:first-child{border-left:0}
-@media(max-width:768px){
-  .compare-table{display:flex;flex-direction:column;gap:.875rem}
-  .cmp-head,.cmp-foot{display:none}
-  .cmp-row{grid-template-columns:1fr;border-bottom:0;background:var(--white)}
-  .cmp-row>span{display:block;min-height:0;text-align:left;padding:.75rem 1.25rem;font-size:14px}
-  .cmp-row>span+span{border-left:0;border-top:1px solid var(--bg)}
-  .cmp-row>span[role=rowheader]{padding-top:1.125rem;font-size:16px}
-  .cmp-row>.cmp-us{background:var(--dark);color:var(--white);font-weight:700}
-  .cmp-row>span[data-col]::before{content:attr(data-col);display:block;font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--dark);margin-bottom:.125rem}
-  .cmp-row>.cmp-us[data-col]::before{color:#A1A5A3}
+.compare-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:768px){ /* mobile: same table as desktop, swipe sideways; the row labels stay put */
+  .compare-scroll{margin:0 calc(var(--global-px) * -1);padding:0 var(--global-px)}
+  .compare-table{min-width:44rem}
+  .cmp-row>span{min-height:4rem;padding:.625rem 1rem;font-size:13px}
+  .cmp-head>span:first-child,.cmp-foot>span:first-child{position:sticky;left:calc(var(--global-px) * -1);z-index:1;background:var(--bg)}
+  .cmp-row>span[role=rowheader]{position:sticky;left:calc(var(--global-px) * -1);z-index:1;background:var(--bg);padding-left:.75rem;font-size:14px;box-shadow:1px 0 0 #D3D9D6}
+  .cmp-head>span{font-size:15px}
+  .cmp-logo{font-size:20px}
+}
 }
 
 /* ─── TOOLS ─── */
@@ -597,7 +597,8 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 <!-- HOW WE COMPARE -->
 <section id="compare">
   <div class="container text-center">
-    <h2 class="section-title">How Vorten stacks up</h2>
+    <h2 class="section-title">Vorten vs. the alternatives</h2>
+    <div class="compare-scroll">
     <div class="compare-table" role="table" aria-label="Vorten compared with an in-house hire and freelancers">
       <div class="cmp-row cmp-head" role="row">
         <span role="columnheader"></span>
@@ -654,6 +655,7 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
         <span role="cell" data-col="Freelancers">Low rates, but rework adds up</span>
       </div>
       <div class="cmp-row cmp-foot" aria-hidden="true"><span></span><span class="cmp-us"></span><span></span><span></span></div>
+    </div>
     </div>
   </div>
 </section>
