@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tiger Construction | Vorten Studio</title>
-<meta name="description" content="Website design and development for Tiger Construction, a residential and commercial contractor in South Florida.">
+<meta name="description" content="Website, AI quote flow and AI booking assistant for Tiger Construction, a residential and commercial contractor in South Florida.">
 <link rel="canonical" href="https://vorten.studio/work/tiger-construction">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#E8ECEA">
@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="Vorten Studio">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Tiger Construction | Vorten Studio">
-<meta property="og:description" content="Website design and development for Tiger Construction, a residential and commercial contractor in South Florida.">
+<meta property="og:description" content="Website, AI quote flow and AI booking assistant for Tiger Construction, a residential and commercial contractor in South Florida.">
 <meta property="og:url" content="https://vorten.studio/work/tiger-construction">
 <meta property="og:image" content="https://vorten.studio/assets/work/tiger/home.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@vortenstudio">
 <meta name="twitter:title" content="Tiger Construction | Vorten Studio">
-<meta name="twitter:description" content="Website design and development for Tiger Construction, a residential and commercial contractor in South Florida.">
+<meta name="twitter:description" content="Website, AI quote flow and AI booking assistant for Tiger Construction, a residential and commercial contractor in South Florida.">
 <meta name="twitter:image" content="https://vorten.studio/assets/work/tiger/home.jpg">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
@@ -100,7 +100,7 @@ a{text-decoration:none;color:inherit}
 .tag{padding:0.375rem 0.75rem;background:var(--white);border-radius:0;font-size:10px;font-weight:900;letter-spacing:0.04em;text-transform:uppercase;color:var(--dark)}
 .cs-cover{max-width:42.25rem;margin:0 auto;padding:0 var(--global-px)}
 .cs-cover .shot{border-radius:0;overflow:hidden}
-.cs-cover .shot img{width:100%;aspect-ratio:1.39;object-fit:cover;object-position:top}
+.cs-cover .shot img,.cs-cover .shot video{display:block;width:100%;aspect-ratio:1.39;object-fit:cover;object-position:top;background:#1f2421}
 /* tags sit on the cover's edges like tabs: square side touches the image */
 .cs-cover .tag{padding:0.5rem 0.875rem}
 .tabs-top .tag{border-radius:0;padding-top:0.375rem;padding-bottom:0.25rem}
@@ -322,8 +322,8 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 
 <div class="cs-cover">
   <div class="tags tabs-top"><span class="tag">Construction</span><span class="tag">B2C</span></div>
-  <div class="shot"><img src="../../assets/work/tiger/home.jpg" alt="Tiger Construction homepage hero"></div>
-  <div class="tags tabs-bottom"><span class="tag">Website</span></div>
+  <div class="shot"><video src="../../assets/work/tiger/showcase.mp4" poster="../../assets/work/tiger/showcase-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Tiger Construction website walkthrough: homepage, service and project pages, and the AI quote request flow"></video></div>
+  <div class="tags tabs-bottom"><span class="tag">Website</span><span class="tag">AI automation</span><span class="tag">Product Eng</span></div>
 </div>
 
 <div class="cs-body">
@@ -332,7 +332,7 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
     <p>Tiger Construction is a full-service remodeling and construction company serving homes and businesses across Miami-Dade, Broward and Palm Beach.</p>
     <p>Renovations, new construction, interior design, and every trade in between: HVAC, electrical, plumbing and demolition.</p>
     <p>One licensed team, one contract, from demo to final walkthrough.</p>
-    <p>They came to us to design and build their website, the quote request flow, and the visual direction for the brand online.</p>
+    <p>They came to us to design and build their website, the visual direction for the brand online, and an AI system that answers and books quote requests while the crew is out on jobs.</p>
     <a href="https://www.tigerconstructiongroup.com/" class="visit" target="_blank" rel="noopener">Visit website <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></a>
   </section>
 
@@ -346,7 +346,9 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
     <h2>Outcome</h2>
     <p>We designed and developed the full website in Framer, with a clean, high-contrast layout that puts the work front and center and keeps the copy short and direct.</p>
     <p>The hero leads with a custom Midjourney visual. From there, every trade is easy to scan, residential and commercial clients each get their own section, and project pages showcase recent work.</p>
-    <p>The main deliverable was the quote request flow, designed and built entirely in Framer: a focused, distraction-free page where clients pick what they need, describe the project, and submit in under a minute.</p>
+    <p>The main deliverable was the quote request flow: a focused, one-question-at-a-time slideshow where clients pick what they need and describe the project. AI then asks up to three follow-up questions tailored to the job, and clients who aren’t sure what they need can explain it in a short chat.</p>
+    <p>Behind it, AI rates every request (hot, warm, cold or spam), summarizes it for the team, and lets clients book a free on-site estimate on the spot. If they don’t, it follows up by email, gives a rough price range, asks when they’re free and books the appointment on the team’s calendar. It only hands a conversation to a person when one is actually needed.</p>
+    <p>A private admin dashboard shows every request, the AI’s notes and the full email conversation in one place.</p>
     <p>The result is a website that feels as organized and reliable as the team behind it, and turns visitors into quote requests.</p>
   </section>
 </div>
@@ -368,7 +370,7 @@ header.menu-open .menu-links a span,header.menu-open .m-clip a{transform:none;tr
 <div class="cs-body">
   <section>
     <h2>Tools used</h2>
-    <p>Figma, Framer, Rive</p>
+    <p>Figma, Framer, Rive, Gemini, Vercel, Resend, Cal.com, Upstash</p>
   </section>
 </div>
 
